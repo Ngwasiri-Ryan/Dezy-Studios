@@ -1,208 +1,461 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Camera, Code, Film, MessageCircle, Monitor, Palette, PenTool, ShoppingBag, Star } from "lucide-react";
+import Link from 'next/link';
+import { Camera, Palette, Film, Monitor, ShoppingBag, ArrowRight, Star, MessageCircle, Sparkles, Zap, Heart, Target } from 'lucide-react';
+
 import { Button } from "@/components/ui/button";
+import { services, portfolio, testimonials, faq } from "@/lib/data";
+import { getPlaceholderImage } from "@/lib/placeholder-images";
+import { Counter } from '@/components/shared/counter';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 
-import { services, portfolio, testimonials, faq } from "@/lib/data";
-import { getPlaceholderImage } from "@/lib/placeholder-images";
-
-const serviceIcons: { [key: string]: React.ElementType } = {
-  "Photography": Camera,
-  "Graphic Design": Palette,
-  "Video Editing": Film,
-  "Videography": Monitor,
-  "Product Design": ShoppingBag,
-};
-
+const homeServices = [
+  {
+    icon: Camera,
+    title: 'Photography',
+    description: 'Capturing timeless moments with professional precision and artistic vision.',
+    color: 'from-primary/20 to-primary/5'
+  },
+  {
+    icon: Palette,
+    title: 'Graphic Design',
+    description: 'Creating stunning visual identities that make your brand stand out.',
+    color: 'from-secondary/20 to-secondary/5'
+  },
+  {
+    icon: Film,
+    title: 'Video Editing',
+    description: 'Transforming raw footage into compelling stories that engage and inspire.',
+    color: 'from-primary/20 to-secondary/5'
+  },
+  {
+    icon: Monitor,
+    title: 'Videography',
+    description: 'Professional video production for events, businesses, and creative projects.',
+    color: 'from-secondary/20 to-primary/5'
+  },
+  {
+    icon: ShoppingBag,
+    title: 'Product Design',
+    description: 'Custom merchandise including t-shirts, sweaters, and mugs.',
+    color: 'from-primary/20 to-secondary/10'
+  },
+];
 
 export default function Home() {
-  const heroImage = getPlaceholderImage("hero-1");
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Create floating particles in hero section
+    const hero = heroRef.current;
+    if (hero) {
+      const particles = hero.querySelectorAll('.particle');
+      if (particles.length > 0) return; // Particles already created
+
+      const createParticle = () => {
+        const particle = document.createElement('div');
+        particle.className = 'particle absolute w-1 h-1 bg-primary/30 rounded-full';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animation = `float ${6 + Math.random() * 8}s linear infinite`;
+        hero.appendChild(particle);
+      };
+
+      for (let i = 0; i < 20; i++) createParticle();
+    }
+  }, []);
 
   return (
-    <div className="flex flex-col min-h-dvh">
-      <main className="flex-1">
-        <section className="relative w-full h-[80vh] md:h-screen text-primary-foreground">
-          <div className="absolute inset-0 bg-foreground/70 z-10" />
-          {heroImage && 
-            <Image
-              src={heroImage.imageUrl}
-              alt={heroImage.description}
-              fill
-              className="object-cover"
-              priority
-              data-ai-hint={heroImage.imageHint}
-            />
-          }
-          <div className="relative z-20 container mx-auto h-full flex flex-col items-center justify-center text-center">
-            <h1 className="text-4xl font-headline font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl text-balance">
-              Dezy Arts
-            </h1>
-            <p className="mt-4 max-w-[700px] text-lg md:text-xl">
-              Crafting visual stories through photography, design, and motion.
+    <>
+      {/* Hero Section with Advanced Effects */}
+      <section 
+        ref={heroRef}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      >
+        {/* Animated Gradient Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-background to-primary/10 animate-gradient-shift" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/5 to-transparent animate-pulse-slow" />
+        </div>
+
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
+                            linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          {/* Floating Text Effect */}
+          <div className="relative">
+            <div className="animate-float-in">
+              <h1 className="text-4xl font-headline font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl text-balance mb-6 relative">
+                <span className="relative inline-block">
+                  Bringing Your 
+                  <span className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary blur-2xl opacity-50 animate-pulse-slow" />
+                </span>
+                {' '}
+                <span className="text-gradient relative">
+                  Creative Vision
+                  <Sparkles className="absolute -top-4 -right-4 w-8 h-8 text-primary animate-spin-slow" />
+                </span>
+                {' '}
+                to Life
+              </h1>
+            </div>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animation-delay-300">
+              Professional photography, design, and videography services by Binda Desmond
+              <span className="inline-block ml-2">
+                <Target className="w-6 h-6 text-primary animate-bounce-subtle" />
+              </span>
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="font-bold">
-                <Link href="/portfolio">View Portfolio</Link>
+
+            {/* Animated CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-500">
+              <Button asChild
+                size="lg" 
+                className="group hover:scale-105 transition-transform duration-300"
+              >
+                <Link href="/portfolio">
+                  <span className="flex items-center gap-2">
+                    View Portfolio
+                    <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
               </Button>
-              <Button asChild size="lg" variant="secondary" className="font-bold">
-                <Link href="/services">My Services</Link>
+              <Button asChild
+                variant="outline" 
+                size="lg"
+                className="hover:border-primary hover:text-primary transition-all duration-300"
+              >
+                <Link href="/services">
+                My Services
+                </Link>
               </Button>
             </div>
           </div>
-        </section>
 
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-headline font-bold tracking-tighter sm:text-5xl">What I Do</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  From capturing timeless moments to building stunning brand identities, I offer a range of creative services.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 pt-12">
-              {services.slice(0, 5).map((service) => {
-                 const Icon = serviceIcons[service.title] || PenTool;
-                 return (
-                  <div key={service.id} className="flex flex-col items-center text-center gap-4">
-                    <div className="bg-background rounded-full p-4 shadow-md">
-                       <Icon className="h-8 w-8 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold font-headline">{service.title}</h3>
+          {/* Animated Stats with Counter Effect */}
+          <div 
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+          >
+            {[
+              { number: 500, label: 'Projects Completed', suffix: '+' },
+              { number: 300, label: 'Happy Clients', suffix: '+' },
+              { number: 5, label: 'Years Experience', suffix: '+' },
+              { number: 50, label: 'Awards Won', suffix: '+' },
+            ].map((stat, index) => (
+              <div 
+                key={index} 
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <div className="relative">
+                  <div className="text-4xl md:text-5xl font-headline font-bold text-primary relative">
+                    <Counter value={stat.number} suffix={stat.suffix} />
+                    <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-transparent rounded-full blur-xl" />
                   </div>
-                 );
-              })}
-            </div>
-          </div>
-        </section>
-
-        <section id="portfolio" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-headline font-bold tracking-tighter sm:text-5xl">Featured Work</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  A glimpse into my creative world. Explore some of my favorite projects.
-                </p>
+                  <div className="text-sm md:text-base text-muted-foreground mt-2 tracking-wide">
+                    {stat.label}
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-12">
-              {portfolio.slice(0, 6).map((item) => {
-                const projectImage = getPlaceholderImage(item.imageId);
-                return (
-                  <Link key={item.id} href="/portfolio" className="group block">
-                    <Card className="overflow-hidden h-full flex flex-col">
-                       {projectImage && 
-                        <div className="overflow-hidden">
-                          <Image
-                            src={projectImage.imageUrl}
-                            alt={item.title}
-                            width={600}
-                            height={400}
-                            className="w-full h-auto object-cover aspect-[3/2] transition-transform duration-300 group-hover:scale-105"
-                            data-ai-hint={projectImage.imageHint}
-                          />
-                        </div>
-                       }
-                      <CardHeader>
-                        <CardTitle className="font-headline">{item.title}</CardTitle>
-                        <CardDescription>{item.category}</CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-sm text-muted-foreground">{item.description}</p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                );
-              })}
-            </div>
-            <div className="text-center mt-12">
-              <Button asChild size="lg" className="font-bold">
-                <Link href="/portfolio">Explore All Projects <ArrowRight className="ml-2 h-5 w-5"/></Link>
-              </Button>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-3xl font-headline font-bold tracking-tighter sm:text-5xl text-center mb-12">What My Clients Say</h2>
-            <Carousel
-              opts={{ align: "start", loop: true }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {testimonials.map((testimonial) => (
-                  <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-1 h-full">
-                      <Card className="h-full flex flex-col">
-                        <CardHeader className="flex flex-row items-center gap-4">
-                          <Avatar>
-                            <AvatarImage src={getPlaceholderImage(testimonial.avatarId)?.imageUrl} alt={testimonial.name} data-ai-hint={getPlaceholderImage(testimonial.avatarId)?.imageHint}/>
-                            <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <CardTitle className="font-headline text-lg">{testimonial.name}</CardTitle>
-                            <CardDescription>{testimonial.company}</CardDescription>
-                          </div>
-                        </CardHeader>
-                        <CardContent className="flex-grow">
-                          <p className="text-muted-foreground italic">"{testimonial.feedback}"</p>
-                        </CardContent>
-                        <CardFooter>
-                          <div className="flex text-yellow-400">
-                              {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
-                          </div>
-                        </CardFooter>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="hidden sm:flex" />
-              <CarouselNext className="hidden sm:flex"/>
-            </Carousel>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-subtle">
+          <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-scroll-indicator" />
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="faq" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-            <h2 className="text-3xl font-headline font-bold tracking-tighter sm:text-5xl text-center mb-12">Frequently Asked Questions</h2>
-            <Accordion type="single" collapsible className="w-full">
-              {faq.map((item, index) => (
-                <AccordionItem key={index} value={`item-${index + 1}`}>
-                  <AccordionTrigger className="font-bold text-lg">{item.question}</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
-        
-        <section id="contact-cta" className="w-full py-12 md:py-24 lg:py-32 bg-secondary">
-          <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-3xl font-headline font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Have a project in mind?
-            </h2>
-            <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl mt-4">
-              Let's create something amazing together. I'm available for new projects and collaborations.
+       {/* Services Section with Hover Effects */}
+       <section className="py-20 bg-background relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25px 25px, hsl(var(--foreground)) 2%, transparent 2%)`,
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <Zap className="w-6 h-6 text-primary animate-pulse" />
+              <h2 className="text-3xl font-headline font-bold tracking-tighter sm:text-5xl">Services</h2>
+              <Zap className="w-6 h-6 text-secondary animate-pulse animation-delay-150" />
+            </div>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive creative solutions tailored to your needs
             </p>
-            <div className="mt-8">
-              <Button asChild size="lg" className="font-bold">
-                <Link href="/contact">Let's Talk <MessageCircle className="ml-2 h-5 w-5"/></Link>
-              </Button>
-            </div>
           </div>
-        </section>
-      </main>
-    </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {homeServices.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={index}
+                  className="relative group"
+                  onMouseEnter={() => setHoveredService(index)}
+                  onMouseLeave={() => setHoveredService(null)}
+                >
+                  {/* Hover Effect Background */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl group-hover:scale-105`} />
+                  
+                  <div className="relative p-8 rounded-2xl bg-card border border-border/10 group-hover:border-primary/30 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl z-10 overflow-hidden">
+                    {/* Animated Icon */}
+                    <div className="relative mb-6">
+                      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500`}>
+                        <Icon className="text-primary w-10 h-10 group-hover:scale-110 transition-transform duration-500" />
+                      </div>
+                      <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-transparent rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+
+                    <h3 className="text-xl font-bold font-headline mb-3 relative">
+                      {service.title}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-500" />
+                    </h3>
+                    
+                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
+                      {service.description}
+                    </p>
+
+                    {/* Hover Arrow */}
+                    <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                      <ArrowRight className="text-primary" size={24} />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-12 animate-fade-in-up animation-delay-300">
+            <Button asChild 
+              size="lg" 
+              className="group hover:shadow-glow"
+            >
+              <Link href="/services">
+                <span className="flex items-center gap-2">
+                  View All Services
+                  <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                </span>
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Work Section with 3D Effect */}
+      <section className="py-20 bg-gradient-to-br from-secondary/5 via-background to-primary/5 relative overflow-hidden">
+        {/* Animated Orbs */}
+        <div className="absolute top-1/4 left-10 w-64 h-64 bg-gradient-to-r from-primary/10 to-transparent rounded-full blur-3xl animate-orb-move-1" />
+        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-gradient-to-l from-secondary/10 to-transparent rounded-full blur-3xl animate-orb-move-2" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h2 className="text-3xl font-headline font-bold tracking-tighter sm:text-5xl mb-4 relative inline-block">
+              Featured Work
+              <span className="absolute -bottom-2 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent" />
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              A glimpse into recent projects and creative endeavors
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {portfolio.slice(0, 3).map((project, index) => {
+              const projectImage = getPlaceholderImage(project.imageId);
+              return (
+              <Link
+                key={project.id}
+                href={`/portfolio`}
+                className="group relative animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="relative h-96 rounded-2xl overflow-hidden transform perspective-1000 group-hover:rotate-y-3 transition-transform duration-700">
+                  {projectImage && 
+                    <Image
+                      src={projectImage.imageUrl}
+                      alt={project.title}
+                      fill
+                      className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      data-ai-hint={projectImage.imageHint}
+                    />
+                  }
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 z-10 p-6 flex flex-col justify-end">
+                    <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                      <h3 className="font-headline text-2xl font-bold text-white mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/80 text-sm mb-4">{project.category}</p>
+                      <div className="flex items-center text-primary">
+                        <span className="text-sm font-medium">View Project</span>
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute top-4 left-4 z-20">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
+                      {project.category}
+                    </span>
+                  </div>
+
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </Link>
+            )})}
+          </div>
+
+          <div className="text-center mt-12 animate-fade-in-up animation-delay-500">
+            <Button asChild 
+              size="lg" 
+              className="group hover:shadow-glow-lg"
+            >
+              <Link href="/portfolio">
+                <span className="flex items-center gap-2">
+                  View Full Portfolio
+                  <ArrowRight className="group-hover:rotate-90 transition-transform duration-500" />
+                </span>
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+       {/* Testimonials Section with Parallax Cards */}
+       <section className="py-20 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <Heart className="w-6 h-6 text-primary animate-pulse" fill="currentColor" />
+              <h2 className="text-3xl font-headline font-bold tracking-tighter sm:text-5xl">Client Testimonials</h2>
+              <Heart className="w-6 h-6 text-secondary animate-pulse animation-delay-300" fill="currentColor" />
+            </div>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              What clients say about working with Dezy Arts
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={testimonial.id}
+                className="relative group animate-fade-in-up"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                {/* Parallax Card */}
+                <div className="relative p-8 rounded-2xl bg-card border border-border/20 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                  {/* Quote Icon */}
+                  <div className="absolute top-6 right-6 text-primary/20 group-hover:text-primary/30 transition-colors duration-300">
+                    <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                  </div>
+
+                  {/* Stars */}
+                  <div className="flex items-center gap-1 mb-6">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`text-yellow-400 ${
+                          i < testimonial.rating ? 'fill-current' : ''
+                        } group-hover:scale-110 transition-transform duration-300`}
+                        style={{ transitionDelay: `${i * 50}ms` }}
+                        size={20}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Testimonial Text */}
+                  <p className="text-muted-foreground leading-relaxed mb-8 italic relative">
+                    "{testimonial.feedback}"
+                  </p>
+
+                  {/* Client Info */}
+                  <div className="flex items-center gap-4">
+                    <Avatar className="relative">
+                       <AvatarImage src={getPlaceholderImage(testimonial.avatarId)?.imageUrl} alt={testimonial.name} />
+                      <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                       <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </Avatar>
+                    <div>
+                      <div className="font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {testimonial.company}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Gradient Animation */}
+      <section className="py-20 relative overflow-hidden">
+        {/* Animated Gradient Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary animate-gradient-flow" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
+        </div>
+
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-white/30 rounded-full animate-float-random"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${10 + Math.random() * 10}s`
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+           <h2 className="text-3xl font-headline font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
+              Ready to Start Your Project?
+            </h2>
+          <p className="text-xl mb-8 text-white/90 leading-relaxed animate-fade-in-up animation-delay-200 max-w-2xl mx-auto mt-4">
+            Let's collaborate to bring your creative vision to life. Get in touch today for
+            a free consultation.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-400">
+            <Button asChild
+              variant="secondary" 
+              size="lg" 
+              className="group hover:scale-105 hover:shadow-glow-white"
+            >
+              <Link href="/contact">
+              Get a Quote
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
