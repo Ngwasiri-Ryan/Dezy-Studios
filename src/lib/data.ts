@@ -141,6 +141,30 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     avatarId: "avatar-3"
   },
+  {
+    id: "t4",
+    name: "Michael Brown",
+    company: "E-commerce Store Owner",
+    feedback: "The product photography was a game-changer for my online store. Sales have increased by 40% since I updated the images. Incredible work!",
+    rating: 5,
+    avatarId: "avatar-4"
+  },
+  {
+    id: "t5",
+    name: "Sarah Johnson",
+    company: "Event Planner",
+    feedback: "Dezy Arts is my go-to for event videography. They are professional, reliable, and the final videos always exceed expectations. A pleasure to work with.",
+    rating: 5,
+    avatarId: "avatar-5"
+  },
+  {
+    id: "t6",
+    name: "David Lee",
+    company: "Musician",
+    feedback: "The graphic design for my album cover was exactly what I envisioned. Binda has a real talent for bringing ideas to life visually.",
+    rating: 5,
+    avatarId: "avatar-6"
+  }
 ];
 
 export const faq: FaqItem[] = [
