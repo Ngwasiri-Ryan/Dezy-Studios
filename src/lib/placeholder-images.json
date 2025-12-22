@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "Abstract and elegant visual representing creativity",
+      "imageUrl": "https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFydHxlbnwwfHx8fDE3NjYzODMwNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract art"
+    },
+    {
+      "id": "project-photo-1",
+      "description": "A stunning portrait photograph",
+      "imageUrl": "https://images.unsplash.com/photo-1629747490241-624f07d70e1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMHBob3RvfGVufDB8fHx8MTc2NjQxODA4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portrait photo"
+    },
+    {
+      "id": "project-photo-2",
+      "description": "A beautiful landscape photograph",
+      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsYW5kc2NhcGUlMjBuYXR1cmV8ZW58MHx8fHwxNzY2MzgzMjY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "landscape nature"
+    },
+    {
+      "id": "project-photo-3",
+      "description": "An event photography shot",
+      "imageUrl": "https://images.unsplash.com/photo-1730900101451-8b878b909f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxldmVudCUyMGNvbmNlcnR8ZW58MHx8fHwxNzY2MzcwMjA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event concert"
+    },
+    {
+      "id": "project-video-1",
+      "description": "A still from a wedding video",
+      "imageUrl": "https://images.unsplash.com/photo-1606490194859-07c18c9f0968?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d2VkZGluZyUyMGNvdXBsZXxlbnwwfHx8fDE3NjYzNzIxMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding couple"
+    },
+    {
+      "id": "project-video-2",
+      "description": "A still from a corporate video",
+      "imageUrl": "https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20%281%20of%201%29-5.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb3Jwb3JhdGUlMjBtZWV0aW5nfGVufDB8fHx8MTc2NjI5OTQ1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "corporate meeting"
+    },
+    {
+      "id": "project-design-1",
+      "description": "A logo design for a brand",
+      "imageUrl": "https://images.unsplash.com/photo-1498075702571-ecb018f3752d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsb2dvJTIwZGVzaWdufGVufDB8fHx8MTc2NjM5NjA1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo design"
+    },
+    {
+      "id": "project-design-2",
+      "description": "A branding package presentation",
+      "imageUrl": "https://images.unsplash.com/photo-1636247497842-81ee9c80f9df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxicmFuZGluZyUyMG1vY2t1cHxlbnwwfHx8fDE3NjY0MTgwODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "branding mockup"
+    },
+    {
+      "id": "product-tshirt",
+      "description": "A custom designed t-shirt",
+      "imageUrl": "https://images.unsplash.com/photo-1700177421807-98c9c2d7bdf4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0c2hpcnQlMjBmYXNoaW9ufGVufDB8fHx8MTc2NjM4Njc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tshirt fashion"
+    },
+    {
+      "id": "product-sweater",
+      "description": "A custom designed sweater",
+      "imageUrl": "https://images.unsplash.com/photo-1740442535162-fc915d5403f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzd2VhdGVyJTIwYXBwYXJlbHxlbnwwfHx8fDE3NjY0MTgwODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sweater apparel"
+    },
+    {
+      "id": "product-mug",
+      "description": "A custom designed mug",
+      "imageUrl": "https://images.unsplash.com/photo-1605714196241-00bf7a8fe7bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2ZmZWUlMjBtdWd8ZW58MHx8fHwxNzY2MzQxOTEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "coffee mug"
+    },
+    {
+      "id": "avatar-1",
+      "description": "Avatar for Jane Doe",
+      "imageUrl": "https://images.unsplash.com/photo-1546961329-78bef0414d7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2NjQxMzczMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "avatar-2",
+      "description": "Avatar for John Smith",
+      "imageUrl": "https://images.unsplash.com/photo-1624395213043-fa2e123b2656?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjYzODI4MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "avatar-3",
+      "description": "Avatar for Emily White",
+      "imageUrl": "https://images.unsplash.com/photo-1710974481447-fb001ad9ad5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc2NjQwNDMzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person face"
+    },
+    {
+      "id": "about-me",
+      "description": "A professional portrait of Binda Desmond",
+      "imageUrl": "https://images.unsplash.com/photo-1613666587344-f3c08aac2594?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjcmVhdGl2ZSUyMGFydGlzdHxlbnwwfHx8fDE3NjY0MTgwODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "creative artist"
+    }
+  ]
 }
