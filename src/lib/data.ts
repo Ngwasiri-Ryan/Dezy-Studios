@@ -1,4 +1,4 @@
-import type { Service, PortfolioItem, Product, Testimonial, FaqItem } from './types';
+import type { Service, PortfolioItem, Product, Testimonial, FaqItem, JourneyItem, CoreValue } from './types';
 
 export const services: Service[] = [
   {
@@ -184,4 +184,50 @@ export const faq: FaqItem[] = [
     question: "How do I order a custom product?",
     answer: "To order a custom t-shirt, sweater, or mug, please visit the Shop page and contact me via WhatsApp or phone with the product details and your design ideas. I'll guide you through the process from there."
   },
+];
+
+export const journey: JourneyItem[] = [
+  {
+    year: "2018",
+    title: "The Spark",
+    description: "The journey began with a simple passion for photography, capturing the beauty of everyday moments."
+  },
+  {
+    year: "2020",
+    title: "Dezy Arts is Born",
+    description: "Officially launched as a creative studio, expanding services to include graphic design and videography."
+  },
+  {
+    year: "2022",
+    title: "First Major Client",
+    description: "Partnered with a leading local brand for a complete visual rebranding, marking a significant milestone."
+  },
+  {
+    year: "2024",
+    title: "Expanding Horizons",
+    description: "Opened a new product design wing, offering custom merchandise to a growing client base."
+  }
+];
+
+export const coreValues: CoreValue[] = [
+  {
+    icon: "Lightbulb",
+    title: "Creativity",
+    description: "We thrive on innovation and artistic expression, turning imaginative ideas into reality."
+  },
+  {
+    icon: "Gem",
+    title: "Quality",
+    description: "Excellence is non-negotiable. We are committed to delivering the highest quality in every project."
+  },
+  {
+    icon: "Target",
+    title: "Authenticity",
+    description: "We believe in genuine storytelling that captures the true essence of our subjects."
+  },
+  {
+    icon: "PenTool",
+    title: "Collaboration",
+    description: "Your vision is our guide. We work closely with clients to bring their ideas to life."
+  }
 ];

@@ -12,7 +12,7 @@ export type Service = {
 
 export type PortfolioItem = {
   id: string;
-  title: string;
+  title:string;
   description: string;
   category: "Photography" | "Graphic Design" | "Video Editing" | "Videography" | "Product Design";
   imageId: string;
@@ -39,4 +39,16 @@ export type Testimonial = {
 export type FaqItem = {
   question: string;
   answer: string;
+};
+
+export type JourneyItem = {
+  year: string;
+  title: string;
+  description: string;
+};
+
+export type CoreValue = {
+  icon: string;
+  title: string;
+  description: string;
 };
