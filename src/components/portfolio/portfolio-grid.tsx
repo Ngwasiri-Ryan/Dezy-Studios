@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { useState, useMemo } from "react";
-import Image from "next/image";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Filter, X, Play, Eye, Grid, List, Calendar, User, Film, Image as ImageIcon, ExternalLink, ShoppingBag, Sparkles, Zap, Target, Users, Award, Video, Edit3, Palette, Layers, Briefcase, Heart } from "lucide-react";
-import { getPlaceholderImage } from "@/lib/placeholder-images";
-import { PortfolioItem, PortfolioCategory } from "@/lib/types";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useMemo } from 'react';
+import Image from 'next/image';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Filter, X, Play, Eye, Grid, List, Calendar, User, Film, Image as ImageIcon, ExternalLink, ShoppingBag, Sparkles, Zap, Target, Users, Award, Video, Edit3, Palette, Layers, Briefcase, Heart, Music, Printer, Shirt, Thermometer, Coffee, Box, RefreshCw, Star, Camera, Lock } from 'lucide-react';
+import { getPlaceholderImage } from '@/lib/placeholder-images';
+import { PortfolioItem } from '@/lib/types';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Define comprehensive categories with sub-categories
 const portfolioCategories = [
@@ -84,7 +84,7 @@ const portfolioCategories = [
     ]
   },
   {
-    id: "products",
+    id: "product-design",
     title: "Products & Merch",
     description: "Designed merchandise and physical creations",
     icon: ShoppingBag,
@@ -120,7 +120,7 @@ const portfolioCategories = [
     subCategories: [
       { id: "personal", label: "Personal Projects", icon: Heart },
       { id: "behind", label: "Behind the Scenes", icon: Camera },
-      { id: "experimental", label: "Experimental Visuals", icon: Zap },
+      { id: "experimental-visuals", label: "Experimental Visuals", icon: Zap },
       { id: "unreleased", label: "Unreleased Concepts", icon: Lock },
     ]
   }
@@ -146,33 +146,39 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
 
   // Filter projects based on selections
   const filteredProjects = useMemo(() => {
-    return projects.filter(project => {
-      // Filter by main category
-      if (activeTab !== "all" && project.category !== activeTab) return false;
-      
-      // Filter by sub-category
-      if (activeSubCategory !== "all" && project.subCategory !== activeSubCategory) return false;
-      
-      // Filter by year
-      if (selectedYear !== "all" && project.year !== selectedYear) return false;
-      
-      // Filter by client type
-      if (selectedClientType !== "all" && project.clientType !== selectedClientType) return false;
-      
-      return true;
-    });
-  }, [projects, activeTab, activeSubCategory, selectedYear, selectedClientType]);
+    let filtered = projects;
+    if (activeTab !== "all") {
+      filtered = filtered.filter(project => project.category === currentCategory.title);
+    }
+  
+    if (activeSubCategory !== "all") {
+       const subCategoryLabel = currentCategory.subCategories?.find(sc => sc.id === activeSubCategory)?.label;
+       if (subCategoryLabel) {
+         filtered = filtered.filter(project => project.subCategory === subCategoryLabel);
+       }
+    }
+  
+    if (selectedYear !== "all") {
+      filtered = filtered.filter(project => project.year?.toString() === selectedYear);
+    }
+  
+    if (selectedClientType !== "all") {
+      filtered = filtered.filter(project => project.clientType === selectedClientType);
+    }
+    
+    return filtered;
+  }, [projects, activeTab, activeSubCategory, selectedYear, selectedClientType, currentCategory]);
 
   // Get unique years from projects
   const availableYears = useMemo(() => {
-    const years = new Set(projects.map(p => p.year));
-    return Array.from(years).sort((a, b) => b.localeCompare(a));
+    const years = new Set(projects.map(p => p.year).filter(Boolean) as number[]);
+    return Array.from(years).sort((a, b) => b - a).map(String);
   }, [projects]);
 
   // Get unique client types
   const availableClientTypes = useMemo(() => {
-    const types = new Set(projects.map(p => p.clientType));
-    return Array.from(types).filter(Boolean);
+    const types = new Set(projects.map(p => p.clientType).filter(Boolean) as string[]);
+    return Array.from(types);
   }, [projects]);
 
   // Reset filters
@@ -187,13 +193,13 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
   return (
     <div className="space-y-8">
       {/* Enhanced Category Tabs */}
-      <div className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b py-4">
+      <div className="sticky top-20 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b py-4">
         <div className="container mx-auto px-4">
           <Tabs 
             value={activeTab} 
             onValueChange={(value) => {
               setActiveTab(value);
-              setActiveSubCategory("all"); // Reset sub-category when changing main category
+              resetFilters();
             }}
             className="w-full"
           >
@@ -206,50 +212,51 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
                 >
                   <category.icon className="h-4 w-4" />
                   {category.title}
-                  {category.count > 0 && (
-                    <Badge 
-                      variant="secondary" 
-                      className="ml-2 h-5 min-w-5 px-1 text-xs"
-                    >
-                      {category.count}
-                    </Badge>
-                  )}
                 </TabsTrigger>
               ))}
             </TabsList>
 
             {/* Category Description */}
-            <div className="mt-6 px-1">
-              <h2 className="text-2xl md:text-3xl font-headline font-bold flex items-center gap-3">
-                <currentCategory.icon className="h-8 w-8 text-primary" />
-                {currentCategory.title}
-              </h2>
-              <p className="text-muted-foreground mt-2">{currentCategory.description}</p>
-              
-              {/* Sub-category Filters */}
-              {currentCategory.subCategories && (
-                <div className="flex flex-wrap gap-2 mt-4">
-                  <Badge
-                    variant={activeSubCategory === "all" ? "default" : "outline"}
-                    className="cursor-pointer hover:bg-primary/10 transition-colors"
-                    onClick={() => setActiveSubCategory("all")}
-                  >
-                    All {currentCategory.title}
-                  </Badge>
-                  {currentCategory.subCategories.map((subCat) => (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentCategory.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="mt-6 px-1"
+              >
+                <h2 className="text-2xl md:text-3xl font-headline font-bold flex items-center gap-3">
+                  <currentCategory.icon className="h-8 w-8 text-primary" />
+                  {currentCategory.title}
+                </h2>
+                <p className="text-muted-foreground mt-2">{currentCategory.description}</p>
+                
+                {/* Sub-category Filters */}
+                {currentCategory.subCategories && currentCategory.subCategories.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-4">
                     <Badge
-                      key={subCat.id}
-                      variant={activeSubCategory === subCat.id ? "default" : "outline"}
-                      className="cursor-pointer hover:bg-primary/10 transition-colors flex items-center gap-1.5"
-                      onClick={() => setActiveSubCategory(subCat.id)}
+                      variant={activeSubCategory === "all" ? "default" : "outline"}
+                      className="cursor-pointer hover:bg-primary/10 transition-colors"
+                      onClick={() => setActiveSubCategory("all")}
                     >
-                      <subCat.icon className="h-3 w-3" />
-                      {subCat.label}
+                      All {currentCategory.title}
                     </Badge>
-                  ))}
-                </div>
-              )}
-            </div>
+                    {currentCategory.subCategories.map((subCat) => (
+                      <Badge
+                        key={subCat.id}
+                        variant={activeSubCategory === subCat.id ? "default" : "outline"}
+                        className="cursor-pointer hover:bg-primary/10 transition-colors flex items-center gap-1.5"
+                        onClick={() => setActiveSubCategory(subCat.id)}
+                      >
+                        <subCat.icon className="h-3 w-3" />
+                        {subCat.label}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </Tabs>
         </div>
       </div>
@@ -257,12 +264,12 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
       {/* Advanced Filters Bar */}
       <div className="container mx-auto px-4">
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between p-4 bg-card rounded-lg border">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <Filter className="h-4 w-4 text-muted-foreground" />
             <span className="text-sm font-medium">Filter by:</span>
             
             {/* Sub-category Selector */}
-            {currentCategory.subCategories && (
+            {currentCategory.subCategories && currentCategory.subCategories.length > 0 && (
               <Select value={activeSubCategory} onValueChange={setActiveSubCategory}>
                 <SelectTrigger className="w-[180px]">
                   <SelectValue placeholder="Sub-category" />
@@ -292,20 +299,22 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
             </Select>
 
             {/* Client Type Filter */}
-            <Select value={selectedClientType} onValueChange={setSelectedClientType}>
-              <SelectTrigger className="w-[140px]">
-                <SelectValue placeholder="Client Type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Types</SelectItem>
-                {availableClientTypes.map((type) => (
-                  <SelectItem key={type} value={type}>{type}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {availableClientTypes.length > 0 && (
+              <Select value={selectedClientType} onValueChange={setSelectedClientType}>
+                <SelectTrigger className="w-[140px]">
+                  <SelectValue placeholder="Client Type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Types</SelectItem>
+                  {availableClientTypes.map((type) => (
+                    <SelectItem key={type} value={type}>{type}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
 
             {hasActiveFilters && (
-              <Button variant="ghost" size="sm" onClick={resetFilters} className="h-8">
+              <Button variant="ghost" size="sm" onClick={resetFilters} className="h-9">
                 <X className="h-4 w-4 mr-1" />
                 Clear
               </Button>
@@ -321,7 +330,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
             </div>
             <div className="flex items-center gap-1 border rounded-lg p-1">
               <Button
-                variant={viewMode === "grid" ? "default" : "ghost"}
+                variant={viewMode === "grid" ? "secondary" : "ghost"}
                 size="sm"
                 onClick={() => setViewMode("grid")}
                 className="h-8 w-8 p-0"
@@ -329,7 +338,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
                 <Grid className="h-4 w-4" />
               </Button>
               <Button
-                variant={viewMode === "masonry" ? "default" : "ghost"}
+                variant={viewMode === "masonry" ? "secondary" : "ghost"}
                 size="sm"
                 onClick={() => setViewMode("masonry")}
                 className="h-8 w-8 p-0"
@@ -345,16 +354,16 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
       <div className="container mx-auto px-4">
         <AnimatePresence mode="wait">
           <motion.div
-            key={`${activeTab}-${activeSubCategory}-${selectedYear}-${selectedClientType}`}
+            key={`${activeTab}-${activeSubCategory}-${selectedYear}-${selectedClientType}-${viewMode}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
             {filteredProjects.length > 0 ? (
-              viewMode === "masonry" ? (
+              viewMode === 'masonry' ? (
                 // Masonry Grid for Photography-heavy sections
-                <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+                <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
                   {filteredProjects.map((item) => (
                     <PortfolioCard 
                       key={item.id} 
@@ -366,7 +375,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
                 </div>
               ) : (
                 // Regular Grid
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {filteredProjects.map((item) => (
                     <PortfolioCard 
                       key={item.id} 
@@ -423,24 +432,26 @@ function PortfolioCard({
 }) {
   const projectImage = getPlaceholderImage(item.imageId);
   const isVideo = item.mediaType === "video";
-  const isCaseStudy = item.category === "case-studies";
+  const isCaseStudy = item.category === "Case Studies";
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.3 }}
+      layout
       className={`group relative ${viewMode === "masonry" ? "break-inside-avoid" : ""}`}
     >
       <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-primary/10 hover:border-primary/30">
         {/* Media Container */}
-        <div className="relative overflow-hidden aspect-square">
+        <div className={`relative overflow-hidden ${viewMode === "grid" ? 'aspect-square' : ''}`}>
           {projectImage && (
             <Image
               src={projectImage.imageUrl}
               alt={item.title}
               width={600}
-              height={600}
+              height={viewMode === "masonry" ? 800 : 600}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               data-ai-hint={projectImage.imageHint}
               loading="lazy"
@@ -448,33 +459,18 @@ function PortfolioCard({
           )}
           
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="absolute bottom-4 left-4 right-4">
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
+          
+          <div className="absolute bottom-0 left-0 right-0 p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  {isVideo && (
-                    <Button
-                      size="sm"
-                      variant="secondary"
-                      className="rounded-full"
-                      onClick={() => onSelect(item)}
-                    >
-                      <Play className="h-4 w-4" />
-                    </Button>
-                  )}
-                  {isCaseStudy && (
-                    <Badge variant="secondary" className="bg-primary/20 text-primary">
-                      <Award className="h-3 w-3 mr-1" />
-                      Case Study
-                    </Badge>
-                  )}
+                 
                 </div>
-                <Badge variant="outline" className="bg-background/80 backdrop-blur-sm">
+                {item.year && <Badge variant="outline" className="bg-background/80 backdrop-blur-sm text-xs">
                   {item.year}
-                </Badge>
+                </Badge>}
               </div>
             </div>
-          </div>
 
           {/* Media Type Indicator */}
           {isVideo && (
@@ -487,11 +483,13 @@ function PortfolioCard({
           )}
 
           {/* Client Type Badge */}
-          <div className="absolute top-4 right-4">
-            <Badge variant="outline" className="bg-background/80 backdrop-blur-sm text-xs">
-              {item.clientType || "Personal"}
-            </Badge>
-          </div>
+          {item.clientType && (
+            <div className="absolute top-4 right-4">
+              <Badge variant="outline" className="bg-background/80 backdrop-blur-sm text-xs">
+                {item.clientType}
+              </Badge>
+            </div>
+          )}
         </div>
 
         {/* Content */}
@@ -499,13 +497,10 @@ function PortfolioCard({
           <div className="flex items-start justify-between gap-2">
             <div>
               <CardTitle className="font-headline text-xl line-clamp-1">{item.title}</CardTitle>
-              <CardDescription className="mt-1">
+              <CardDescription className="mt-1 text-xs">
                 {item.subCategory || item.category}
               </CardDescription>
             </div>
-            <Badge variant="secondary" className="shrink-0">
-              {item.category}
-            </Badge>
           </div>
         </CardHeader>
 
@@ -520,7 +515,7 @@ function PortfolioCard({
             className="w-full group/button"
             onClick={() => onSelect(item)}
           >
-            {isVideo ? "Watch Video" : "View Project"}
+            {isVideo ? "Watch Video" : isCaseStudy ? "Read Case Study" : "View Project"}
             <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
           </Button>
         </CardFooter>
@@ -536,14 +531,14 @@ function VideoPreviewModal({ project, onClose }: { project: PortfolioItem; onClo
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm p-4"
       onClick={onClose}
     >
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="relative max-w-4xl w-full bg-card rounded-xl overflow-hidden shadow-2xl"
+        className="relative max-w-4xl w-full bg-card rounded-xl overflow-hidden shadow-2xl border"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="absolute top-4 right-4 z-10">
@@ -559,10 +554,20 @@ function VideoPreviewModal({ project, onClose }: { project: PortfolioItem; onClo
         
         {/* Video Player Placeholder */}
         <div className="aspect-video bg-secondary flex items-center justify-center">
-          <div className="text-center">
-            <Play className="h-16 w-16 text-primary mx-auto mb-4" />
-            <p className="text-lg font-semibold">{project.title}</p>
-            <p className="text-muted-foreground">Video Preview</p>
+          <div className="text-center text-muted-foreground">
+            { project.mediaType === 'video' ? 
+              <>
+                <Play className="h-16 w-16 text-primary mx-auto mb-4" />
+                <p className="text-lg font-semibold">{project.title}</p>
+                <p>Video Preview</p>
+              </>
+            : 
+              <>
+                <Eye className="h-16 w-16 text-primary mx-auto mb-4" />
+                <p className="text-lg font-semibold">{project.title}</p>
+                <p>Project Preview</p>
+              </>
+            }
           </div>
         </div>
         
@@ -571,7 +576,7 @@ function VideoPreviewModal({ project, onClose }: { project: PortfolioItem; onClo
           <div className="flex flex-wrap gap-2 mb-4">
             <Badge>{project.category}</Badge>
             <Badge variant="outline">{project.subCategory}</Badge>
-            <Badge variant="secondary">{project.year}</Badge>
+            {project.year && <Badge variant="secondary">{project.year}</Badge>}
           </div>
           <p className="text-muted-foreground">{project.description}</p>
         </div>
@@ -579,3 +584,5 @@ function VideoPreviewModal({ project, onClose }: { project: PortfolioItem; onClo
     </motion.div>
   );
 }
+
+    

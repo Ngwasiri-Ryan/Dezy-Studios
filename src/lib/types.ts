@@ -10,7 +10,7 @@ export type Service = {
   longDescription: string;
 };
 
-export type PortfolioCategory = "Photography" | "Videography" | "Video Editing" | "Graphic Design" | "Product Design" | "Creative Direction" | "Case Study";
+export type PortfolioCategory = "Photography" | "Videography" | "Video Editing" | "Graphic Design" | "Product Design" | "Creative Direction" | "Case Studies" | "Experimental";
 
 export type PortfolioItem = {
   id: string;
@@ -19,9 +19,11 @@ export type PortfolioItem = {
   category: PortfolioCategory;
   subCategory?: string;
   imageId: string;
+  mediaType?: "image" | "video";
   videoUrl?: string;
   year?: number;
   client?: string;
+  clientType?: "Corporate" | "Personal" | "Startup";
 };
 
 export type Product = {
@@ -57,3 +59,5 @@ export type CoreValue = {
   title: string;
   description: string;
 };
+
+    
