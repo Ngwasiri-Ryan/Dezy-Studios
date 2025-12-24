@@ -7,10 +7,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Filter, X, Play, Eye, Grid, List, Calendar, User, Film, Image as ImageIcon, ExternalLink, ShoppingBag, Sparkles, Zap, Target, Users, Award, Video, Edit3, Palette, Layers, Briefcase, Heart, Music, Printer, Shirt, Thermometer, Coffee, Box, RefreshCw, Star, Camera, Lock } from 'lucide-react';
+import { Filter, X, Play, Eye, Grid, List, Calendar, Users, Film, Image as ImageIcon, ExternalLink, ShoppingBag, Sparkles, Zap, Target, Award, Video, Edit3, Palette, Layers, Briefcase, Heart, Camera, Lock, Star, Menu, BookOpen, Brush, Wand2, Monitor, Clapperboard, Music, Printer, Shirt, Thermometer, Coffee, Box, RefreshCw } from 'lucide-react';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
-import { PortfolioItem } from '@/lib/types';
-import { motion, AnimatePresence } from 'framer-motion';
+import { PortfolioItem, PortfolioCategory } from '@/lib/types';
+import { motion, AnimatePresence } from "framer-motion";
 
 // Define comprehensive categories with sub-categories
 const portfolioCategories = [
@@ -19,16 +19,12 @@ const portfolioCategories = [
     title: "All Work",
     description: "Complete portfolio showcasing all creative work",
     icon: Grid,
-    count: 0,
-    featured: false,
   },
   {
     id: "photography",
     title: "Photography",
     description: "Captured moments, emotions, and stories",
     icon: ImageIcon,
-    count: 156,
-    featured: true,
     subCategories: [
       { id: "portrait", label: "Portrait Photography", icon: Users },
       { id: "event", label: "Event Photography", icon: Calendar },
@@ -43,8 +39,6 @@ const portfolioCategories = [
     title: "Videography",
     description: "Cinematic storytelling and immersive visuals",
     icon: Film,
-    count: 89,
-    featured: true,
     subCategories: [
       { id: "event-video", label: "Event Videography", icon: Calendar },
       { id: "promotional", label: "Promotional Videos", icon: Target },
@@ -58,8 +52,6 @@ const portfolioCategories = [
     title: "Video Editing",
     description: "Post-production magic and visual storytelling",
     icon: Edit3,
-    count: 72,
-    featured: true,
     subCategories: [
       { id: "social", label: "Social Media Edits", icon: Zap },
       { id: "commercial-edit", label: "Commercial Edits", icon: Briefcase },
@@ -73,8 +65,6 @@ const portfolioCategories = [
     title: "Graphic Design",
     description: "Visual identity and branding solutions",
     icon: Palette,
-    count: 113,
-    featured: true,
     subCategories: [
       { id: "branding", label: "Brand Identity", icon: Layers },
       { id: "marketing", label: "Marketing Design", icon: Target },
@@ -88,8 +78,6 @@ const portfolioCategories = [
     title: "Products & Merch",
     description: "Designed merchandise and physical creations",
     icon: ShoppingBag,
-    count: 45,
-    featured: true,
     subCategories: [
       { id: "tshirts", label: "T-Shirts", icon: Shirt },
       { id: "sweaters", label: "Sweaters / Hoodies", icon: Thermometer },
@@ -102,8 +90,6 @@ const portfolioCategories = [
     title: "Case Studies",
     description: "In-depth project breakdowns and success stories",
     icon: Award,
-    count: 23,
-    featured: true,
     subCategories: [
       { id: "brand-cases", label: "Brand Case Studies", icon: Briefcase },
       { id: "signature", label: "Signature Projects", icon: Star },
@@ -115,14 +101,23 @@ const portfolioCategories = [
     title: "Experimental",
     description: "Personal projects and creative explorations",
     icon: Sparkles,
-    count: 38,
-    featured: false,
     subCategories: [
       { id: "personal", label: "Personal Projects", icon: Heart },
       { id: "behind", label: "Behind the Scenes", icon: Camera },
       { id: "experimental-visuals", label: "Experimental Visuals", icon: Zap },
       { id: "unreleased", label: "Unreleased Concepts", icon: Lock },
     ]
+  },
+  {
+      id: "creative-direction",
+      title: "Creative Direction",
+      description: "Leading the vision from concept to completion",
+      icon: Wand2,
+      subCategories: [
+        { id: "concept", label: "Concept Development", icon: Brush },
+        { id: "campaign", label: "Campaign Direction", icon: Clapperboard },
+        { id: "art-direction", label: "Art Direction", icon: Monitor },
+      ],
   }
 ];
 
@@ -143,12 +138,15 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
     portfolioCategories.find(cat => cat.id === activeTab) || portfolioCategories[0],
     [activeTab]
   );
+  const currentCategoryTitle = currentCategory ? (currentCategory.id === "all" ? "all" : currentCategory.title as PortfolioCategory) : "all";
+
 
   // Filter projects based on selections
   const filteredProjects = useMemo(() => {
     let filtered = projects;
-    if (activeTab !== "all") {
-      filtered = filtered.filter(project => project.category === currentCategory.title);
+
+    if (currentCategoryTitle !== "all") {
+        filtered = filtered.filter(project => project.category === currentCategoryTitle);
     }
   
     if (activeSubCategory !== "all") {
@@ -167,7 +165,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
     }
     
     return filtered;
-  }, [projects, activeTab, activeSubCategory, selectedYear, selectedClientType, currentCategory]);
+  }, [projects, currentCategoryTitle, activeSubCategory, selectedYear, selectedClientType, currentCategory]);
 
   // Get unique years from projects
   const availableYears = useMemo(() => {
@@ -364,9 +362,9 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
               viewMode === 'masonry' ? (
                 // Masonry Grid for Photography-heavy sections
                 <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-                  {filteredProjects.map((item) => (
+                  {filteredProjects.map((item, index) => (
                     <PortfolioCard 
-                      key={item.id} 
+                      key={`${item.id}-${index}`} 
                       item={item} 
                       viewMode="masonry"
                       onSelect={setSelectedProject}
@@ -376,9 +374,9 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
               ) : (
                 // Regular Grid
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {filteredProjects.map((item) => (
+                  {filteredProjects.map((item, index) => (
                     <PortfolioCard 
-                      key={item.id} 
+                      key={`${item.id}-${index}`} 
                       item={item} 
                       viewMode="grid"
                       onSelect={setSelectedProject}
@@ -459,14 +457,14 @@ function PortfolioCard({
           )}
           
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
           
           <div className="absolute bottom-0 left-0 right-0 p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                  
                 </div>
-                {item.year && <Badge variant="outline" className="bg-background/80 backdrop-blur-sm text-xs">
+                {item.year && <Badge variant="outline" className="bg-black/20 border-white/20 text-white backdrop-blur-sm text-xs">
                   {item.year}
                 </Badge>}
               </div>
@@ -485,7 +483,7 @@ function PortfolioCard({
           {/* Client Type Badge */}
           {item.clientType && (
             <div className="absolute top-4 right-4">
-              <Badge variant="outline" className="bg-background/80 backdrop-blur-sm text-xs">
+              <Badge variant="outline" className="bg-black/20 border-white/20 text-white backdrop-blur-sm text-xs">
                 {item.clientType}
               </Badge>
             </div>
@@ -515,7 +513,7 @@ function PortfolioCard({
             className="w-full group/button"
             onClick={() => onSelect(item)}
           >
-            {isVideo ? "Watch Video" : isCaseStudy ? "Read Case Study" : "View Project"}
+            {isVideo ? "Watch Video" : isCaseStudy ? "Read Case Study" : "View Details"}
             <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
           </Button>
         </CardFooter>
@@ -531,7 +529,7 @@ function VideoPreviewModal({ project, onClose }: { project: PortfolioItem; onClo
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
       onClick={onClose}
     >
       <motion.div
@@ -546,30 +544,44 @@ function VideoPreviewModal({ project, onClose }: { project: PortfolioItem; onClo
             variant="secondary"
             size="icon"
             onClick={onClose}
-            className="rounded-full bg-background/80 backdrop-blur-sm"
+            className="rounded-full bg-black/50 text-white hover:bg-black/70 backdrop-blur-sm"
           >
             <X className="h-4 w-4" />
           </Button>
         </div>
         
-        {/* Video Player Placeholder */}
+        {/* Media Player Placeholder */}
         <div className="aspect-video bg-secondary flex items-center justify-center">
-          <div className="text-center text-muted-foreground">
-            { project.mediaType === 'video' ? 
-              <>
-                <Play className="h-16 w-16 text-primary mx-auto mb-4" />
-                <p className="text-lg font-semibold">{project.title}</p>
-                <p>Video Preview</p>
-              </>
+            {project.mediaType === 'video' ? 
+              (
+                project.videoUrl ? 
+                <iframe src={project.videoUrl} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
+                :
+                <div className="text-center text-muted-foreground">
+                    <Play className="h-16 w-16 text-primary mx-auto mb-4" />
+                    <p className="text-lg font-semibold">{project.title}</p>
+                    <p>Video Preview Unavailable</p>
+                </div>
+              )
             : 
-              <>
-                <Eye className="h-16 w-16 text-primary mx-auto mb-4" />
-                <p className="text-lg font-semibold">{project.title}</p>
-                <p>Project Preview</p>
-              </>
+              (
+                getPlaceholderImage(project.imageId) ?
+                <Image 
+                    src={getPlaceholderImage(project.imageId)!.imageUrl} 
+                    alt={project.title}
+                    width={1280}
+                    height={720}
+                    className="w-full h-full object-contain"
+                />
+                :
+                <div className="text-center text-muted-foreground">
+                    <Eye className="h-16 w-16 text-primary mx-auto mb-4" />
+                    <p className="text-lg font-semibold">{project.title}</p>
+                    <p>Project Preview</p>
+                </div>
+              )
             }
           </div>
-        </div>
         
         <div className="p-6">
           <h3 className="text-2xl font-headline font-bold mb-2">{project.title}</h3>
@@ -584,5 +596,3 @@ function VideoPreviewModal({ project, onClose }: { project: PortfolioItem; onClo
     </motion.div>
   );
 }
-
-    
