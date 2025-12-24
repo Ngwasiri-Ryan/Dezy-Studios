@@ -4,31 +4,31 @@ export const services: Service[] = [
   {
     id: "photography",
     title: "Photography",
-    description: "Capturing moments that last a lifetime.",
+    shortDescription: "Capturing moments that last a lifetime.",
     longDescription: "Specializing in event, portrait, and wedding photography. My goal is to capture the essence of every moment with a creative and artistic approach, delivering images that you will cherish forever."
   },
   {
     id: "graphic-design",
     title: "Graphic Design",
-    description: "Visual identities that tell your story.",
+    shortDescription: "Visual identities that tell your story.",
     longDescription: "From logos and branding to marketing materials, I create compelling visual designs that communicate your message effectively and help your business stand out from the competition."
   },
   {
     id: "video-editing",
     title: "Video Editing",
-    description: "Crafting compelling narratives from your footage.",
+    shortDescription: "Crafting compelling narratives from your footage.",
     longDescription: "I provide professional video editing services for content creators, businesses, and individuals. I transform raw footage into polished, engaging videos that captivate your audience."
   },
   {
     id: "videography",
     title: "Videography",
-    description: "Bringing your vision to life through motion.",
+    shortDescription: "Bringing your vision to life through motion.",
     longDescription: "From corporate videos to cinematic wedding films, I offer high-quality videography services. I handle everything from planning and shooting to final production."
   },
   {
     id: "product-design",
     title: "Product Design",
-    description: "Custom apparel and merchandise.",
+    shortDescription: "Custom apparel and merchandise.",
     longDescription: "I design and create custom merchandise including t-shirts, sweaters, and mugs. Perfect for personal use, gifts, or branding your business."
   },
 ];
@@ -39,6 +39,7 @@ export const portfolio: PortfolioItem[] = [
     title: "Sunset Portrait",
     description: "A stunning portrait session during the golden hour.",
     category: "Photography",
+    subCategory: "Portrait Photography",
     imageId: "project-photo-1"
   },
   {
@@ -46,6 +47,7 @@ export const portfolio: PortfolioItem[] = [
     title: "Mountain Majesty",
     description: "Capturing the serene beauty of the mountains at dawn.",
     category: "Photography",
+    subCategory: "Creative / Conceptual",
     imageId: "project-photo-2"
   },
     {
@@ -53,6 +55,7 @@ export const portfolio: PortfolioItem[] = [
     title: "Concert Vibes",
     description: "Dynamic shots from a live music event.",
     category: "Photography",
+    subCategory: "Event Photography",
     imageId: "project-photo-3"
   },
   {
@@ -60,6 +63,7 @@ export const portfolio: PortfolioItem[] = [
     title: "Wedding Film",
     description: "A cinematic highlight reel of a beautiful wedding day.",
     category: "Videography",
+    subCategory: "Event Videography",
     imageId: "project-video-1"
   },
   {
@@ -67,6 +71,7 @@ export const portfolio: PortfolioItem[] = [
     title: "Corporate Showcase",
     description: "A professional video for a corporate client's new product launch.",
     category: "Video Editing",
+    subCategory: "Commercial Edits",
     imageId: "project-video-2"
   },
   {
@@ -74,6 +79,7 @@ export const portfolio: PortfolioItem[] = [
     title: "Coffee Shop Branding",
     description: "Complete brand identity for a new artisanal coffee shop.",
     category: "Graphic Design",
+    subCategory: "Brand Identity",
     imageId: "project-design-1"
   },
   {
@@ -81,6 +87,7 @@ export const portfolio: PortfolioItem[] = [
     title: "Tech Startup Logo",
     description: "Modern and clean logo design for a tech startup.",
     category: "Graphic Design",
+    subCategory: "Brand Identity",
     imageId: "project-design-2"
   },
   {
@@ -88,8 +95,29 @@ export const portfolio: PortfolioItem[] = [
     title: "Custom T-Shirt Line",
     description: "A collection of custom-designed t-shirts.",
     category: "Product Design",
+    subCategory: "T-Shirts",
     imageId: "product-tshirt"
   },
+  {
+    id: "cs1",
+    title: "Rebranding a Cafe",
+    description: "Complete visual identity overhaul for a local coffee shop, resulting in a 40% increase in foot traffic.",
+    category: "Case Study",
+    subCategory: "Brand Case Studies",
+    imageId: "case-study-1",
+    year: 2023,
+    client: "The Daily Grind"
+  },
+  {
+    id: "cd1",
+    title: "Fashion Campaign Direction",
+    description: "Creative direction for a seasonal fashion lookbook, from concept to final visuals.",
+    category: "Creative Direction",
+    subCategory: "Campaign Direction",
+    imageId: "creative-direction-1",
+    year: 2024,
+    client: "Aura Apparel"
+  }
 ];
 
 export const products: Product[] = [

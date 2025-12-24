@@ -119,6 +119,18 @@
       "description": "A professional portrait of a male founder in a creative setting.",
       "imageUrl": "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=2070&auto=format&fit=crop",
       "imageHint": "professional man"
+    },
+    {
+      "id": "case-study-1",
+      "description": "A cozy, well-lit coffee shop interior.",
+      "imageUrl": "https://images.unsplash.com/photo-1511920183232-331c1b0a6889?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2ZmZWUlMjBzaG9wJTIwaW50ZXJpb3J8ZW58MHx8fHwxNzE3NTk0MjQxfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "coffee shop"
+    },
+    {
+      "id": "creative-direction-1",
+      "description": "A high-fashion photoshoot in progress.",
+      "imageUrl": "https://images.unsplash.com/photo-1609503295213-91a5f5a43588?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmYXNoaW9uJTIwcGhvdG9zaG9vdHxlbnwwfHx8fDE3MTc1OTQzMTB8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "fashion photoshoot"
     }
   ]
 }

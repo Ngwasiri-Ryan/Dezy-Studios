@@ -6,17 +6,22 @@ export type NavLink = {
 export type Service = {
   id: string;
   title: string;
-  description: string;
+  shortDescription: string;
   longDescription: string;
 };
+
+export type PortfolioCategory = "Photography" | "Videography" | "Video Editing" | "Graphic Design" | "Product Design" | "Creative Direction" | "Case Study";
 
 export type PortfolioItem = {
   id: string;
   title:string;
   description: string;
-  category: "Photography" | "Graphic Design" | "Video Editing" | "Videography" | "Product Design";
+  category: PortfolioCategory;
+  subCategory?: string;
   imageId: string;
   videoUrl?: string;
+  year?: number;
+  client?: string;
 };
 
 export type Product = {
