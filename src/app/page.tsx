@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import { Camera, Palette, Film, Monitor, ShoppingBag, ArrowRight, Star, MessageCircle, Sparkles, Zap, Heart, Target } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 import { Button } from "@/components/ui/button";
 import { services, portfolio, testimonials, faq } from "@/lib/data";
@@ -50,6 +51,8 @@ const homeServices = [
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+  const ctaSectionRef = useRef<HTMLDivElement>(null);
+  const [ctaParticles, setCtaParticles] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
     // Create floating particles in hero section
@@ -69,6 +72,22 @@ export default function Home() {
 
       for (let i = 0; i < 20; i++) createParticle();
     }
+  }, []);
+
+  useEffect(() => {
+    const generatedParticles = [...Array(15)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute w-2 h-2 bg-white/30 rounded-full animate-float-random"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 5}s`,
+          animationDuration: `${10 + Math.random() * 10}s`,
+        }}
+      />
+    ));
+    setCtaParticles(generatedParticles);
   }, []);
 
   return (
@@ -417,7 +436,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section with Gradient Animation */}
-      <section className="py-20 relative overflow-hidden">
+      <section ref={ctaSectionRef} className="py-20 relative overflow-hidden">
         {/* Animated Gradient Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary animate-gradient-flow" />
@@ -426,18 +445,7 @@ export default function Home() {
 
         {/* Floating Particles */}
         <div className="absolute inset-0">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white/30 rounded-full animate-float-random"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${10 + Math.random() * 10}s`
-              }}
-            />
-          ))}
+          {ctaParticles}
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
