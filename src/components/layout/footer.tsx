@@ -32,6 +32,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-background/70">
               <li><a href={`mailto:${CONTACT_DETAILS.email}`} className="hover:text-background">{CONTACT_DETAILS.email}</a></li>
               <li><a href={`tel:${CONTACT_DETAILS.phone}`} className="hover:text-background">{CONTACT_DETAILS.phone}</a></li>
+              <li><p>{CONTACT_DETAILS.address}</p></li>
             </ul>
           </div>
            <div>
@@ -43,7 +44,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-background/20 mt-8 pt-6 text-center text-sm text-background/50">
-          <p>&copy; {new Date().getFullYear()} Dezy Arts. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Dezy Enterprise. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

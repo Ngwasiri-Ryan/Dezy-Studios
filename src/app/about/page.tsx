@@ -4,11 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
-import { ArrowRight, Download, Target, Lightbulb, PenTool, Gem, Sparkles, Heart, Eye, Users } from "lucide-react";
+import { ArrowRight, Download, Target, Lightbulb, PenTool, Gem, Sparkles, Heart, Eye, Users, MapPin, Clock } from "lucide-react";
 import { PageHeader } from "@/components/shared/page-header";
 import { journey, coreValues } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { MapEmbed } from "@/components/shared/map-embed";
 
 export default function AboutPage() {
   const aboutImage = getPlaceholderImage("about-me");
@@ -25,7 +26,7 @@ export default function AboutPage() {
   return (
     <div className="bg-background">
       <PageHeader
-        title="About Dezy Arts"
+        title="About Dezy Enterprise"
         subtitle="Where Creativity Meets Vision"
         description="Discover the story, values, and passion behind our creative studio"
         className="bg-gradient-to-b from-secondary to-background"
@@ -48,7 +49,7 @@ export default function AboutPage() {
                     <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
                   </div>
                   <p>
-                    At Dezy Arts, we believe every brand, person, and moment holds a unique narrative waiting to be told. We transform these narratives into <span className="text-primary font-semibold">visually compelling stories</span> that create lasting impact.
+                    At Dezy Enterprise, we believe every brand, person, and moment holds a unique narrative waiting to be told. We transform these narratives into <span className="text-primary font-semibold">visually compelling stories</span> that create lasting impact.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -92,7 +93,7 @@ export default function AboutPage() {
             </Badge>
             <h2 className="text-4xl md:text-5xl font-headline font-bold tracking-tight">Milestone Journey</h2>
             <p className="text-xl text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
-              The key moments that have shaped Dezy Arts into what it is today
+              The key moments that have shaped Dezy Enterprise into what it is today
             </p>
           </div>
           <div className="relative max-w-4xl mx-auto">
@@ -163,7 +164,7 @@ export default function AboutPage() {
                     <Eye className="h-5 w-5 text-primary flex-shrink-0" />
                   </div>
                   <p>
-                    As the creative force behind Dezy Arts, my journey began with a camera in hand and an unwavering passion to capture the beauty I saw in the world around me.
+                    As the creative force behind Dezy Enterprise, my journey began with a camera in hand and an unwavering passion to capture the beauty I saw in the world around me.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -233,7 +234,7 @@ export default function AboutPage() {
             </Badge>
             <h2 className="text-4xl md:text-5xl font-headline font-bold tracking-tight">Guiding Principles</h2>
             <p className="text-xl text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
-              The core values that shape every project and relationship at Dezy Arts
+              The core values that shape every project and relationship at Dezy Enterprise
             </p>
           </div>
           
@@ -268,6 +269,24 @@ export default function AboutPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm font-semibold border-primary/30 text-primary">
+              Our Location
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-headline font-bold tracking-tight">Come Visit Us</h2>
+            <p className="text-xl text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
+              We are located in the heart of Derby, United Kingdom.
+            </p>
+          </div>
+          <div className="animate-fade-in-up animation-delay-200">
+            <MapEmbed />
           </div>
         </div>
       </section>

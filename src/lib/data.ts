@@ -40,7 +40,8 @@ export const portfolio: PortfolioItem[] = [
     description: "A stunning portrait session during the golden hour.",
     category: "Photography",
     subCategory: "Portrait Photography",
-    imageId: "project-photo-1"
+    imageId: "project-photo-1",
+    mediaType: "image",
   },
   {
     id: "p2",
@@ -48,7 +49,8 @@ export const portfolio: PortfolioItem[] = [
     description: "Capturing the serene beauty of the mountains at dawn.",
     category: "Photography",
     subCategory: "Creative / Conceptual",
-    imageId: "project-photo-2"
+    imageId: "project-photo-2",
+    mediaType: "image",
   },
     {
     id: "p3",
@@ -56,7 +58,8 @@ export const portfolio: PortfolioItem[] = [
     description: "Dynamic shots from a live music event.",
     category: "Photography",
     subCategory: "Event Photography",
-    imageId: "project-photo-3"
+    imageId: "project-photo-3",
+    mediaType: "image",
   },
   {
     id: "v1",
@@ -64,7 +67,8 @@ export const portfolio: PortfolioItem[] = [
     description: "A cinematic highlight reel of a beautiful wedding day.",
     category: "Videography",
     subCategory: "Event Videography",
-    imageId: "project-video-1"
+    imageId: "project-video-1",
+    mediaType: "video",
   },
   {
     id: "v2",
@@ -72,7 +76,8 @@ export const portfolio: PortfolioItem[] = [
     description: "A professional video for a corporate client's new product launch.",
     category: "Video Editing",
     subCategory: "Commercial Edits",
-    imageId: "project-video-2"
+    imageId: "project-video-2",
+    mediaType: "video",
   },
   {
     id: "d1",
@@ -80,7 +85,8 @@ export const portfolio: PortfolioItem[] = [
     description: "Complete brand identity for a new artisanal coffee shop.",
     category: "Graphic Design",
     subCategory: "Brand Identity",
-    imageId: "project-design-1"
+    imageId: "project-design-1",
+    mediaType: "image",
   },
   {
     id: "d2",
@@ -88,7 +94,8 @@ export const portfolio: PortfolioItem[] = [
     description: "Modern and clean logo design for a tech startup.",
     category: "Graphic Design",
     subCategory: "Brand Identity",
-    imageId: "project-design-2"
+    imageId: "project-design-2",
+    mediaType: "image",
   },
   {
     id: "pr1",
@@ -96,17 +103,19 @@ export const portfolio: PortfolioItem[] = [
     description: "A collection of custom-designed t-shirts.",
     category: "Product Design",
     subCategory: "T-Shirts",
-    imageId: "product-tshirt"
+    imageId: "product-tshirt",
+    mediaType: "image",
   },
   {
     id: "cs1",
     title: "Rebranding a Cafe",
     description: "Complete visual identity overhaul for a local coffee shop, resulting in a 40% increase in foot traffic.",
-    category: "Case Study",
+    category: "Case Studies",
     subCategory: "Brand Case Studies",
     imageId: "case-study-1",
     year: 2023,
-    client: "The Daily Grind"
+    client: "The Daily Grind",
+    mediaType: "image",
   },
   {
     id: "cd1",
@@ -116,7 +125,8 @@ export const portfolio: PortfolioItem[] = [
     subCategory: "Campaign Direction",
     imageId: "creative-direction-1",
     year: 2024,
-    client: "Aura Apparel"
+    client: "Aura Apparel",
+    mediaType: "image",
   }
 ];
 
@@ -157,7 +167,7 @@ export const testimonials: Testimonial[] = [
     id: "t2",
     name: "John Smith",
     company: "Startup CEO",
-    feedback: "The branding package Dezy Arts created for us was exceptional. It was modern, professional, and perfectly aligned with our vision. Highly recommended!",
+    feedback: "The branding package Dezy Enterprise created for us was exceptional. It was modern, professional, and perfectly aligned with our vision. Highly recommended!",
     rating: 5,
     avatarId: "avatar-2"
   },
@@ -181,7 +191,7 @@ export const testimonials: Testimonial[] = [
     id: "t5",
     name: "Sarah Johnson",
     company: "Event Planner",
-    feedback: "Dezy Arts is my go-to for event videography. They are professional, reliable, and the final videos always exceed expectations. A pleasure to work with.",
+    feedback: "Dezy Enterprise is my go-to for event videography. They are professional, reliable, and the final videos always exceed expectations. A pleasure to work with.",
     rating: 5,
     avatarId: "avatar-5"
   },
@@ -222,7 +232,7 @@ export const journey: JourneyItem[] = [
   },
   {
     year: "2020",
-    title: "Dezy Arts is Born",
+    title: "Dezy Enterprise is Born",
     description: "Officially launched as a creative studio, expanding services to include graphic design and videography."
   },
   {

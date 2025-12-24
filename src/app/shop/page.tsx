@@ -12,7 +12,7 @@ export default function ShopPage() {
   return (
     <div>
       <PageHeader
-        title="Dezy Arts Shop"
+        title="Dezy Enterprise Shop"
         subtitle="Custom-designed merchandise. Contact via WhatsApp or phone to purchase."
       />
       <section className="py-16 md:py-24">

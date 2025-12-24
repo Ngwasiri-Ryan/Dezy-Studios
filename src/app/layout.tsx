@@ -4,10 +4,11 @@ import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import "./globals.css";
+import { CustomCursor } from "@/components/shared/custom-cursor";
 
 export const metadata: Metadata = {
-  title: "Dezy Arts Portfolio",
-  description: "Creative Portfolio for Binda Desmond / Dezy Arts",
+  title: "Dezy Enterprise Portfolio",
+  description: "Creative Portfolio for Binda Desmond / Dezy Enterprise",
   keywords: ["Photography", "Graphic Design", "Video Editing", "Videography", "Product Design"],
 };
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           "min-h-screen bg-background font-body antialiased",
         )}
       >
+        <CustomCursor />
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

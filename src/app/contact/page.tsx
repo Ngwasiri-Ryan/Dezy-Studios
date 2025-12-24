@@ -1,10 +1,11 @@
 import { PageHeader } from "@/components/shared/page-header";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CONTACT_DETAILS, SOCIAL_LINKS } from "@/lib/constants";
-import { Mail, Phone, MessageSquare } from "lucide-react";
+import { CONTACT_DETAILS } from "@/lib/constants";
+import { Mail, Phone, MessageSquare, MapPin, Clock } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { MapEmbed } from "@/components/shared/map-embed";
 
 export default function ContactPage() {
   return (
@@ -44,21 +45,33 @@ export default function ContactPage() {
                   </a>
                 </CardContent>
               </Card>
+               <Card>
+                <CardHeader className="flex-row items-center gap-4">
+                  <Clock className="w-8 h-8 text-primary" />
+                  <CardTitle className="font-headline">Assistance Hours</CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground">
+                  <p>Mon – Sat: 9:00am - 8:00pm</p>
+                  <p>Sunday: CLOSED</p>
+                </CardContent>
+              </Card>
               <Card>
                 <CardHeader className="flex-row items-center gap-4">
-                  <MessageSquare className="w-8 h-8 text-primary" />
-                  <CardTitle className="font-headline">WhatsApp</CardTitle>
+                  <MapPin className="w-8 h-8 text-primary" />
+                  <CardTitle className="font-headline">Address</CardTitle>
                 </CardHeader>
-                <CardContent>
-                   <Button asChild variant="link" className="p-0 h-auto">
-                      <Link href={SOCIAL_LINKS.whatsapp} target="_blank">
-                        Chat with me on WhatsApp
-                      </Link>
-                    </Button>
+                <CardContent className="text-muted-foreground">
+                  <p>{CONTACT_DETAILS.address}</p>
                 </CardContent>
               </Card>
             </div>
           </div>
+        </div>
+      </section>
+      <section className="pb-16 md:pb-24">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-headline font-bold mb-6 text-center">Our Location</h2>
+          <MapEmbed />
         </div>
       </section>
     </div>
