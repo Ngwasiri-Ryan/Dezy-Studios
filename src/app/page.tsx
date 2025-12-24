@@ -502,7 +502,7 @@ export default function Home() {
       <section ref={ctaSectionRef} className="py-20 relative overflow-hidden">
         {/* Animated Gradient Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-blue-500 to-primary animate-gradient-flow" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary animate-gradient-flow" />
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
         </div>
 

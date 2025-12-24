@@ -85,7 +85,7 @@ export default function AboutPage() {
       </section>
 
       {/* Journey Timeline Section - Enhanced */}
-      <section className="py-20 md:py-28 bg-secondary/50">
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-16 animate-fade-in-up">
             <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm font-semibold border-primary/30 text-primary">
@@ -226,7 +226,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Section - Enhanced */}
-      <section className="py-20 md:py-28 bg-secondary/50">
+      <section className="py-20 md:py-28 ">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-16 animate-fade-in-up">
             <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm font-semibold border-primary/30 text-primary">
@@ -322,7 +322,7 @@ export default function AboutPage() {
               <Button
                 asChild
                 size="lg"
-                variant="secondary"
+                variant="secondary/50"
                 className="px-10 py-7 text-lg font-bold group hover:scale-105 hover:shadow-2xl hover:shadow-primary-foreground/20 transition-all duration-300"
               >
                 <Link href="/contact">
