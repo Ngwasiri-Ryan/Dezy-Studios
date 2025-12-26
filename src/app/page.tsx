@@ -99,7 +99,7 @@ export default function Home() {
       >
         {/* Animated Gradient Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-background to-primary/10 animate-gradient-shift" />
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-background to-background animate-gradient-shift" />
           <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/5 to-transparent animate-pulse-slow" />
         </div>
 
@@ -157,7 +157,7 @@ export default function Home() {
             >
               <Button asChild
                 size="lg" 
-                className="group hover:scale-105 transition-transform duration-300"
+                className="group hover:scale-105 transition-transform duration-300 hover:shadow-glow"
               >
                 <Link href="/portfolio">
                   <span className="flex items-center gap-2">
@@ -218,7 +218,7 @@ export default function Home() {
       </section>
 
        {/* Services Section with Hover Effects */}
-       <section className="py-20 bg-background relative overflow-hidden">
+       <section className="py-20 bg-secondary/50 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5 dark:opacity-[0.02]">
           <div className="absolute inset-0" style={{
@@ -350,7 +350,7 @@ export default function Home() {
                   href={`/portfolio`}
                   className="group relative"
                 >
-                  <div className="relative h-96 rounded-2xl overflow-hidden transform perspective-1000 group-hover:rotate-y-3 transition-transform duration-700">
+                  <div className="relative h-96 rounded-2xl overflow-hidden transition-all duration-700 group-hover:shadow-glow-lg">
                     {projectImage && 
                       <Image
                         src={projectImage.imageUrl}
@@ -375,7 +375,7 @@ export default function Home() {
                     </div>
 
                     <div className="absolute top-4 left-4 z-20">
-                      <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
+                      <span className="px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full text-xs font-medium text-white/90 border border-white/20">
                         {project.category}
                       </span>
                     </div>
@@ -410,7 +410,7 @@ export default function Home() {
       </section>
 
        {/* Testimonials Section with Carousel */}
-       <section className="py-20 bg-background relative overflow-hidden">
+       <section className="py-20 bg-secondary/50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -447,7 +447,7 @@ export default function Home() {
                     viewport={{ once: true }}
                   >
                     <div className="relative group h-full">
-                       <div className="relative p-8 rounded-2xl bg-card border border-border/20 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-full flex flex-col">
+                       <div className="relative p-8 rounded-2xl bg-card border border-border/20 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-full flex flex-col hover:shadow-glow">
                           <div className="absolute top-6 right-6 text-primary/20 group-hover:text-primary/30 transition-colors duration-300">
                             <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -562,3 +562,5 @@ export default function Home() {
     </>
   );
 }
+
+    

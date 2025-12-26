@@ -441,7 +441,7 @@ function PortfolioCard({
       layout
       className={`group relative ${viewMode === "masonry" ? "break-inside-avoid" : ""}`}
     >
-      <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-primary/10 hover:border-primary/30">
+      <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-glow hover:-translate-y-1 border-primary/10 hover:border-primary/30">
         {/* Media Container */}
         <div className={`relative overflow-hidden ${viewMode === "grid" ? 'aspect-square' : ''}`}>
           {projectImage && (
@@ -596,3 +596,5 @@ function VideoPreviewModal({ project, onClose }: { project: PortfolioItem; onClo
     </motion.div>
   );
 }
+
+    
