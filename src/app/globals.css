@@ -40,27 +40,27 @@
   }
 
   .dark {
-    --background: 220 14% 10%; /* Deep Charcoal */
+    --background: 224 71% 4%; /* Near-black with a hint of blue */
     --foreground: 210 40% 98%; /* Soft Off-white */
-    --card: 220 14% 14%; /* Lighter Charcoal for cards */
+    --card: 224 71% 9%; /* Slightly lighter card background */
     --card-foreground: 210 40% 98%;
-    --popover: 220 14% 14%;
+    --popover: 224 71% 4%;
     --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 60%; /* Dusty Blue */
-    --primary-foreground: 220 14% 10%;
-    --secondary: 220 14% 20%; /* Darker secondary */
+    --primary: 210 100% 50%; /* Electric Blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 260 100% 55%; /* Vibrant Purple */
     --secondary-foreground: 210 40% 98%;
-    --muted: 220 14% 20%;
+    --muted: 224 71% 15%;
     --muted-foreground: 215 20% 65%;
-    --accent: 210 40% 60%; /* Dusty Blue */
-    --accent-foreground: 220 14% 10%;
+    --accent: 210 100% 50%; /* Electric Blue */
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-    --border: 220 14% 24%; /* Subtle border color */
-    --input: 220 14% 24%;
-    --ring: 210 40% 70%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
+    --border: 224 71% 15%;
+    --input: 224 71% 15%;
+    --ring: 210 100% 50%;
+    --chart-1: 210 100% 50%;
+    --chart-2: 260 100% 55%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
@@ -133,5 +133,3 @@
     box-shadow: 0 0 30px hsla(0, 0%, 100%, 0.5);
   }
 }
-
-    
