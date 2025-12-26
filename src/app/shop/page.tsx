@@ -1,5 +1,8 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,14 +11,34 @@ import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { CONTACT_DETAILS, SOCIAL_LINKS } from "@/lib/constants";
 import { MessageCircle } from "lucide-react";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      duration: 0.5,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function ShopPage() {
   return (
-    <div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <PageHeader
         title="Dezy Enterprise Shop"
         subtitle="Custom-designed merchandise. Contact via WhatsApp or phone to purchase."
       />
-      <section className="py-16 md:py-24">
+      <motion.section variants={itemVariants} className="py-16 md:py-24">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => {
@@ -53,7 +76,7 @@ export default function ShopPage() {
             })}
           </div>
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 }

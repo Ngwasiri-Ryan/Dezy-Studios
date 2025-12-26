@@ -1,4 +1,7 @@
+'use client';
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { PageHeader } from "@/components/shared/page-header";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,9 +17,30 @@ const serviceIcons: { [key: string]: React.ElementType } = {
   "Product Design": ShoppingBag,
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      duration: 0.5,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function ServicesPage() {
   return (
-    <div className="bg-background">
+    <motion.div 
+      className="bg-background"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <PageHeader
         title="Creative Services"
         subtitle="Comprehensive solutions for your vision"
@@ -25,7 +49,7 @@ export default function ServicesPage() {
       />
 
       {/* Services Overview */}
-      <section className="py-16 md:py-24">
+      <motion.section variants={itemVariants} className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
             <Badge variant="outline" className="mb-6 px-4 py-1.5 text-sm font-semibold border-primary/30 text-primary">
@@ -116,10 +140,10 @@ export default function ServicesPage() {
             })}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Process Section */}
-      <section className="py-20 md:py-28 bg-secondary/50">
+      <motion.section variants={itemVariants} className="py-20 md:py-28 bg-secondary/50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
             <Badge variant="outline" className="mb-6 px-4 py-1.5 text-sm font-semibold border-primary/30 text-primary">
@@ -174,10 +198,10 @@ export default function ServicesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary">
+      <motion.section variants={itemVariants} className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -234,7 +258,7 @@ export default function ServicesPage() {
             </p>
           </div>
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 }

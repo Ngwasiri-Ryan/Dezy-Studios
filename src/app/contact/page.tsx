@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from "framer-motion";
 import { PageHeader } from "@/components/shared/page-header";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,14 +10,34 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MapEmbed } from "@/components/shared/map-embed";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      duration: 0.5,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function ContactPage() {
   return (
-    <div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <PageHeader
         title="Get in Touch"
         subtitle="I'm excited to hear about your project. Let's create something amazing together."
       />
-      <section className="py-16 md:py-24">
+      <motion.section variants={itemVariants} className="py-16 md:py-24">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
@@ -67,13 +90,13 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="pb-16 md:pb-24">
+      </motion.section>
+      <motion.section variants={itemVariants} className="pb-16 md:pb-24">
         <div className="container mx-auto">
           <h2 className="text-3xl font-headline font-bold mb-6 text-center">Our Location</h2>
           <MapEmbed />
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 }

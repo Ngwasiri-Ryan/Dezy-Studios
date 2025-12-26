@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { ArrowRight, Download, Target, Lightbulb, PenTool, Gem, Sparkles, Heart, Eye, Users, MapPin, Clock } from "lucide-react";
@@ -10,6 +11,22 @@ import { journey, coreValues } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapEmbed } from "@/components/shared/map-embed";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      duration: 0.5,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 export default function AboutPage() {
   const aboutImage = getPlaceholderImage("about-me");
@@ -24,7 +41,12 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="bg-background">
+    <motion.div 
+      className="bg-background"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <PageHeader
         title="About Dezy Enterprise"
         subtitle="Where Creativity Meets Vision"
@@ -33,7 +55,7 @@ export default function AboutPage() {
       />
 
       {/* Mission / Vision Section - Enhanced */}
-      <section className="py-20 md:py-28">
+      <motion.section variants={itemVariants} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div className="order-2 md:order-1 animate-fade-in-up">
@@ -82,10 +104,10 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Journey Timeline Section - Enhanced */}
-      <section className="py-20 md:py-28">
+      <motion.section variants={itemVariants} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-16 animate-fade-in-up">
             <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm font-semibold border-primary/30 text-primary">
@@ -144,10 +166,10 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
       
       {/* Founder Spotlight Section - Enhanced */}
-      <section className="py-20 md:py-28">
+      <motion.section variants={itemVariants} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div className="animate-fade-in-up">
@@ -223,10 +245,10 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Core Values Section - Enhanced */}
-      <section className="py-20 md:py-28 ">
+      <motion.section variants={itemVariants} className="py-20 md:py-28 ">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-16 animate-fade-in-up">
             <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm font-semibold border-primary/30 text-primary">
@@ -271,10 +293,10 @@ export default function AboutPage() {
             })}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Map Section */}
-      <section className="py-20 md:py-28">
+      <motion.section variants={itemVariants} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-16 animate-fade-in-up">
             <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm font-semibold border-primary/30 text-primary">
@@ -289,10 +311,10 @@ export default function AboutPage() {
             <MapEmbed />
           </div>
         </div>
-      </section>
+      </motion.section>
       
       {/* CTA Section - Enhanced */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary py-24 md:py-32">
+      <motion.section variants={itemVariants} className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary py-24 md:py-32">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -348,7 +370,7 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 }
