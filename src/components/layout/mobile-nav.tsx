@@ -20,7 +20,7 @@ export function MobileNav() {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-full bg-secondary text-secondary-foreground p-0">
+      <SheetContent side="right" className="w-full bg-primary text-secondary-foreground p-0">
         <div className="flex flex-col h-full">
           <SheetHeader className="p-6 flex-row justify-between items-center border-b">
             <SheetTitle>

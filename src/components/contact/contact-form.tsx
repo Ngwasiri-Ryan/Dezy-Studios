@@ -65,7 +65,7 @@ export function ContactForm() {
       if (state.success) {
         toast({
           title: "Success!",
-          description: state.message,
+          description: state.message
         });
         form.reset();
       } else {
