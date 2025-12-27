@@ -1,0 +1,660 @@
+diff --git a/node_modules/next-themes/dist/index.js b/node_modules/next-themes/dist/index.js
+index 9a53ab6..7f56e52 100644
+--- a/node_modules/next-themes/dist/index.js
++++ b/node_modules/next-themes/dist/index.js
+@@ -1,8 +1,8 @@
+ 'use client';
+ "use strict";
+ var __create = Object.create;
+-var __defProp = Object.defineProperty;
+ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
++var __defProp = Object.defineProperty;
+ var __getOwnPropNames = Object.getOwnPropertyNames;
+ var __getProtoOf = Object.getPrototypeOf;
+ var __hasOwnProp = Object.prototype.hasOwnProperty;
+@@ -10,7 +10,6 @@
+ var __copyProps = (to, from, except, desc) => {
+   if (from && typeof from === "object" || typeof from === "function") {
+     for (let key of __getOwnPropNames(from))
+-      if (!__hasOwnProp.call(to, key) && key !== except)
+-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
++      !__hasOwnProp.call(to, key) && key !== except && __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+   }
+   return to;
+ };
+@@ -18,112 +17,103 @@
+   (to, from) => {
+     for (var key in from)
+       __defProp(to, key, { get: from[key], enumerable: true });
+-    ;
+   }
+ );
+ 
+ // src/index.tsx
+ var src_exports = {};
+ __export(src_exports, {
+   ThemeProvider: () => ThemeProvider,
+-  useTheme: () => useTheme
++  useTheme: () => useTheme,
++  default: () => src_default
+ });
+-module.exports = __toCommonJS(src_exports);
+-var import_react = require("react");
+-var import_react2 = require("react");
+-var import_react3 = require("react");
+-var forced_colors_query = "(forced-colors: active)";
+-var color_scheme_dark_query = "(prefers-color-scheme: dark)";
+-var color_scheme_light_query = "(prefers-color-scheme: light)";
++var React = require("react");
++var import_react = require("react");
++var import_react2 = require("react");
++var import_react3 = require("react");
++const forced_colors_query = "(forced-colors: active)";
++const color_scheme_dark_query = "(prefers-color-scheme: dark)";
++const color_scheme_light_query = "(prefers-color-scheme: light)";
+ var ThemeContext = (0, import_react2.createContext)(void 0);
+-var useTheme = () => {
+-  const context = (0, import_react2.useContext)(ThemeContext);
+-  if (context === void 0) {
++const useTheme = () => {
++  const context = (0, import_react3.useContext)(ThemeContext);
++  if (context === void 0)
+     throw new Error("useTheme must be used within a ThemeProvider.");
+-  }
+   return context;
+ };
+-var ThemeProvider = (props) => {
+-  const context = (0, import_react2.useContext)(ThemeContext);
++const ThemeProvider = (props) => {
++  const context = (0, import_react3.useContext)(ThemeContext);
+   if (context) {
+-    return import_react3.default.createElement(import_react3.default.Fragment, null, props.children);
++    return React.createElement(React.Fragment, null, props.children);
+   }
+   return import_react3.default.createElement(Theme, __spreadValues({}, props));
+ };
+-var defaultThemes = ["light", "dark"];
+-var Theme = ({
++const defaultThemes = ["light", "dark"];
++const Theme = ({
+   forcedTheme,
+   disableTransitionOnChange = false,
+   enableSystem = true,
+   enableColorScheme = true,
+   storageKey = "theme",
+   themes = defaultThemes,
+-  defaultTheme = enableSystem ? "system" : "light",
++  defaultTheme = "system",
+   attribute = "data-theme",
+   value,
+   children,
+   nonce
+ }) => {
+-  const [theme, setThemeState] = (0 import_react2.useState)(() => getTheme(storageKey, defaultTheme));
+-  const [resolvedTheme, setResolvedTheme] = (0 import_react2.useState)(() => getTheme(storageKey));
+-  const [systemTheme, setSystemTheme] = (0 import_react2.useState)();
+-  const dark = (0, import_react.useSyncExternalStore)(
+-    subscribe,
+-    () => window.matchMedia(color_scheme_dark_query).matches,
+-    () => false
+-  );
+-  const light = (0, import_react.useSyncExternalStore)(
+-    subscribe,
+-    () => window.matchMedia(color_scheme_light_query).matches,
+-    () => false
+-  );
+  const [theme, setThemeState] = (0, import_react3.useState)(() => getTheme(storageKey, defaultTheme));
+-  const [resolvedTheme, setResolvedTheme] = (0 import_react3.useState)(() => getTheme(storageKey));
+   const attrs = !value ? themes : Object.values(value);
+-  const applyTheme = (0, import_react3.useCallback)((theme2) => {
+-    let resolved = theme2;
++  const [resolvedTheme, setResolvedTheme] = (0, import_react3.useState)(() => getTheme(storageKey));
++  const dark = (0, import_react2.useSyncExternalStore)(
++    subscribe,
++    () => window.matchMedia(color_scheme_dark_query).matches,
++    () => false
++  );
++  const light = (0, import_react2.useSyncExternalStore)(
++    subscribe,
++    () => window.matchMedia(color_scheme_light_query).matches,
++    () => false
++  );
++  const systemTheme = dark ? "dark" : "light";
++  const applyTheme = (0, import_react3.useCallback)((theme2) => {
++    let resolved = theme2;
+     if (!resolved)
+       return;
+-    if (theme2 === "system" && enableSystem) {
+-      resolved = getSystemTheme();
+-    }
+-    const name = value ? value[resolved] : resolved;
++    if (theme2 === "system") {
++      resolved = systemTheme;
++    }
++    const name = value ? value[resolved] : resolved;
+     const d = document.documentElement;
+-    const isClass = attribute === "class";
+-    if (isClass) {
++    if (attribute === "class") {
+       d.classList.remove(...attrs.map((t) => value ? value[t] : t));
+       if (name)
+         d.classList.add(name);
+-    } else {
+-      if (name) {
++    } else {
++      if (name)
+         d.setAttribute(attribute, name);
+-      } else {
++      else
+         d.removeAttribute(attribute);
+-      }
+     }
+-    if (enableColorScheme) {
+-      const colorScheme = themes.includes("dark") && themes.includes("light") ? resolved === "dark" ? "dark" : "light" : resolved;
++    if (enableColorScheme) {
++      const colorScheme = themes.includes("dark") && themes.includes("light") ? resolved === "dark" ? "dark" : "light" : resolved;
+       d.style.colorScheme = colorScheme;
+     }
+   }, []);
+-  const setTheme = (0, import_react3.useCallback)(
+-    (theme2) => {
+-      setThemeState(theme2);
+-      try {
+-        localStorage.setItem(storageKey, theme2);
+-      } catch (e) {
+-      }
++  const setTheme = (0, import_react3.useCallback)((theme2) => {
++    setThemeState(theme2);
++    try {
++      localStorage.setItem(storageKey, theme2);
++    } catch (e) {
+     }
+-  );
+-  const syncForcedTheme = (0, import_react3.useCallback)(() => {
+-    const theme2 = getSystemTheme();
++  }, [storageKey]);
++  (0, import_react3.useLayoutEffect)(() => {
+     const theme2 = getSystemTheme(dark ? "dark" : "light");
+     setResolvedTheme(theme2);
+-    if (theme === "system" && enableSystem && !disableTransitionOnChange) {
+-      applyTheme("system");
+-    }
+-  }, [theme]);
+-  (0, import_react3.useLayoutEffect)(() => {
+-    const media = window.matchMedia(color_scheme_dark_query);
+-    if (!disableTransitionOnChange)
+-      media.addEventListener("change", syncForcedTheme);
+-    return () => media.removeEventListener("change", syncForcedTheme);
+-  }, [syncForcedTheme]);
++    if (theme === "system" && !disableTransitionOnChange) {
++      applyTheme("system");
++    }
++  }, [dark]);
+   (0, import_react3.useLayoutEffect)(() => {
+     const handleStorage = (e) => {
+       if (e.key !== storageKey) {
+         return;
+       }
+-      const theme2 = e.newValue || defaultTheme;
++      const theme2 = e.newValue || (enableSystem ? "system" : defaultTheme);
+       setTheme(theme2);
+     };
+     window.addEventListener("storage", handleStorage);
+     return () => window.removeEventListener("storage", handleStorage);
+-  }, [setTheme]);
++  }, [setTheme, storageKey, defaultTheme]);
+   (0, import_react3.useLayoutEffect)(() => {
+     applyTheme(forcedTheme ?? theme);
+-  }, [forcedTheme, theme]);
+-  const providerValue = (0, import_react3.useMemo)(
+-    () => ({
+-      theme,
+-      setTheme,
+-      forcedTheme,
+-      resolvedTheme: theme === "system" ? resolvedTheme : theme,
+-      themes: enableSystem ? [...themes, "system"] : themes,
+-      systemTheme: enableSystem ? resolvedTheme : void 0
+-    }),
+-    [theme, setTheme, forcedTheme, resolvedTheme, themes]
+-  );
+-  return import_react3.default.createElement(ThemeContext.Provider, { value: providerValue }, import_react3.default.createElement(InjectThemeScript, {
++  }, [forcedTheme, theme, systemTheme]);
++  const providerValue = (0, import_react3.useMemo)(() => ({
++    theme,
++    setTheme,
++    forcedTheme,
++    resolvedTheme: theme === "system" ? systemTheme : theme,
++    themes: enableSystem ? [...themes, "system"] : themes,
++    systemTheme: enableSystem ? systemTheme : void 0
++  }), [theme, setTheme, forcedTheme, systemTheme, themes, enableSystem]);
++  return React.createElement(ThemeContext.Provider, { value: providerValue }, React.createElement(InjectThemeScript, {
+     forcedTheme,
+     disableTransitionOnChange,
+     enableSystem,
+@@ -134,13 +124,12 @@
+     value,
+     nonce
+   }), children);
+ };
+-var InjectThemeScript = (0, import_react3.memo)(
+-  ({
+-    forcedTheme,
+-    storageKey,
+-    attribute,
+-    enableSystem,
+-    enableColorScheme,
+-    defaultTheme,
+-    value,
+-    themes,
+-    nonce
+-  }) => {
+-    const attrs = !value ? themes : Object.values(value);
+-    const defaultSystem = defaultTheme === "system";
+-    const optimization = (() => {
+-      if (attribute === "class") {
+-        const removeClasses = `d.classList.remove(${attrs.map((t) => `'${t}'`).join(",")})`;
+-        return `var d=document.documentElement,c=d.classList;${removeClasses};`;
+-      } else {
+-        return `var d=document.documentElement;`;
+-      }
+-    })();
+-    const fallbackToSystem = `if(e==='system'||(!e&&${defaultSystem})){var t='${color_scheme_dark_query}',m=window.matchMedia(t);if(m.media!==t||m.matches){e='${themes.includes("dark") ? "dark" : "light"}'}else{e='${themes.includes("light") ? "light" : "dark"}'}}`;
+-    const classlist = `var d=document.documentElement,n=d.classList;n.remove(${attrs.map((t) => `'${t}'`).join(",")});var e=localStorage.getItem('${storageKey}');${enableSystem ? fallbackToSystem : ""}${value ? `var f=${JSON.stringify(value)};e=f[e];` : ""}if(e){n.add(e)}else{d.setAttribute('data-theme','light')}`;
+-    const setAttribute = `var d=document.documentElement,e=localStorage.getItem('${storageKey}');${enableSystem ? fallbackToSystem : ""}${value ? `var f=${JSON.stringify(value)};e=f[e];` : ""}if(e){d.setAttribute('${attribute}',e)}else{d.removeAttribute('${attribute}')}`;
+-    const script = forcedTheme ? `!function(){${optimization}${attribute === "class" ? `d.classList.add('${forcedTheme}');` : `d.setAttribute('${attribute}', '${forcedTheme}');`}}()` : enableSystem ? `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${defaultSystem})){var t='${color_scheme_dark_query}',m=window.matchMedia(t);if(m.media!==t||m.matches){e='${themes.includes("dark") ? "dark" : "light"}'}else{e='${themes.includes("light") ? "light" : "dark"}'}}${value ? `var f=${JSON.stringify(value)};e=f[e]` : ""}${attribute === "class" ? `if(e)c.add(e);` : `if(e)d.setAttribute('${attribute}',e)`}${enableColorScheme ? `var s=document.documentElement.style;s.colorScheme=e;` : ""}}catch(e){}}()` : `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if(e){${value ? `var f=${JSON.stringify(value)};e=f[e]` : ""}${attribute === "class" ? `c.add(e)` : `d.setAttribute('${attribute}',e)`}}else{e='${defaultTheme}'}${enableColorScheme ? `var s=document.documentElement.style;s.colorScheme=e;` : ""}}catch(e){}}()`;
+-    return import_react3.default.createElement(
+-      "script",
+-      {
+-        nonce,
+-        dangerouslySetInnerHTML: { __html: script }
+-      }
+-    );
+-  },
+-  () => true
+-);
+-var getTheme = (key, fallback) => {
++const InjectThemeScript = (0, import_react3.memo)(({
++  forcedTheme,
++  storageKey,
++  attribute,
++  enableSystem,
++  enableColorScheme,
++  defaultTheme,
++  value,
++  themes,
++  nonce
++}) => {
++  const attrs = !value ? themes : Object.values(value);
++  const defaultSystem = defaultTheme === "system";
++  const optimization = (() => {
++    if (attribute === "class") {
++      const removeClasses = `d.classList.remove(${attrs.map((t) => `'${t}'`).join(",")})`;
++      return `var d=document.documentElement,c=d.classList;${removeClasses};`;
++    } else {
++      return `var d=document.documentElement;`;
++    }
++  })();
++  const fallbackToSystem = `if(e==='system'||(!e&&${defaultSystem})){var t='${color_scheme_dark_query}',m=window.matchMedia(t);if(m.media!==t||m.matches){e='${themes.includes("dark") ? "dark" : "light"}'}else{e='${themes.includes("light") ? "light" : "dark"}'}}`;
++  const classlist = `var d=document.documentElement,n=d.classList;n.remove(${attrs.map((t) => `'${t}'`).join(",")});var e=localStorage.getItem('${storageKey}');${enableSystem ? fallbackToSystem : ""}${value ? `var f=${JSON.stringify(value)};e=f[e.split(' ')[0]];` : ""}if(e){n.add(e)}else{d.setAttribute('data-theme','light')}`;
++  const setAttribute = `var d=document.documentElement,e=localStorage.getItem('${storageKey}');${enableSystem ? fallbackToSystem : ""}${value ? `var f=${JSON.stringify(value)};e=f[e.split(' ')[0]];` : ""}if(e){d.setAttribute('${attribute}',e)}else{d.removeAttribute('${attribute}')}`;
++  const script = forcedTheme ? `!function(){${optimization}${attribute === "class" ? `d.classList.add('${forcedTheme}');` : `d.setAttribute('${attribute}', '${forcedTheme}');`}}()` : `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${defaultSystem})){var t='${color_scheme_dark_query}',m=window.matchMedia(t);if(m.media!==t||m.matches){e='${themes.includes("dark") ? "dark" : "light"}'}else{e='${themes.includes("light") ? "light" : "dark"}'}}${value ? `var f=${JSON.stringify(value)};e=f[e.split(' ')[0]]` : ""}${attribute === "class" ? `if(e)c.add(e);` : `if(e)d.setAttribute('${attribute}',e)`}${enableColorScheme ? `var s=document.documentElement.style;s.colorScheme=e;` : ""}}catch(e){}}()`;
++  return React.createElement(
++    "script",
++    {
++      nonce,
++      dangerouslySetInnerHTML: { __html: script }
++    }
++  );
++}, () => true);
++const getTheme = (key, fallback) => {
+   if (typeof window === "undefined")
+     return void 0;
+   let theme;
+   try {
+     theme = localStorage.getItem(key) || void 0;
+   } catch (e) {
+   }
+-  return theme || fallback;
+-};
+-var getSystemTheme = (e) => {
+-  if (!e)
+-    e = window.matchMedia(color_scheme_dark_query);
+-  const isDark = e.matches;
+-  const systemTheme = isDark ? "dark" : "light";
+-  return systemTheme;
+-};
+-var subscribe = (callback) => {
+-  const media = window.matchMedia(color_scheme_dark_query);
+-  const forcedColors = window.matchMedia(forced_colors_query);
+-  media.addEventListener("change", callback);
+-  forcedColors.addEventListener("change", callback);
+-  return () => {
+-    media.removeEventListener("change", callback);
+-    forcedColors.removeEventListener("change", callback);
+-  };
++  return theme || fallback;
++};
++const getSystemTheme = (systemTheme) => {
++  return systemTheme;
++};
++const subscribe = (callback) => {
++  const mql = window.matchMedia(color_scheme_dark_query);
++  mql.addEventListener("change", callback);
++  return () => mql.removeEventListener("change", callback);
+ };
++var src_default = src_exports;
+diff --git a/node_modules/next-themes/dist/index.mjs b/node_modules/next-themes/dist/index.mjs
+index e399120..f87ddb3 100644
+--- a/node_modules/next-themes/dist/index.mjs
++++ b/node_modules/next-themes/dist/index.mjs
+@@ -1,91 +1,78 @@
+ 'use client';
+-// src/index.tsx
+-import React, { useSyncExternalStore, createContext, useContext, useState, useCallback, useLayoutEffect, useMemo, memo } from "react";
+-var forced_colors_query = "(forced-colors: active)";
+-var color_scheme_dark_query = "(prefers-color-scheme: dark)";
+-var color_scheme_light_query = "(prefers-color-scheme: light)";
++import React, { useSyncExternalStore, createContext, useState, useCallback, useLayoutEffect, useMemo, memo, useContext as useContext2 } from "react";
++const forced_colors_query = "(forced-colors: active)";
++const color_scheme_dark_query = "(prefers-color-scheme: dark)";
++const color_scheme_light_query = "(prefers-color-scheme: light)";
+ var ThemeContext = createContext(void 0);
+-var useTheme = () => {
+-  const context = useContext(ThemeContext);
+-  if (context === void 0) {
++const useTheme = () => {
++  const context = useContext2(ThemeContext);
++  if (context === void 0)
+     throw new Error("useTheme must be used within a ThemeProvider.");
+-  }
+   return context;
+ };
+-var ThemeProvider = (props) => {
+-  const context = useContext(ThemeContext);
++const ThemeProvider = (props) => {
++  const context = useContext2(ThemeContext);
+   if (context) {
+     return React.createElement(React.Fragment, null, props.children);
+   }
+-  return React.createElement(Theme, { ...props });
+-};
+-var defaultThemes = ["light", "dark"];
+-var Theme = ({
++  return /* @__PURE__ */ React.createElement(Theme, { ...props });
++};
++const defaultThemes = ["light", "dark"];
++const Theme = ({
+   forcedTheme,
+   disableTransitionOnChange = false,
+   enableSystem = true,
+   enableColorScheme = true,
+   storageKey = "theme",
+   themes = defaultThemes,
+-  defaultTheme = enableSystem ? "system" : "light",
++  defaultTheme = "system",
+   attribute = "data-theme",
+   value,
+   children,
+   nonce
+ }) => {
+   const [theme, setThemeState] = useState(() => getTheme(storageKey, defaultTheme));
+-  const [resolvedTheme, setResolvedTheme] = useState(() => getTheme(storageKey));
+-  const [systemTheme, setSystemTheme] = useState();
++  const attrs = !value ? themes : Object.values(value);
++  const [resolvedTheme, setResolvedTheme] = useState(() => getTheme(storageKey));
+   const dark = useSyncExternalStore(
+     subscribe,
+     () => window.matchMedia(color_scheme_dark_query).matches,
+     () => false
+   );
+-  const light = useSyncExternalStore(
+-    subscribe,
+-    () => window.matchMedia(color_scheme_light_query).matches,
+-    () => false
+-  );
+-  useLayoutEffect(() => {
+-    const systemTheme2 = getSystemTheme();
+-    setSystemTheme(systemTheme2);
+-    if (theme === "system" || !theme) {
+-      setResolvedTheme(systemTheme2);
+-    }
+-  }, [dark, light, theme]);
+-  const attrs = !value ? themes : Object.values(value);
+-  const applyTheme = useCallback((theme2) => {
+-    let resolved = theme2;
++  const light = useSyncExternalStore(subscribe, () => window.matchMedia(color_scheme_light_query).matches, () => false);
++  const systemTheme = dark ? "dark" : "light";
++  const applyTheme = useCallback((theme2) => {
++    let resolved = theme2;
+     if (!resolved)
+       return;
+-    if (theme2 === "system" && enableSystem) {
+-      resolved = getSystemTheme();
+-    }
+-    const name = value ? value[resolved] : resolved;
++    if (theme2 === "system") {
++      resolved = systemTheme;
++    }
++    const name = value ? value[resolved] : resolved;
+     const d = document.documentElement;
+-    const isClass = attribute === "class";
+-    if (isClass) {
++    if (attribute === "class") {
+       d.classList.remove(...attrs.map((t) => value ? value[t] : t));
+       if (name)
+         d.classList.add(name);
+-    } else {
+-      if (name) {
++    } else {
++      if (name)
+         d.setAttribute(attribute, name);
+-      } else {
++      else
+         d.removeAttribute(attribute);
+-      }
+     }
+-    if (enableColorScheme) {
+-      const colorScheme = themes.includes("dark") && themes.includes("light") ? resolved === "dark" ? "dark" : "light" : resolved;
++    if (enableColorScheme) {
++      const colorScheme = themes.includes("dark") && themes.includes("light") ? resolved === "dark" ? "dark" : "light" : resolved;
+       d.style.colorScheme = colorScheme;
+     }
+   }, []);
+-  const setTheme = useCallback(
+-    (theme2) => {
+-      setThemeState(theme2);
+-      try {
+-        localStorage.setItem(storageKey, theme2);
+-      } catch (e) {
+-      }
++  const setTheme = useCallback((theme2) => {
++    setThemeState(theme2);
+    try {
++      localStorage.setItem(storageKey, theme2);
++    } catch (e) {
+     }
+-  );
+-  const syncForcedTheme = useCallback(() => {
+-    const theme2 = getSystemTheme();
++  }, [storageKey]);
++  useLayoutEffect(() => {
+     const theme2 = getSystemTheme(dark ? "dark" : "light");
+     setResolvedTheme(theme2);
+-    if (theme === "system" && enableSystem && !disableTransitionOnChange) {
+-      applyTheme("system");
+-    }
+-  }, [theme]);
+-  useLayoutEffect(() => {
+-    const media = window.matchMedia(color_scheme_dark_query);
+-    if (!disableTransitionOnChange)
+-      media.addEventListener("change", syncForcedTheme);
+-    return () => media.removeEventListener("change", syncForcedTheme);
+-  }, [syncForcedTheme]);
++    if (theme === "system" && !disableTransitionOnChange) {
++      applyTheme("system");
++    }
++  }, [dark]);
+   useLayoutEffect(() => {
+     const handleStorage = (e) => {
+       if (e.key !== storageKey) {
+         return;
+       }
+-      const theme2 = e.newValue || defaultTheme;
++      const theme2 = e.newValue || (enableSystem ? "system" : defaultTheme);
+       setTheme(theme2);
+     };
+     window.addEventListener("storage", handleStorage);
+     return () => window.removeEventListener("storage", handleStorage);
+-  }, [setTheme]);
++  }, [setTheme, storageKey, defaultTheme]);
+   useLayoutEffect(() => {
+     applyTheme(forcedTheme ?? theme);
+-  }, [forcedTheme, theme]);
+-  const providerValue = useMemo(
+-    () => ({
+-      theme,
+-      setTheme,
+-      forcedTheme,
+-      resolvedTheme: theme === "system" ? resolvedTheme : theme,
+-      themes: enableSystem ? [...themes, "system"] : themes,
+-      systemTheme: enableSystem ? resolvedTheme : void 0
+-    }),
+-    [theme, setTheme, forcedTheme, resolvedTheme, themes]
+-  );
+-  return React.createElement(ThemeContext.Provider, { value: providerValue }, React.createElement(InjectThemeScript, {
++  }, [forcedTheme, theme, systemTheme]);
++  const providerValue = useMemo(() => ({
++    theme,
++    setTheme,
++    forcedTheme,
++    resolvedTheme: theme === "system" ? systemTheme : theme,
++    themes: enableSystem ? [...themes, "system"] : themes,
++    systemTheme: enableSystem ? systemTheme : void 0
++  }), [theme, setTheme, forcedTheme, systemTheme, themes, enableSystem]);
++  return /* @__PURE__ */ React.createElement(ThemeContext.Provider, { value: providerValue }, /* @__PURE__ */ React.createElement(InjectThemeScript, {
+     forcedTheme,
+     disableTransitionOnChange,
+     enableSystem,
+@@ -96,53 +83,43 @@
+     value,
+     nonce
+   }), children);
+ };
+-var InjectThemeScript = memo(
+-  ({
+-    forcedTheme,
+-    storageKey,
+-    attribute,
+-    enableSystem,
+-    enableColorScheme,
+-    defaultTheme,
+-    value,
+-    themes,
+-    nonce
+-  }) => {
+-    const attrs = !value ? themes : Object.values(value);
+-    const defaultSystem = defaultTheme === "system";
+-    const optimization = (() => {
+-      if (attribute === "class") {
+-        const removeClasses = `d.classList.remove(${attrs.map((t) => `'${t}'`).join(",")})`;
+-        return `var d=document.documentElement,c=d.classList;${removeClasses};`;
+-      } else {
+-        return `var d=document.documentElement;`;
+-      }
+-    })();
+-    const fallbackToSystem = `if(e==='system'||(!e&&${defaultSystem})){var t='${color_scheme_dark_query}',m=window.matchMedia(t);if(m.media!==t||m.matches){e='${themes.includes("dark") ? "dark" : "light"}'}else{e='${themes.includes("light") ? "light" : "dark"}'}}`;
+-    const classlist = `var d=document.documentElement,n=d.classList;n.remove(${attrs.map((t) => `'${t}'`).join(",")});var e=localStorage.getItem('${storageKey}');${enableSystem ? fallbackToSystem : ""}${value ? `var f=${JSON.stringify(value)};e=f[e];` : ""}if(e){n.add(e)}else{d.setAttribute('data-theme','light')}`;
+-    const setAttribute = `var d=document.documentElement,e=localStorage.getItem('${storageKey}');${enableSystem ? fallbackToSystem : ""}${value ? `var f=${JSON.stringify(value)};e=f[e];` : ""}if(e){d.setAttribute('${attribute}',e)}else{d.removeAttribute('${attribute}')}`;
+-    const script = forcedTheme ? `!function(){${optimization}${attribute === "class" ? `d.classList.add('${forcedTheme}');` : `d.setAttribute('${attribute}', '${forcedTheme}');`}}()` : enableSystem ? `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${defaultSystem})){var t='${color_scheme_dark_query}',m=window.matchMedia(t);if(m.media!==t||m.matches){e='${themes.includes("dark") ? "dark" : "light"}'}else{e='${themes.includes("light") ? "light" : "dark"}'}}${value ? `var f=${JSON.stringify(value)};e=f[e]` : ""}${attribute === "class" ? `if(e)c.add(e);` : `if(e)d.setAttribute('${attribute}',e)`}${enableColorScheme ? `var s=document.documentElement.style;s.colorScheme=e;` : ""}}catch(e){}}()` : `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if(e){${value ? `var f=${JSON.stringify(value)};e=f[e]` : ""}${attribute === "class" ? `c.add(e)` : `d.setAttribute('${attribute}',e)`}}else{e='${defaultTheme}'}${enableColorScheme ? `var s=document.documentElement.style;s.colorScheme=e;` : ""}}catch(e){}}()`;
+-    return React.createElement(
+-      "script",
+-      {
+-        nonce,
+-        dangerouslySetInnerHTML: { __html: script }
+-      }
+-    );
+-  },
+-  () => true
+-);
+-var getTheme = (key, fallback) => {
++const InjectThemeScript = memo(({
++  forcedTheme,
++  storageKey,
++  attribute,
++  enableSystem,
++  enableColorScheme,
++  defaultTheme,
++  value,
++  themes,
++  nonce
++}) => {
++  const attrs = !value ? themes : Object.values(value);
++  const defaultSystem = defaultTheme === "system";
++  const optimization = (() => {
++    if (attribute === "class") {
++      const removeClasses = `d.classList.remove(${attrs.map((t) => `'${t}'`).join(",")})`;
++      return `var d=document.documentElement,c=d.classList;${removeClasses};`;
++    } else {
++      return `var d=document.documentElement;`;
++    }
++  })();
++  const fallbackToSystem = `if(e==='system'||(!e&&${defaultSystem})){var t='${color_scheme_dark_query}',m=window.matchMedia(t);if(m.media!==t||m.matches){e='${themes.includes("dark") ? "dark" : "light"}'}else{e='${themes.includes("light") ? "light" : "dark"}'}}`;
++  const classlist = `var d=document.documentElement,n=d.classList;n.remove(${attrs.map((t) => `'${t}'`).join(",")});var e=localStorage.getItem('${storageKey}');${enableSystem ? fallbackToSystem : ""}${value ? `var f=${JSON.stringify(value)};e=f[e.split(' ')[0]];` : ""}if(e){n.add(e)}else{d.setAttribute('data-theme','light')}`;
++  const setAttribute = `var d=document.documentElement,e=localStorage.getItem('${storageKey}');${enableSystem ? fallbackToSystem : ""}${value ? `var f=${JSON.stringify(value)};e=f[e.split(' ')[0]];` : ""}if(e){d.setAttribute('${attribute}',e)}else{d.removeAttribute('${attribute}')}`;
++  const script = forcedTheme ? `!function(){${optimization}${attribute === "class" ? `d.classList.add('${forcedTheme}');` : `d.setAttribute('${attribute}', '${forcedTheme}');`}}()` : `!function(){try{${optimization}var e=localStorage.getItem('${storageKey}');if('system'===e||(!e&&${defaultSystem})){var t='${color_scheme_dark_query}',m=window.matchMedia(t);if(m.media!==t||m.matches){e='${themes.includes("dark") ? "dark" : "light"}'}else{e='${themes.includes("light") ? "light" : "dark"}'}}${value ? `var f=${JSON.stringify(value)};e=f[e.split(' ')[0]]` : ""}${attribute === "class" ? `if(e)c.add(e);` : `if(e)d.setAttribute('${attribute}',e)`}${enableColorScheme ? `var s=document.documentElement.style;s.colorScheme=e;` : ""}}catch(e){}}()`;
++  return /* @__PURE__ */ React.createElement(
++    "script",
++    {
++      nonce,
++      dangerouslySetInnerHTML: { __html: script }
++    }
++  );
++}, () => true);
++const getTheme = (key, fallback) => {
+   if (typeof window === "undefined")
+     return void 0;
+   let theme;
+   try {
+     theme = localStorage.getItem(key) || void 0;
+   } catch (e) {
+   }
+   return theme || fallback;
+ };
+-var getSystemTheme = (e) => {
+-  if (!e)
+-    e = window.matchMedia(color_scheme_dark_query);
+-  const isDark = e.matches;
+-  const systemTheme = isDark ? "dark" : "light";
+-  return systemTheme;
+-};
+-var subscribe = (callback) => {
+-  const media = window.matchmedia(color_scheme_dark_query);
+-  const forcedcolors = window.matchmedia(forced_colors_query);
+-  media.addeventlistener("change", callback);
+-  forcedcolors.addeventlistener("change", callback);
+-  return () => {
+-    media.removeeventlistener("change", callback);
+-    forcedcolors.removeeventlistener("change", callback);
+-  };
+-};
+-export {
+-  ThemeProvider,
+-  useTheme
+-};
++const getSystemTheme = (systemTheme) => {
++  return systemTheme;
++};
++const subscribe = (callback) => {
++  const mql = window.matchMedia(color_scheme_dark_query);
++  mql.addEventListener("change", callback);
++  return () => mql.removeEventListener("change", callback);
++};
++export {
++  ThemeProvider,
++  useTheme
++};
++//# sourceMappingURL=index.mjs.map
+diff --git a/node_modules/next-themes/dist/types/index.d.ts b/node_modules/next-themes/dist/types/index.d.ts
+index c922485..e58b1f4 100644
+--- a/node_modules/next-themes/dist/types/index.d.ts
++++ b/node>

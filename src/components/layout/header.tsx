@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { useActivePath } from "@/hooks/use-active-path";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -72,11 +73,13 @@ export default function Header() {
           })}
         </nav>
         <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Button asChild>
                 <Link href="/contact">Start a Project</Link>
             </Button>
         </div>
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
           <MobileNav />
         </div>
       </div>

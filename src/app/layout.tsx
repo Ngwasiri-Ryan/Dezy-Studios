@@ -10,6 +10,7 @@ import "./globals.css";
 import { CustomCursor } from "@/components/shared/custom-cursor";
 import { AnimatePresence } from 'framer-motion';
 import { Preloader } from '@/components/shared/preloader';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 
 // Metadata needs to be exported from a server component or at the page level.
 // We'll keep it here but acknowledge it won't work in a 'use client' file.
@@ -44,7 +45,7 @@ export default function RootLayout({
   }, []);
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <title>Dezy Enterprise Portfolio</title>
         <meta name="description" content="Creative Portfolio for Binda Desmond / Dezy Enterprise" />
@@ -58,19 +59,26 @@ export default function RootLayout({
           "min-h-screen bg-background font-body antialiased",
         )}
       >
-        <CustomCursor />
-        <AnimatePresence mode="wait">
-          {isLoading ? (
-            <Preloader />
-          ) : (
-            <>
-              <Header />
-              <main className="flex-grow">{children}</main>
-              <Footer />
-            </>
-          )}
-        </AnimatePresence>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <CustomCursor />
+          <AnimatePresence mode="wait">
+            {isLoading ? (
+              <Preloader />
+            ) : (
+              <>
+                <Header />
+                <main className="flex-grow">{children}</main>
+                <Footer />
+              </>
+            )}
+          </AnimatePresence>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
