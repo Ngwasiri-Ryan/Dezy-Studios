@@ -202,6 +202,30 @@ export const testimonials: Testimonial[] = [
     feedback: "The graphic design for my album cover was exactly what I envisioned. Binda has a real talent for bringing ideas to life visually.",
     rating: 5,
     avatarId: "avatar-6"
+  },
+  {
+    id: "t7",
+    name: "Amanda Chen",
+    company: "Restaurant Owner",
+    feedback: "The new menu design is stunning! Customers compliment it all the time. It has elevated our brand and dining experience. Thank you!",
+    rating: 5,
+    avatarId: "avatar-1"
+  },
+  {
+    id: "t8",
+    name: "Chris Rodriguez",
+    company: "Real Estate Agent",
+    feedback: "Professional, creative, and efficient. The property videos have been a huge asset for my listings. I've seen a noticeable increase in inquiries.",
+    rating: 5,
+    avatarId: "avatar-2"
+  },
+  {
+    id: "t9",
+    name: "Olivia Green",
+    company: "Fashion Blogger",
+    feedback: "The creative direction for my latest photoshoot was impeccable. Binda understood my vision perfectly and brought it to life with stunning results.",
+    rating: 5,
+    avatarId: "avatar-3"
   }
 ];
 
