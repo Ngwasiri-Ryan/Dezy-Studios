@@ -46,24 +46,24 @@
     --card-foreground: 210 40% 98%;
     --popover: 180 2% 15%;
     --popover-foreground: 210 40% 98%;
-    --primary: 160 50% 50%; /* Soft Teal */
+    --primary: 195 53% 50%; /* Dusty Cerulean Blue-Teal */
     --primary-foreground: 210 40% 98%;
-    --secondary: 170 40% 30%; /* Muted Teal-Blue */
+    --secondary: 195 40% 30%; /* Muted Cerulean-Blue */
     --secondary-foreground: 210 40% 98%;
     --muted: 180 2% 25%;
     --muted-foreground: 215 20% 65%;
-    --accent: 160 50% 50%; /* Soft Teal */
+    --accent: 195 53% 50%; /* Dusty Cerulean */
     --accent-foreground: 210 40% 98%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
     --border: 180 2% 25%;
     --input: 180 2% 25%;
-    --ring: 160 50% 50%;
-    --chart-1: 160 50% 50%;
-    --chart-2: 170 40% 40%;
-    --chart-3: 180 30% 40%;
-    --chart-4: 190 40% 50%;
-    --chart-5: 200 50% 55%;
+    --ring: 195 53% 50%;
+    --chart-1: 195 50% 50%;
+    --chart-2: 195 40% 40%;
+    --chart-3: 195 30% 40%;
+    --chart-4: 195 40% 50%;
+    --chart-5: 195 50% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
