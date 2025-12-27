@@ -40,24 +40,24 @@
   }
 
   .dark {
-    --background: 222 83% 4%; /* Deep Onyx */
+    --background: 210 4% 14%; /* #242626 */
     --foreground: 210 40% 98%; /* Soft Off-white */
-    --card: 222 83% 8%; /* Slightly lighter card background */
+    --card: 210 4% 18%; /* Slightly lighter card background */
     --card-foreground: 210 40% 98%;
-    --popover: 222 83% 4%;
+    --popover: 210 4% 14%;
     --popover-foreground: 210 40% 98%;
     --primary: 195 53% 50%; /* Dusty Cerulean Blue-Teal */
     --primary-foreground: 210 40% 98%;
     --secondary: 195 40% 20%; /* Muted Cerulean-Blue */
     --secondary-foreground: 210 40% 98%;
-    --muted: 222 83% 10%;
+    --muted: 210 4% 20%;
     --muted-foreground: 215 20% 65%;
     --accent: 195 53% 50%; /* Dusty Cerulean */
     --accent-foreground: 210 40% 98%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-    --border: 222 83% 12%;
-    --input: 222 83% 12%;
+    --border: 210 4% 22%;
+    --input: 210 4% 22%;
     --ring: 195 53% 50%;
     --chart-1: 195 50% 50%;
     --chart-2: 195 40% 40%;
