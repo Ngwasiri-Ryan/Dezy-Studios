@@ -1,17 +1,21 @@
 import type { NavLink } from './types';
 
 export const SITE_NAME = "Dezy Enterprise";
-export const SITE_DESCRIPTION = "Creative Portfolio for Binda Desmond / Dezy Enterprise";
+export const SITE_DESCRIPTION = "Creative Portfolio for Binda Desmond / Dezy Enterprise. A creative ecosystem with two divisions: Dezy Arts & Dezy Studios.";
 
 export const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
+  { href: "#", label: "Divisions" }, // Placeholder, handled by dropdown
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/testimonials", label: "Testimonials" },
   { href: "/shop", label: "Shop" },
   { href: "/contact", label: "Contact" },
 ];
+
+export const DIVISIONS_LINKS: NavLink[] = [
+    { href: "/dezy-arts", label: "Dezy Arts" },
+    { href: "/dezy-studios", label: "Dezy Studios" },
+]
 
 export const SOCIAL_LINKS = {
   instagram: "https://instagram.com",

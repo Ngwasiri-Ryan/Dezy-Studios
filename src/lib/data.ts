@@ -4,33 +4,45 @@ export const services: Service[] = [
   {
     id: "photography",
     title: "Photography",
+    division: "Dezy Arts",
     shortDescription: "Capturing moments that last a lifetime.",
     longDescription: "Specializing in event, portrait, and wedding photography. My goal is to capture the essence of every moment with a creative and artistic approach, delivering images that you will cherish forever."
   },
   {
     id: "graphic-design",
     title: "Graphic Design",
+    division: "Dezy Arts",
     shortDescription: "Visual identities that tell your story.",
     longDescription: "From logos and branding to marketing materials, I create compelling visual designs that communicate your message effectively and help your business stand out from the competition."
   },
   {
     id: "video-editing",
     title: "Video Editing",
+    division: "Dezy Studios",
     shortDescription: "Crafting compelling narratives from your footage.",
     longDescription: "I provide professional video editing services for content creators, businesses, and individuals. I transform raw footage into polished, engaging videos that captivate your audience."
   },
   {
     id: "videography",
     title: "Videography",
+    division: "Dezy Studios",
     shortDescription: "Bringing your vision to life through motion.",
     longDescription: "From corporate videos to cinematic wedding films, I offer high-quality videography services. I handle everything from planning and shooting to final production."
   },
   {
     id: "product-design",
     title: "Product Design",
+    division: "Dezy Arts",
     shortDescription: "Custom apparel and merchandise.",
     longDescription: "I design and create custom merchandise including t-shirts, sweaters, and mugs. Perfect for personal use, gifts, or branding your business."
   },
+  {
+    id: 'brand-campaigns',
+    title: 'Brand Campaigns',
+    division: 'Dezy Studios',
+    shortDescription: 'End-to-end production for brand campaigns.',
+    longDescription: 'We develop and execute full-scale brand campaigns, from initial concept and storyboarding to final delivery, ensuring a cohesive and impactful message across all media.'
+  }
 ];
 
 export const portfolio: PortfolioItem[] = [
@@ -38,6 +50,7 @@ export const portfolio: PortfolioItem[] = [
     id: "p1",
     title: "Sunset Portrait",
     description: "A stunning portrait session during the golden hour.",
+    division: "Dezy Arts",
     category: "Photography",
     subCategory: "Portrait Photography",
     imageId: "project-photo-1",
@@ -47,6 +60,7 @@ export const portfolio: PortfolioItem[] = [
     id: "p2",
     title: "Mountain Majesty",
     description: "Capturing the serene beauty of the mountains at dawn.",
+    division: "Dezy Arts",
     category: "Photography",
     subCategory: "Creative / Conceptual",
     imageId: "project-photo-2",
@@ -56,6 +70,7 @@ export const portfolio: PortfolioItem[] = [
     id: "p3",
     title: "Concert Vibes",
     description: "Dynamic shots from a live music event.",
+    division: "Dezy Arts",
     category: "Photography",
     subCategory: "Event Photography",
     imageId: "project-photo-3",
@@ -65,6 +80,7 @@ export const portfolio: PortfolioItem[] = [
     id: "v1",
     title: "Wedding Film",
     description: "A cinematic highlight reel of a beautiful wedding day.",
+    division: "Dezy Studios",
     category: "Videography",
     subCategory: "Event Videography",
     imageId: "project-video-1",
@@ -74,6 +90,7 @@ export const portfolio: PortfolioItem[] = [
     id: "v2",
     title: "Corporate Showcase",
     description: "A professional video for a corporate client's new product launch.",
+    division: "Dezy Studios",
     category: "Video Editing",
     subCategory: "Commercial Edits",
     imageId: "project-video-2",
@@ -83,6 +100,7 @@ export const portfolio: PortfolioItem[] = [
     id: "d1",
     title: "Coffee Shop Branding",
     description: "Complete brand identity for a new artisanal coffee shop.",
+    division: "Dezy Arts",
     category: "Graphic Design",
     subCategory: "Brand Identity",
     imageId: "project-design-1",
@@ -92,6 +110,7 @@ export const portfolio: PortfolioItem[] = [
     id: "d2",
     title: "Tech Startup Logo",
     description: "Modern and clean logo design for a tech startup.",
+    division: "Dezy Arts",
     category: "Graphic Design",
     subCategory: "Brand Identity",
     imageId: "project-design-2",
@@ -101,6 +120,7 @@ export const portfolio: PortfolioItem[] = [
     id: "pr1",
     title: "Custom T-Shirt Line",
     description: "A collection of custom-designed t-shirts.",
+    division: "Dezy Arts",
     category: "Product Design",
     subCategory: "T-Shirts",
     imageId: "product-tshirt",
@@ -110,6 +130,7 @@ export const portfolio: PortfolioItem[] = [
     id: "cs1",
     title: "Rebranding a Cafe",
     description: "Complete visual identity overhaul for a local coffee shop, resulting in a 40% increase in foot traffic.",
+    division: "Dezy Arts",
     category: "Case Studies",
     subCategory: "Brand Case Studies",
     imageId: "case-study-1",
@@ -121,6 +142,7 @@ export const portfolio: PortfolioItem[] = [
     id: "cd1",
     title: "Fashion Campaign Direction",
     description: "Creative direction for a seasonal fashion lookbook, from concept to final visuals.",
+    division: "Dezy Studios",
     category: "Creative Direction",
     subCategory: "Campaign Direction",
     imageId: "creative-direction-1",
@@ -261,13 +283,13 @@ export const journey: JourneyItem[] = [
   },
   {
     year: "2022",
-    title: "First Major Client",
-    description: "Partnered with a leading local brand for a complete visual rebranding, marking a significant milestone."
+    title: "Two Worlds, One Vision",
+    description: "Structured the brand into two divisions: Dezy Arts for creative expression and Dezy Studios for professional production."
   },
   {
     year: "2024",
     title: "Expanding Horizons",
-    description: "Opened a new product design wing, offering custom merchandise to a growing client base."
+    description: "Continuing to push creative boundaries across both divisions, delivering impactful work for a growing client base."
   }
 ];
 

@@ -3,9 +3,12 @@ export type NavLink = {
   label: string;
 };
 
+export type Division = "Dezy Arts" | "Dezy Studios";
+
 export type Service = {
   id: string;
   title: string;
+  division: Division;
   shortDescription: string;
   longDescription: string;
 };
@@ -16,6 +19,7 @@ export type PortfolioItem = {
   id: string;
   title:string;
   description: string;
+  division: Division;
   category: PortfolioCategory;
   subCategory?: string;
   imageId: string;
@@ -59,5 +63,3 @@ export type CoreValue = {
   title: string;
   description: string;
 };
-
-    

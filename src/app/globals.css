@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 220 14% 96%; /* Light mode background */
-    --foreground: 220 14% 10%; /* Light mode foreground */
-    --card: 220 14% 96%;
-    --card-foreground: 220 14% 10%;
-    --popover: 220 14% 96%;
-    --popover-foreground: 220 14% 10%;
-    --primary: 210 40% 50%; /* Light mode primary - a slightly brighter blue */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217 33% 84%; /* Light mode secondary */
-    --secondary-foreground: 220 14% 10%;
-    --muted: 217 33% 84%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 210 40% 50%;
-    --accent-foreground: 210 40% 98%;
+    --background: 0 0% 96%; /* Pearl White */
+    --foreground: 240 10% 3.9%; /* Near Black */
+    --card: 0 0% 96%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 96%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 340 82% 52%; /* Dusty Rose */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 240 10% 3.9%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 240 10% 3.9%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 74%;
-    --input: 217 33% 74%;
-    --ring: 210 40% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 340 82% 52%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -40,24 +40,24 @@
   }
 
   .dark {
-    --background: 180 2% 15%; /* #242626 */
+    --background: 222 83% 4%; /* Deep Onyx */
     --foreground: 210 40% 98%; /* Soft Off-white */
-    --card: 180 2% 20%; /* Slightly lighter card background */
+    --card: 222 83% 8%; /* Slightly lighter card background */
     --card-foreground: 210 40% 98%;
-    --popover: 180 2% 15%;
+    --popover: 222 83% 4%;
     --popover-foreground: 210 40% 98%;
     --primary: 195 53% 50%; /* Dusty Cerulean Blue-Teal */
     --primary-foreground: 210 40% 98%;
-    --secondary: 195 40% 30%; /* Muted Cerulean-Blue */
+    --secondary: 195 40% 20%; /* Muted Cerulean-Blue */
     --secondary-foreground: 210 40% 98%;
-    --muted: 180 2% 25%;
+    --muted: 222 83% 10%;
     --muted-foreground: 215 20% 65%;
     --accent: 195 53% 50%; /* Dusty Cerulean */
     --accent-foreground: 210 40% 98%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-    --border: 180 2% 25%;
-    --input: 180 2% 25%;
+    --border: 222 83% 12%;
+    --input: 222 83% 12%;
     --ring: 195 53% 50%;
     --chart-1: 195 50% 50%;
     --chart-2: 195 40% 40%;
