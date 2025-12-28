@@ -1,9 +1,12 @@
 'use client';
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { PageHeader } from "@/components/shared/page-header";
 import { portfolio } from "@/lib/data";
+import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { 
   Filter, Grid, List, Search, Sparkles, Zap, Heart, Eye, 
   Maximize2, ChevronRight, ChevronLeft, Play, Pause,
@@ -24,8 +27,6 @@ import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import Link from "next/link";
-
 
 // Enhanced portfolio data with more details
 const enhancedPortfolio = portfolio.map((project, index) => ({
@@ -817,242 +818,265 @@ interface ProjectCardProps {
 function ProjectCard({ project, viewMode, isSelected, onSelect }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const Icon = getCategoryIcon(project.category);
+  const projectImage = getPlaceholderImage(project.imageId);
 
   return (
-    <motion.div
-      className="relative group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onClick={onSelect}
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: "spring", stiffness: 300 }}
-    >
-      {/* Card Container */}
-      <div className={`
-        relative rounded-3xl overflow-hidden border-2 transition-all duration-500
-        ${isSelected ? 'border-primary/50' : 'border-white/10'}
-        bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm
-        hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/20
-        ${viewMode === 'masonry' ? 'h-auto' : 'h-[500px]'}
-      `}>
-        {/* Image/Video Container */}
-        <div className="relative h-64 md:h-72 overflow-hidden">
-          <motion.div
-            className="absolute inset-0"
-            animate={{ scale: isHovered ? 1.1 : 1 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-              <Icon className="w-16 h-16 text-white/30" />
-            </div>
-          </motion.div>
-          
-          {/* Category Badge */}
-          <div className="absolute top-4 left-4 z-20">
-            <Badge className="bg-black/50 backdrop-blur-sm border-white/20">
-              {project.category}
-            </Badge>
-          </div>
-          
-          {/* Awards Badge */}
-          {project.awards.length > 0 && (
-            <div className="absolute top-4 right-4 z-20">
-              <Badge className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-amber-500/30">
-                <Award className="w-3 h-3 mr-1" />
-                {project.awards[0]}
+    <Link href={`/portfolio/${project.id}/details`} passHref>
+      <motion.div
+        className="relative group h-full"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        whileHover={{ scale: 1.02 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        {/* Card Container */}
+        <div className={`
+          relative rounded-3xl overflow-hidden border-2 transition-all duration-500 h-full flex flex-col
+          ${isSelected ? 'border-primary/50' : 'border-white/10'}
+          bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm
+          hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/20
+        `}>
+          {/* Image/Video Container */}
+          <div className="relative h-72 overflow-hidden">
+            <motion.div
+              className="absolute inset-0"
+              animate={{ scale: isHovered ? 1.1 : 1 }}
+              transition={{ duration: 0.7 }}
+            >
+              {projectImage ? (
+                 <Image
+                    src={projectImage.imageUrl}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={projectImage.imageHint}
+                  />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                  <Icon className="w-16 h-16 text-white/30" />
+                </div>
+              )}
+            </motion.div>
+            
+            {/* Category Badge */}
+            <div className="absolute top-4 left-4 z-20">
+              <Badge className="bg-black/50 backdrop-blur-sm border-white/20">
+                {project.category}
               </Badge>
             </div>
-          )}
-        </div>
+            
+            {/* Awards Badge */}
+            {project.awards.length > 0 && (
+              <div className="absolute top-4 right-4 z-20">
+                <Badge className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-amber-500/30">
+                  <Award className="w-3 h-3 mr-1" />
+                  {project.awards[0]}
+                </Badge>
+              </div>
+            )}
+          </div>
 
-        {/* Content */}
-        <div className="p-6">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <h3 className="text-xl font-bold mb-2 line-clamp-1">{project.title}</h3>
-              <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
+          {/* Content */}
+          <div className="p-6 flex flex-col flex-grow">
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <h3 className="text-xl font-bold mb-2 line-clamp-1">{project.title}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
+                  {project.description}
+                </p>
+              </div>
+              <motion.div
+                animate={{ rotate: isHovered ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary" />
+              </motion.div>
+            </div>
+
+            {/* Project Metadata */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              <Badge variant="outline" className="text-xs">
+                {project.year}
+              </Badge>
+              <Badge variant="outline" className="text-xs">
+                {project.duration}
+              </Badge>
+              <Badge variant="outline" className="text-xs">
+                {project.budget}
+              </Badge>
+            </div>
+
+            {/* Tools & Rating */}
+            <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
+              <div className="flex items-center gap-1">
+                {project.tools.slice(0, 2).map((tool: string, i: number) => (
+                  <span key={i} className="text-xs px-2 py-1 rounded bg-white/5">
+                    {tool}
+                  </span>
+                ))}
+                {project.tools.length > 2 && (
+                  <span className="text-xs text-muted-foreground">
+                    +{project.tools.length - 2}
+                  </span>
+                )}
+              </div>
+              
+              <div className="flex items-center gap-1">
+                <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                <span className="text-sm font-medium">{project.rating}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Hover Overlay */}
+          <div className={`
+            absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent
+            flex items-end p-6 transition-all duration-500
+            ${isHovered ? 'opacity-100' : 'opacity-0'}
+          `}>
+            <motion.div
+              initial={{ y: 20 }}
+              animate={{ y: isHovered ? 0 : 20 }}
+              transition={{ duration: 0.3 }}
+              className="text-white"
+            >
+              <h4 className="text-xl font-bold mb-2">{project.title}</h4>
+              <p className="text-sm text-white/80 mb-4 line-clamp-2">
                 {project.description}
               </p>
-            </div>
-            <motion.div
-              animate={{ rotate: isHovered ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary" />
+              <Button
+                size="sm"
+                className="bg-white text-black hover:bg-white/90"
+              >
+                View Details
+              </Button>
             </motion.div>
           </div>
 
-          {/* Project Metadata */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            <Badge variant="outline" className="text-xs">
-              {project.year}
-            </Badge>
-            <Badge variant="outline" className="text-xs">
-              {project.duration}
-            </Badge>
-            <Badge variant="outline" className="text-xs">
-              {project.budget}
-            </Badge>
-          </div>
-
-          {/* Tools & Rating */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1">
-              {project.tools.slice(0, 2).map((tool: string, i: number) => (
-                <span key={i} className="text-xs px-2 py-1 rounded bg-white/5">
-                  {tool}
-                </span>
-              ))}
-              {project.tools.length > 2 && (
-                <span className="text-xs text-muted-foreground">
-                  +{project.tools.length - 2}
-                </span>
-              )}
-            </div>
-            
-            <div className="flex items-center gap-1">
-              <Star className="w-4 h-4 text-yellow-500 fill-current" />
-              <span className="text-sm font-medium">{project.rating}</span>
-            </div>
-          </div>
+          {/* Shine Effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
         </div>
 
-        {/* Hover Overlay */}
-        <div className={`
-          absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent
-          flex items-end p-6 transition-all duration-500
-          ${isHovered ? 'opacity-100' : 'opacity-0'}
-        `}>
-          <motion.div
-            initial={{ y: 20 }}
-            animate={{ y: isHovered ? 0 : 20 }}
-            transition={{ duration: 0.3 }}
-            className="text-white"
-          >
-            <h4 className="text-xl font-bold mb-2">{project.title}</h4>
-            <p className="text-sm text-white/80 mb-4 line-clamp-2">
-              {project.description}
-            </p>
-            <Button
-              size="sm"
-              className="bg-white text-black hover:bg-white/90"
-            >
-              View Details
-            </Button>
-          </motion.div>
-        </div>
-
-        {/* Shine Effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-      </div>
-
-      {/* Glow Effect */}
-      <div className={`absolute -inset-4 bg-gradient-to-br ${project.color} rounded-3xl blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`} />
-    </motion.div>
+        {/* Glow Effect */}
+        <div className={`absolute -inset-4 bg-gradient-to-br ${project.color} rounded-3xl blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`} />
+      </motion.div>
+    </Link>
   );
 }
 
 // Project List Card Component
 function ProjectListCard({ project, isSelected, onSelect }: { project: any, isSelected: boolean, onSelect: () => void }) {
   const Icon = getCategoryIcon(project.category);
+  const projectImage = getPlaceholderImage(project.imageId);
 
   return (
-    <motion.div
-      className="relative group"
-      onClick={onSelect}
-      whileHover={{ x: 10 }}
-      transition={{ type: "spring", stiffness: 300 }}
-    >
-      <div className={`
-        relative rounded-2xl overflow-hidden border transition-all duration-500
-        ${isSelected ? 'border-primary/50' : 'border-white/10'}
-        bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm
-        hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10
-      `}>
-        <div className="flex flex-col md:flex-row">
-          {/* Image */}
-          <div className="md:w-1/4 h-48 md:h-auto relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-              <Icon className="w-16 h-16 text-white/30" />
-            </div>
-            <Badge className="absolute top-3 left-3 bg-black/50 backdrop-blur-sm border-white/20">
-              {project.category}
-            </Badge>
-          </div>
-
-          {/* Content */}
-          <div className="md:w-3/4 p-6">
-            <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
-                  <h3 className="text-2xl font-bold">{project.title}</h3>
-                  {project.awards.length > 0 && (
-                    <Badge className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-amber-500/30">
-                      <Award className="w-3 h-3 mr-1" />
-                      Award Winner
-                    </Badge>
-                  )}
+    <Link href={`/portfolio/${project.id}/details`} passHref>
+      <motion.div
+        className="relative group"
+        whileHover={{ x: 10 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        <div className={`
+          relative rounded-2xl overflow-hidden border transition-all duration-500
+          ${isSelected ? 'border-primary/50' : 'border-white/10'}
+          bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm
+          hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10
+        `}>
+          <div className="flex flex-col md:flex-row">
+            {/* Image */}
+            <div className="md:w-1/4 h-48 md:h-auto relative overflow-hidden">
+               {projectImage ? (
+                 <Image
+                    src={projectImage.imageUrl}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={projectImage.imageHint}
+                  />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                  <Icon className="w-16 h-16 text-white/30" />
                 </div>
-                <p className="text-muted-foreground mb-6">{project.description}</p>
-              </div>
-              
-              <Button
-                variant="ghost"
-                size="icon"
-                className="mt-2 md:mt-0"
-              >
-                <ArrowUpRight className="w-5 h-5" />
-              </Button>
+              )}
+              <Badge className="absolute top-3 left-3 bg-black/50 backdrop-blur-sm border-white/20">
+                {project.category}
+              </Badge>
             </div>
 
-            {/* Metadata Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              <div className="space-y-1">
-                <div className="text-xs text-muted-foreground">Year</div>
-                <div className="font-medium">{project.year}</div>
+            {/* Content */}
+            <div className="md:w-3/4 p-6">
+              <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h3 className="text-2xl font-bold">{project.title}</h3>
+                    {project.awards.length > 0 && (
+                      <Badge className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-amber-500/30">
+                        <Award className="w-3 h-3 mr-1" />
+                        Award Winner
+                      </Badge>
+                    )}
+                  </div>
+                  <p className="text-muted-foreground mb-6">{project.description}</p>
+                </div>
+                
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="mt-2 md:mt-0"
+                >
+                  <ArrowUpRight className="w-5 h-5" />
+                </Button>
               </div>
-              <div className="space-y-1">
-                <div className="text-xs text-muted-foreground">Duration</div>
-                <div className="font-medium">{project.duration}</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs text-muted-foreground">Budget</div>
-                <div className="font-medium">{project.budget}</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs text-muted-foreground">Team Size</div>
-                <div className="font-medium">{project.teamSize} people</div>
-              </div>
-            </div>
 
-            {/* Tools and Rating */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div className="flex flex-wrap gap-2">
-                {project.tools.map((tool: string, i: number) => (
-                  <Badge key={i} variant="secondary" className="text-xs">
-                    {tool}
-                  </Badge>
-                ))}
+              {/* Metadata Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div className="space-y-1">
+                  <div className="text-xs text-muted-foreground">Year</div>
+                  <div className="font-medium">{project.year}</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-xs text-muted-foreground">Duration</div>
+                  <div className="font-medium">{project.duration}</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-xs text-muted-foreground">Budget</div>
+                  <div className="font-medium">{project.budget}</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-xs text-muted-foreground">Team Size</div>
+                  <div className="font-medium">{project.teamSize} people</div>
+                </div>
               </div>
-              
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-4 h-4 ${
-                        i < project.rating ? 'text-yellow-500 fill-current' : 'text-muted-foreground'
-                      }`}
-                    />
+
+              {/* Tools and Rating */}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.map((tool: string, i: number) => (
+                    <Badge key={i} variant="secondary" className="text-xs">
+                      {tool}
+                    </Badge>
                   ))}
                 </div>
-                <Button size="sm">View Case Study</Button>
+                
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${
+                          i < project.rating ? 'text-yellow-500 fill-current' : 'text-muted-foreground'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <Button size="sm">View Case Study</Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 }
 
