@@ -15,6 +15,7 @@ const serviceIcons: { [key: string]: React.ElementType } = {
   "Video Editing": Film,
   "Videography": Monitor,
   "Product Design": ShoppingBag,
+  "Brand Campaigns": Zap,
 };
 
 const containerVariants = {
@@ -42,10 +43,10 @@ export default function ServicesPage() {
       animate="visible"
     >
       <PageHeader
-        title="Creative Services"
+        title={<span className="text-gradient">Creative Services</span>}
         subtitle="Comprehensive solutions for your vision"
         description="Explore our full spectrum of creative services designed to transform your ideas into impactful visual stories"
-        className="bg-gradient-to-b from-secondary to-background"
+        className="bg-gradient-to-b from-secondary/50 to-background"
       />
 
       {/* Services Overview */}
@@ -56,7 +57,7 @@ export default function ServicesPage() {
               What We Offer
             </Badge>
             <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6 tracking-tight">
-              Tailored Creative <span className="text-primary">Solutions</span>
+              Tailored Creative <span className="text-gradient">Solutions</span>
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
               Each service is crafted with precision and passion, ensuring your vision is not just met, but exceeded.
@@ -66,14 +67,14 @@ export default function ServicesPage() {
           {/* Services Grid - Enhanced */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
-              const Icon = serviceIcons[service.title];
+              const Icon = serviceIcons[service.title] || Sparkles;
               return (
-                <div 
+                <motion.div 
                   key={service.id} 
-                  className="animate-fade-in-up hover:transform hover:-translate-y-2 transition-all duration-300"
-                  style={{ animationDelay: `${index * 150}ms` }}
+                  variants={itemVariants}
+                  className="hover:transform hover:-translate-y-2 transition-all duration-300"
                 >
-                  <Card className="h-full flex flex-col border-2 border-primary/5 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 group overflow-hidden">
+                  <Card className="h-full flex flex-col border-2 border-primary/5 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 group overflow-hidden bg-card/50 backdrop-blur-sm">
                     {/* Service Icon & Header */}
                     <CardHeader className="pb-6 relative">
                       <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -87,7 +88,7 @@ export default function ServicesPage() {
                           </div>
                         </div>
                         <Badge variant="secondary" className="text-xs font-semibold bg-primary/10 text-primary hover:bg-primary/20">
-                          Service 0{index + 1}
+                          {service.division}
                         </Badge>
                       </div>
                       <CardTitle className="font-headline text-2xl md:text-3xl mb-3 text-foreground group-hover:text-primary transition-colors">
@@ -135,7 +136,7 @@ export default function ServicesPage() {
                       </Button>
                     </CardFooter>
                   </Card>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -150,7 +151,7 @@ export default function ServicesPage() {
               Our Process
             </Badge>
             <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6 tracking-tight">
-              How We <span className="text-primary">Work</span>
+              How We <span className="text-gradient">Work</span>
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
               A streamlined process designed for seamless collaboration and exceptional results.
@@ -184,8 +185,8 @@ export default function ServicesPage() {
                 icon: CheckCircle
               }
             ].map((step, index) => (
-              <div key={index} className="text-center animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
-                <Card className="border-2 border-primary/5 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+              <motion.div key={index} variants={itemVariants} className="text-center">
+                <Card className="border-2 border-primary/5 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 bg-card/50 backdrop-blur-sm">
                   <CardContent className="p-8">
                     <div className="flex items-center justify-center h-20 w-20 rounded-full bg-primary/10 text-primary mx-auto mb-6 group">
                       <span className="text-3xl font-headline font-bold text-primary">{step.step}</span>
@@ -194,7 +195,7 @@ export default function ServicesPage() {
                     <p className="text-muted-foreground">{step.description}</p>
                   </CardContent>
                 </Card>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
