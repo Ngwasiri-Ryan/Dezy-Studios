@@ -1,8 +1,6 @@
-
 'use client';
 
 import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { PageHeader } from "@/components/shared/page-header";
 import { portfolio } from "@/lib/data";
@@ -26,6 +24,8 @@ import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Link from "next/link";
+
 
 // Enhanced portfolio data with more details
 const enhancedPortfolio = portfolio.map((project, index) => ({
@@ -96,6 +96,17 @@ const floatAnimation = {
   }
 };
 
+const getCategoryIcon = (category: string) => {
+    switch(category) {
+      case 'Photography': return Camera;
+      case 'Graphic Design': return Palette;
+      case 'Videography': return Video;
+      case 'Video Editing': return FilmIcon;
+      case 'Brand Campaigns': return Briefcase;
+      default: return FolderOpen;
+    }
+  };
+
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [activeYear, setActiveYear] = useState('All');
@@ -160,18 +171,6 @@ export default function PortfolioPage() {
 
     return () => clearInterval(interval);
   }, [autoPlay, totalPages]);
-
-  // Get category icon
-  const getCategoryIcon = (category: string) => {
-    switch(category) {
-      case 'Photography': return Camera;
-      case 'Graphic Design': return Palette;
-      case 'Videography': return Video;
-      case 'Video Editing': return FilmIcon;
-      case 'Brand Campaigns': return Briefcase;
-      default: return FolderOpen;
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background overflow-hidden">
@@ -791,9 +790,11 @@ export default function PortfolioPage() {
                   size="lg"
                   className="px-12 py-8 text-xl border-2 border-white text-white hover:bg-white/10 hover:scale-105 transition-all duration-300"
                 >
-                  <Link href="/contact" className="flex items-center gap-4">
-                    <Download className="w-6 h-6" />
-                    Download Portfolio PDF
+                  <Link href="/contact">
+                    <span className="flex items-center gap-4">
+                      <Download className="w-6 h-6" />
+                      Download Portfolio PDF
+                    </span>
                   </Link>
                 </Button>
               </motion.div>
@@ -801,16 +802,6 @@ export default function PortfolioPage() {
           </div>
         </motion.section>
       </motion.div>
-      <style jsx global>{`
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient-flow {
-          background-size: 200% 200%;
-          animation: gradient 15s ease infinite;
-        }
-      `}</style>
     </div>
   );
 }
@@ -822,17 +813,6 @@ interface ProjectCardProps {
   isSelected: boolean;
   onSelect: () => void;
 }
-
-const getCategoryIcon = (category: string) => {
-    switch(category) {
-      case 'Photography': return Camera;
-      case 'Graphic Design': return Palette;
-      case 'Videography': return Video;
-      case 'Video Editing': return FilmIcon;
-      case 'Brand Campaigns': return Briefcase;
-      default: return FolderOpen;
-    }
-  };
 
 function ProjectCard({ project, viewMode, isSelected, onSelect }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -1076,3 +1056,16 @@ function ProjectListCard({ project, isSelected, onSelect }: { project: any, isSe
   );
 }
 
+// Add missing CSS animation
+const GlobalStyles = () => (
+  <style jsx global>{`
+    @keyframes gradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .animate-gradient-flow {
+      background-size: 200% 200%;
+      animation: gradient 15s ease infinite;
+    }
+  `}</style>
+);
