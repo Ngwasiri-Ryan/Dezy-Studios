@@ -72,7 +72,7 @@ export default function ServiceExplorerPage() {
   const slug = params.slug as string;
 
   const service = services.find((s) => s.id === slug);
-  const relevantProjects = portfolio.filter((p) => p.category === service?.title).slice(0, 6);
+  const relevantProjects = portfolio.filter((p) => p.category === service?.title).slice(0, 8);
   const relevantTestimonial = testimonials.find((t) => t.id === 't2');
 
   const { scrollYProgress } = useScroll();
