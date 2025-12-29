@@ -18,10 +18,9 @@ import {
   Rocket,
   Shield,
   ArrowLeft,
-  Eye
+  Eye,
 } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { PageHeader } from '@/components/shared/page-header';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -83,14 +82,16 @@ export default function ServiceExplorerPage() {
   if (!service) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-background text-center">
-        <h1 className="text-4xl font-bold">Service Not Found</h1>
-        <p className="text-muted-foreground mt-4">The service you're looking for doesn't exist.</p>
-        <Button asChild className="mt-8" onClick={() => router.back()}>
-          <Link href="/services">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Services
-          </Link>
-        </Button>
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
+            <h1 className="text-4xl font-bold">Service Not Found</h1>
+            <p className="text-muted-foreground mt-4">The service you're looking for doesn't exist.</p>
+            <Button asChild className="mt-8" onClick={() => router.back()}>
+                <Link href="/services">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back to Services
+                </Link>
+            </Button>
+        </motion.div>
       </div>
     );
   }
@@ -131,27 +132,26 @@ export default function ServiceExplorerPage() {
       {/* 2. Visual Introduction */}
       <motion.section variants={fadeInUp} className="py-20 md:py-28 container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold">Visual Showcase</h2>
-          <p className="text-muted-foreground mt-2">A gallery of our work in {service.title}.</p>
+          <motion.h2 variants={fadeInUp} className="text-3xl font-bold">Visual Showcase</motion.h2>
+          <motion.p variants={fadeInUp} className="text-muted-foreground mt-2">A gallery of our work in {service.title}.</motion.p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {relevantProjects.map((project, index) => {
             const projectImage = getPlaceholderImage(project.imageId);
-            const span = index === 0 || index === 3 ? "md:col-span-2" : "";
+            const spanClass = index === 0 || index === 3 ? "lg:col-span-2" : "";
             return (
               projectImage && (
                 <motion.div
                   key={project.id}
                   variants={fadeInUp}
-                  className={`overflow-hidden rounded-xl group relative aspect-video md:aspect-auto ${span}`}
+                  className={`overflow-hidden rounded-xl group relative aspect-video ${spanClass}`}
                   whileHover={{ scale: 1.03 }}
                 >
                   <Link href={`/portfolio/${project.id}/details`}>
                     <Image
                       src={projectImage.imageUrl}
                       alt={project.title}
-                      width={800}
-                      height={600}
+                      fill
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       data-ai-hint={projectImage.imageHint}
                     />
@@ -164,12 +164,12 @@ export default function ServiceExplorerPage() {
               )
             );
           })}
-        </div>
+        </motion.div>
       </motion.section>
 
       {/* 3. Service Story / Description */}
       <motion.section variants={fadeInUp} className="py-20 md:py-28 bg-secondary/50">
-        <div className="container mx-auto px-4">
+        <motion.div variants={staggerContainer} className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
             <motion.div variants={fadeInUp}>
               <Badge className="mb-4">Our Approach</Badge>
@@ -200,19 +200,21 @@ export default function ServiceExplorerPage() {
               </motion.div>
             )}
           </div>
-        </div>
+        </motion.div>
       </motion.section>
 
       {/* 4. Sub-Services Breakdown */}
       <motion.section variants={fadeInUp} className="py-20 md:py-28 container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge variant="outline" className="mb-4">Core Offerings</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold">What's Included</h2>
-          <p className="text-lg text-muted-foreground mt-4">
-            A closer look at the specific capabilities within our {service.title} service.
-          </p>
+          <motion.div variants={fadeInUp}>
+            <Badge variant="outline" className="mb-4">Core Offerings</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold">What's Included</h2>
+            <p className="text-lg text-muted-foreground mt-4">
+              A closer look at the specific capabilities within our {service.title} service.
+            </p>
+          </motion.div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {service.subServices?.map((sub, index) => (
             <motion.div key={index} variants={fadeInUp} className="relative group">
                <div className="absolute -inset-2 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity -z-10"/>
@@ -225,18 +227,20 @@ export default function ServiceExplorerPage() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.section>
 
       {/* 5. Process / Behind-the-Scenes */}
       <motion.section variants={fadeInUp} className="py-20 md:py-28 bg-secondary/50">
-        <div className="container mx-auto px-4">
+        <motion.div variants={staggerContainer} className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge className="mb-4">Our Workflow</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold">Our Creative Process</h2>
-            <p className="text-lg text-muted-foreground mt-4">
-              A transparent look at how we bring your ideas to life, from start to finish.
-            </p>
+            <motion.div variants={fadeInUp}>
+                <Badge className="mb-4">Our Workflow</Badge>
+                <h2 className="text-4xl md:text-5xl font-bold">Our Creative Process</h2>
+                <p className="text-lg text-muted-foreground mt-4">
+                A transparent look at how we bring your ideas to life, from start to finish.
+                </p>
+            </motion.div>
           </div>
           <div className="max-w-5xl mx-auto">
             {processSteps.map((step, index) => {
@@ -245,29 +249,37 @@ export default function ServiceExplorerPage() {
               return (
                 <motion.div key={index} variants={fadeInUp} className={`flex items-center gap-8 ${isEven ? 'flex-row' : 'flex-row-reverse'} ${index < processSteps.length - 1 ? 'mb-12' : ''}`}>
                     <div className="flex-1">
-                      <div className="p-6 bg-card rounded-lg shadow-sm border border-transparent hover:border-primary/20 transition-colors">
+                      <motion.div
+                        whileHover={{ y: -5 }}
+                        className="p-6 bg-card rounded-lg shadow-sm border border-transparent hover:border-primary/20 transition-all duration-300"
+                      >
                         <Badge variant="outline" className="mb-3">{`Step 0${index+1}`}</Badge>
                         <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
                         <p className="text-muted-foreground">{step.description}</p>
-                      </div>
+                      </motion.div>
                     </div>
                     <div className="hidden md:flex flex-1 items-center justify-center">
-                      <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20">
-                          <Icon className="w-12 h-12 text-primary" />
-                      </div>
+                        <motion.div
+                            whileHover={{ scale: 1.1, rotate: 5 }}
+                            className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20"
+                        >
+                            <Icon className="w-12 h-12 text-primary" />
+                        </motion.div>
                     </div>
                 </motion.div>
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </motion.section>
 
       {/* 7. Social Proof */}
       {relevantTestimonial && (
         <motion.section variants={fadeInUp} className="py-20 md:py-28 bg-background">
-          <div className="container mx-auto px-4 text-center max-w-3xl">
-            <Sparkles className="w-12 h-12 text-primary mx-auto mb-6" />
+          <motion.div variants={staggerContainer} className="container mx-auto px-4 text-center max-w-3xl">
+            <motion.div variants={fadeInUp}>
+                <Sparkles className="w-12 h-12 text-primary mx-auto mb-6" />
+            </motion.div>
             <motion.p variants={fadeInUp} className="text-2xl md:text-3xl italic text-foreground mb-8">"{relevantTestimonial.feedback}"</motion.p>
             <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4">
               <Avatar className="w-16 h-16 border-2 border-primary/50">
@@ -279,7 +291,7 @@ export default function ServiceExplorerPage() {
                 <p className="text-sm text-muted-foreground">{relevantTestimonial.company}</p>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.section>
       )}
 
@@ -289,23 +301,23 @@ export default function ServiceExplorerPage() {
         className="py-20 md:py-32 text-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white relative"
       >
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
-        <div className="container mx-auto px-4 relative">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready to start your project?</h2>
-          <p className="text-xl max-w-2xl mx-auto mb-8 text-white/90">
-            Let's create something meaningful together.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-200 group">
-              <Link href="/contact">
-                Get a Free Quote
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-              <Link href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || "#"}>Chat on WhatsApp</Link>
-            </Button>
-          </div>
-        </div>
+        <motion.div variants={staggerContainer} className="container mx-auto px-4 relative">
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-4">Ready to start your project?</motion.h2>
+            <motion.p variants={fadeInUp} className="text-xl max-w-2xl mx-auto mb-8 text-white/90">
+                Let's create something meaningful together.
+            </motion.p>
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-200 group">
+                <Link href="/contact">
+                    Get a Free Quote
+                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+                <Link href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || "#"}>Chat on WhatsApp</Link>
+                </Button>
+            </motion.div>
+        </motion.div>
       </motion.section>
     </motion.div>
   );
