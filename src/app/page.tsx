@@ -11,7 +11,7 @@ import {
   Maximize2, Sparkle, Cloud, Layers, Compass, Target as TargetIcon,
   Circle, Hexagon, Triangle, Diamond, Brain, Palette as PaletteIcon,
   Film as FilmIcon, Music, Zap as ZapIcon, Waves, Gauge, Cpu,
-  Command, Gem, Crown, TrendingUp as TrendingUpIcon, Wind
+  Command, Gem, Crown, TrendingUp as TrendingUpIcon, Wind, Printer, ShoppingBag
 } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 
@@ -30,7 +30,7 @@ const homeServices = [
   {
     icon: Camera,
     title: 'Photography',
-    division: 'Dezy Arts',
+    division: 'Dezy Studios',
     description: 'Capturing timeless moments with professional precision and artistic vision.',
     color: 'from-blue-500/20 to-purple-500/10',
     gradient: 'linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%)',
@@ -40,10 +40,10 @@ const homeServices = [
     icon: Palette,
     title: 'Graphic Design',
     division: 'Dezy Arts',
-    description: 'Creating stunning visuals for brand identities, marketing materials, and custom accessories.',
+    description: 'Creating stunning visuals for brand identities, marketing materials, and more.',
     color: 'from-emerald-500/20 to-cyan-500/10',
     gradient: 'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)',
-    features: ['Logos & Branding', 'Print & Digital', 'Custom Gifts']
+    features: ['Logos & Branding', 'Flyers & Posters', 'Social Media']
   },
   {
     icon: Video,
@@ -55,22 +55,22 @@ const homeServices = [
     features: ['Commercial Films', 'Event Coverage', 'Corporate Videos']
   },
   {
-    icon: Film,
-    title: 'Video Editing',
-    division: 'Dezy Studios',
-    description: 'Transforming raw footage into compelling stories that engage and inspire.',
+    icon: Printer,
+    title: 'Screen Printing',
+    division: 'Dezy Arts',
+    description: 'High-quality custom apparel printing for any occasion.',
     color: 'from-amber-500/20 to-orange-500/10',
     gradient: 'linear-gradient(135deg, #F59E0B 0%, #F97316 100%)',
-    features: ['Color Grading', 'Motion Graphics', 'Sound Design']
+    features: ['T-Shirts & Hoodies', 'Team Apparel', 'Event Merchandise']
   },
   {
-    icon: Briefcase,
-    title: 'Brand Campaigns',
-    division: 'Dezy Studios',
-    description: 'End-to-end production for impactful brand campaigns.',
+    icon: ShoppingBag,
+    title: 'Product Design',
+    division: 'Dezy Arts',
+    description: 'Unique and tangible creative products and accessories.',
     color: 'from-violet-500/20 to-fuchsia-500/10',
     gradient: 'linear-gradient(135deg, #8B5CF6 0%, #D946EF 100%)',
-    features: ['Strategy & Planning', 'Multi-platform', 'Analytics & ROI']
+    features: ['Custom Keychains', 'Resin Art', 'Personalized Gifts']
   },
 ];
 
@@ -479,7 +479,9 @@ export default function Home() {
                 Where Vision
               </span>
               <br />
-              <span className="text-foreground">Meets Execution</span>
+              <span className="text-foreground">
+                Meets Execution
+              </span>
             </h2>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
