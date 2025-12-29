@@ -2,46 +2,60 @@ import type { Service, PortfolioItem, Product, Testimonial, FaqItem, JourneyItem
 
 export const services: Service[] = [
   {
-    id: "photography",
-    title: "Photography",
-    division: "Dezy Arts",
-    shortDescription: "Capturing moments that last a lifetime.",
-    longDescription: "Specializing in event, portrait, and wedding photography. My goal is to capture the essence of every moment with a creative and artistic approach, delivering images that you will cherish forever."
-  },
-  {
     id: "graphic-design",
     title: "Graphic Design",
     division: "Dezy Arts",
-    shortDescription: "Visual identities that tell your story.",
-    longDescription: "From logos and branding to marketing materials, I create compelling visual designs that communicate your message effectively and help your business stand out from the competition."
+    shortDescription: "Visual communication & branding solutions.",
+    longDescription: "From logos and brand identity to flyers, posters, and social media graphics, we create compelling visuals that tell your story and elevate your brand."
   },
   {
-    id: "video-editing",
-    title: "Video Editing",
-    division: "Dezy Studios",
-    shortDescription: "Crafting compelling narratives from your footage.",
-    longDescription: "I provide professional video editing services for content creators, businesses, and individuals. I transform raw footage into polished, engaging videos that captivate your audience."
-  },
-  {
-    id: "videography",
-    title: "Videography",
-    division: "Dezy Studios",
-    shortDescription: "Bringing your vision to life through motion.",
-    longDescription: "From corporate videos to cinematic wedding films, I offer high-quality videography services. I handle everything from planning and shooting to final production."
-  },
-  {
-    id: "product-design",
-    title: "Product Design",
+    id: "screen-printing",
+    title: "Screen Printing",
     division: "Dezy Arts",
-    shortDescription: "Custom apparel and merchandise.",
-    longDescription: "I design and create custom merchandise including t-shirts, sweaters, and mugs. Perfect for personal use, gifts, or branding your business."
+    shortDescription: "Professional apparel printing.",
+    longDescription: "We offer high-quality screen printing for custom T-shirts, hoodies, sweaters, and hats, ensuring your designs are vibrant and durable."
+  },
+  {
+    id: "resin-art",
+    title: "Resin Art",
+    division: "Dezy Arts",
+    shortDescription: "Handcrafted decorative resin pieces.",
+    longDescription: "Explore our unique, handcrafted resin art, including decorative pieces and custom artworks that add an artistic touch to any space."
+  },
+  {
+    id: "stone-engraving",
+    title: "Stone Engraving",
+    division: "Dezy Arts",
+    shortDescription: "Precision engraving on stone surfaces.",
+    longDescription: "We provide precision engraving on various stone surfaces, creating memorial stones, decorative art, and custom pieces with text and symbols."
+  },
+  {
+    id: "custom-merchandise",
+    title: "Custom Merchandise",
+    division: "Dezy Arts",
+    shortDescription: "Personalized products for individuals & brands.",
+    longDescription: "Bring your brand to life with personalized products, including printed mugs, custom apparel, and other branded gifts perfect for any occasion."
+  },
+  {
+    id: "photography",
+    title: "Photography",
+    division: "Dezy Studios",
+    shortDescription: "High-quality visual storytelling.",
+    longDescription: "We offer professional photography services including portraits, events, lifestyle, and product photography, capturing moments with artistry and precision."
+  },
+  {
+    id: "videography-editing",
+    title: "Videography & Video Editing",
+    division: "Dezy Studios",
+    shortDescription: "Full video production & post-production.",
+    longDescription: "From shooting events and promotional videos to crafting engaging social media reels, our end-to-end video services include expert post-production and editing."
   },
   {
     id: 'brand-campaigns',
-    title: 'Brand Campaigns',
+    title: 'Brand Campaign Production',
     division: 'Dezy Studios',
-    shortDescription: 'End-to-end production for brand campaigns.',
-    longDescription: 'We develop and execute full-scale brand campaigns, from initial concept and storyboarding to final delivery, ensuring a cohesive and impactful message across all media.'
+    shortDescription: 'End-to-end visual campaigns for brands.',
+    longDescription: 'We develop and execute full-scale brand campaigns, from creative direction and campaign shoots to visual strategy, ensuring a cohesive and impactful message.'
   }
 ];
 
@@ -50,7 +64,7 @@ export const portfolio: PortfolioItem[] = [
     id: "p1",
     title: "Sunset Portrait",
     description: "A stunning portrait session during the golden hour.",
-    division: "Dezy Arts",
+    division: "DezyStudios",
     category: "Photography",
     subCategory: "Portrait Photography",
     imageId: "project-photo-1",
@@ -60,7 +74,7 @@ export const portfolio: PortfolioItem[] = [
     id: "p2",
     title: "Mountain Majesty",
     description: "Capturing the serene beauty of the mountains at dawn.",
-    division: "Dezy Arts",
+    division: "DezyStudios",
     category: "Photography",
     subCategory: "Creative / Conceptual",
     imageId: "project-photo-2",
@@ -70,7 +84,7 @@ export const portfolio: PortfolioItem[] = [
     id: "p3",
     title: "Concert Vibes",
     description: "Dynamic shots from a live music event.",
-    division: "Dezy Arts",
+    division: "DezyStudios",
     category: "Photography",
     subCategory: "Event Photography",
     imageId: "project-photo-3",

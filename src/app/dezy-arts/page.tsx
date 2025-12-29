@@ -37,10 +37,10 @@ const staggerContainer = {
 };
 
 const servicesList = [
-  { icon: Layers, title: "Brand & Logo Design", description: "Crafting memorable visual identities." },
-  { icon: PenTool, title: "Graphic Design", description: "Visuals for digital and print media." },
-  { icon: ShoppingBag, title: "Custom Apparel & Prints", description: "Tangible products with artistic flair." },
-  { icon: Tv, title: "Visual Assets", description: "Graphics for social media and websites." },
+    { icon: Layers, title: "Graphic Design", description: "Logo Design, Brand Identity, Flyers & Posters, Social Media Graphics." },
+    { icon: Printer, title: "Screen Printing", description: "Custom T-Shirts, Hoodies, Sweaters, and Hats." },
+    { icon: Wand2, title: "Resin Art", description: "Decorative Resin Pieces and Custom Artworks." },
+    { icon: Brush, title: "Stone Engraving", description: "Memorial Stones and Decorative Stone Art." },
 ];
 
 const processSteps = [
@@ -145,7 +145,7 @@ export default function DezyArtsPage() {
               <Badge variant="secondary" className="mb-4 text-primary bg-primary/10">The Vision</Badge>
               <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6">Where Ideas Become Tangible</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Dezy Arts is the design and print arm of Dezy’s creative practice. It's where ideas are transformed into tangible expressions through thoughtful visuals, high-quality print, and unique product design. We focus on creating assets that not only look beautiful but also communicate with purpose.
+                Dezy Arts is the design, print, and crafted products arm of Dezy’s creative practice. It's where ideas are transformed into tangible expressions through thoughtful visuals, high-quality prints, and unique handcrafted items.
               </p>
             </motion.div>
           </div>

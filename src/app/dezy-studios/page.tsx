@@ -11,7 +11,7 @@ import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { portfolio, testimonials } from "@/lib/data";
 import { 
   ArrowRight, Camera, Video, Film, Clapperboard, MonitorPlay, Eye, 
-  Users, Target, Sparkles, CheckCircle, Heart, Star
+  Users, Target, Sparkles, CheckCircle, Heart, Star, Briefcase
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -36,9 +36,9 @@ const staggerContainer = {
 };
 
 const servicesList = [
-  { icon: Camera, title: "Photography", description: "Capturing moments with artistry and precision." },
-  { icon: Video, title: "Videography", description: "Cinematic storytelling for brands and events." },
-  { icon: Film, title: "Video Editing", description: "Polishing footage into a compelling narrative." },
+  { icon: Camera, title: "Photography", description: "Portraits, Events, Lifestyle, and Product Photography." },
+  { icon: Video, title: "Videography & Video Editing", description: "Events, Promotional Videos, Social Media Reels, and Post-Production." },
+  { icon: Briefcase, title: "Brand Campaign Production", description: "Creative Direction, Campaign Shoots, and Visual Strategy." },
   { icon: Target, title: "Content Creation", description: "Strategic visuals that engage and convert." },
 ];
 
@@ -129,7 +129,7 @@ export default function DezyStudiosPage() {
               <Badge variant="secondary" className="mb-4 text-primary bg-primary/10">The Mission</Badge>
               <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6">Capturing Life in Motion</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Dezy Studios is the photography and videography identity focused on capturing moments, brands, and stories. From the quiet emotion of a portrait to the dynamic energy of a brand film, we create visuals that resonate and endure.
+                Dezy Studios is the visual media and production house of Dezy Enterprise. We specialize in photography, videography, and full-scale brand campaign production, focusing on capturing moments and telling stories that resonate and endure.
               </p>
             </motion.div>
             <motion.div variants={fadeInUp}>

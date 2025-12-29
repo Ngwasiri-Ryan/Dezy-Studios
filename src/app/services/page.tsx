@@ -7,15 +7,21 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/lib/data";
-import { ArrowRight, Camera, Film, Monitor, Palette, ShoppingBag, Sparkles, CheckCircle, Zap, Target, Users } from "lucide-react";
+import { ArrowRight, Camera, Film, Monitor, Palette, ShoppingBag, Sparkles, CheckCircle, Zap, Target, Users, Wand2, Brush, Printer } from "lucide-react";
 
 const serviceIcons: { [key: string]: React.ElementType } = {
   "Photography": Camera,
   "Graphic Design": Palette,
   "Video Editing": Film,
   "Videography": Monitor,
+  "Videography & Video Editing": Film,
   "Product Design": ShoppingBag,
   "Brand Campaigns": Zap,
+  "Screen Printing": Printer,
+  "Resin Art": Wand2,
+  "Stone Engraving": Brush,
+  "Custom Merchandise": ShoppingBag,
+  "Brand Campaign Production": Zap,
 };
 
 const containerVariants = {
