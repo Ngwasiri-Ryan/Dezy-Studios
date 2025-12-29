@@ -37,10 +37,11 @@ const staggerContainer = {
 };
 
 const servicesList = [
-    { icon: Layers, title: "Graphic Design", description: "Logo Design, Brand Identity, Flyers & Posters, Social Media Graphics." },
+    { icon: Layers, title: "Graphic Design", description: "Logos, brand identity, flyers, posters, backdrops, and social media graphics." },
     { icon: Printer, title: "Screen Printing", description: "Custom T-Shirts, Hoodies, Sweaters, and Hats." },
     { icon: Wand2, title: "Resin Art", description: "Decorative Resin Pieces and Custom Artworks." },
     { icon: Brush, title: "Stone Engraving", description: "Memorial Stones and Decorative Stone Art." },
+    { icon: ShoppingBag, title: "Custom Accessories", description: "Keychains, bracelets, necklaces, watches, and more." },
 ];
 
 const processSteps = [
@@ -213,7 +214,7 @@ export default function DezyArtsPage() {
             <Badge className="mb-4 bg-primary/10 text-primary">What We Do</Badge>
             <h2 className="text-4xl md:text-5xl font-headline font-bold">Core Services</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesList.map((service, index) => {
               const Icon = service.icon;
               return (

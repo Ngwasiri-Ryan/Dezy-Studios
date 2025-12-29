@@ -6,7 +6,7 @@ export const services: Service[] = [
     title: "Graphic Design",
     division: "Dezy Arts",
     shortDescription: "Visual communication & branding solutions.",
-    longDescription: "From logos and brand identity to flyers, posters, and social media graphics, we create compelling visuals that tell your story and elevate your brand."
+    longDescription: "From logos and brand identity to flyers, posters, backdrops and social media graphics, we create compelling visuals that tell your story and elevate your brand."
   },
   {
     id: "screen-printing",
@@ -34,7 +34,7 @@ export const services: Service[] = [
     title: "Custom Merchandise",
     division: "Dezy Arts",
     shortDescription: "Personalized products for individuals & brands.",
-    longDescription: "Bring your brand to life with personalized products, including printed mugs, custom apparel, and other branded gifts perfect for any occasion."
+    longDescription: "Bring your brand to life with personalized products, including printed mugs, custom apparel, and other branded gifts like keychains, bracelets, necklaces, and watches."
   },
   {
     id: "photography",

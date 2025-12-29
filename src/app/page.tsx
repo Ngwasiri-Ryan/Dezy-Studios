@@ -40,10 +40,10 @@ const homeServices = [
     icon: Palette,
     title: 'Graphic Design',
     division: 'Dezy Arts',
-    description: 'Creating stunning visual identities that make your brand stand out.',
+    description: 'Creating stunning visuals for brand identities, marketing materials, and custom accessories.',
     color: 'from-emerald-500/20 to-cyan-500/10',
     gradient: 'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)',
-    features: ['Brand Identity', 'UI/UX Design', 'Print & Digital']
+    features: ['Logos & Branding', 'Print & Digital', 'Custom Gifts']
   },
   {
     icon: Video,
