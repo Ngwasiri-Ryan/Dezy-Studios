@@ -135,16 +135,15 @@ export default function ServiceExplorerPage() {
           <motion.h2 variants={fadeInUp} className="text-3xl font-bold">Visual Showcase</motion.h2>
           <motion.p variants={fadeInUp} className="text-muted-foreground mt-2">A gallery of our work in {service.title}.</motion.p>
         </div>
-        <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {relevantProjects.map((project, index) => {
             const projectImage = getPlaceholderImage(project.imageId);
-            const spanClass = index === 0 || index === 3 ? "lg:col-span-2" : "";
             return (
               projectImage && (
                 <motion.div
                   key={project.id}
                   variants={fadeInUp}
-                  className={`overflow-hidden rounded-xl group relative aspect-video ${spanClass}`}
+                  className="overflow-hidden rounded-xl group relative aspect-square"
                   whileHover={{ scale: 1.03 }}
                 >
                   <Link href={`/portfolio/${project.id}/details`}>
