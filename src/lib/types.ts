@@ -11,6 +11,8 @@ export type Service = {
   division: Division;
   shortDescription: string;
   longDescription: string;
+  tagline?: string;
+  subServices?: string[];
 };
 
 export type PortfolioCategory = "Photography" | "Videography" | "Video Editing" | "Graphic Design" | "Product Design" | "Creative Direction" | "Case Studies" | "Experimental";

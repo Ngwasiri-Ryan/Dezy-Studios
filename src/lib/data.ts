@@ -5,57 +5,73 @@ export const services: Service[] = [
     id: "graphic-design",
     title: "Graphic Design",
     division: "Dezy Arts",
+    tagline: "Visual communication & branding solutions that speak volumes.",
     shortDescription: "Visual communication & branding solutions.",
-    longDescription: "From logos and brand identity to flyers, posters, backdrops and social media graphics, we create compelling visuals that tell your story and elevate your brand."
+    longDescription: "From logos and brand identity to flyers, posters, backdrops and social media graphics, we create compelling visuals that tell your story and elevate your brand.",
+    subServices: ["Logo Design", "Brand Identity", "Flyers & Posters", "Social Media Graphics"],
   },
   {
     id: "screen-printing",
     title: "Screen Printing",
     division: "Dezy Arts",
+    tagline: "High-quality custom apparel that makes a statement.",
     shortDescription: "Professional apparel printing.",
-    longDescription: "We offer high-quality screen printing for custom T-shirts, hoodies, sweaters, and hats, ensuring your designs are vibrant and durable."
+    longDescription: "We offer high-quality screen printing for custom T-shirts, hoodies, sweaters, and hats, ensuring your designs are vibrant and durable.",
+    subServices: ["Custom T-Shirts", "Hoodies", "Sweaters", "Hats"],
   },
   {
     id: "resin-art",
     title: "Resin Art",
     division: "Dezy Arts",
+    tagline: "Unique, handcrafted resin pieces that captivate and inspire.",
     shortDescription: "Handcrafted decorative resin pieces.",
-    longDescription: "Explore our unique, handcrafted resin art, including decorative pieces and custom artworks that add an artistic touch to any space."
+    longDescription: "Explore our unique, handcrafted resin art, including decorative pieces and custom artworks that add an artistic touch to any space.",
+    subServices: ["Decorative Pieces", "Custom Artworks", "Coasters", "Jewelry"],
   },
   {
     id: "stone-engraving",
     title: "Stone Engraving",
     division: "Dezy Arts",
+    tagline: "Timeless memories, etched in stone.",
     shortDescription: "Precision engraving on stone surfaces.",
-    longDescription: "We provide precision engraving on various stone surfaces, creating memorial stones, decorative art, and custom pieces with text and symbols."
+    longDescription: "We provide precision engraving on various stone surfaces, creating memorial stones, decorative art, and custom pieces with text and symbols.",
+    subServices: ["Memorial Stones", "Decorative Stone Art", "Custom Text & Symbols"],
   },
   {
     id: "custom-merchandise",
     title: "Custom Merchandise",
     division: "Dezy Arts",
+    tagline: "Tangible brand expressions, from gifts to gear.",
     shortDescription: "Personalized products for individuals & brands.",
-    longDescription: "Bring your brand to life with personalized products, including printed mugs, custom apparel, and other branded gifts like keychains, bracelets, necklaces, and watches."
+    longDescription: "Bring your brand to life with personalized products, including printed mugs, custom apparel, keychains, bracelets, necklaces, watches and other branded gifts.",
+    subServices: ["Printed Mugs", "Custom Apparel", "Keychains & Bracelets", "Branded Gifts"],
   },
   {
     id: "photography",
     title: "Photography",
     division: "Dezy Studios",
+    tagline: "Capturing the moments that matter, with artistry and precision.",
     shortDescription: "High-quality visual storytelling.",
-    longDescription: "We offer professional photography services including portraits, events, lifestyle, and product photography, capturing moments with artistry and precision."
+    longDescription: "We offer professional photography services including portraits, events, lifestyle, and product photography, capturing moments with artistry and precision.",
+    subServices: ["Portraits", "Events", "Lifestyle", "Product Photography"],
   },
   {
-    id: "videography-editing",
+    id: "videography-video-editing",
     title: "Videography & Video Editing",
     division: "Dezy Studios",
+    tagline: "Cinematic stories, from lens to final cut.",
     shortDescription: "Full video production & post-production.",
-    longDescription: "From shooting events and promotional videos to crafting engaging social media reels, our end-to-end video services include expert post-production and editing."
+    longDescription: "From shooting events and promotional videos to crafting engaging social media reels, our end-to-end video services include expert post-production and editing.",
+    subServices: ["Event Coverage", "Promotional Videos", "Social Media Reels", "Post-Production"],
   },
   {
-    id: 'brand-campaigns',
+    id: 'brand-campaign-production',
     title: 'Brand Campaign Production',
     division: 'Dezy Studios',
+    tagline: 'End-to-end visual campaigns that captivate and convert.',
     shortDescription: 'End-to-end visual campaigns for brands.',
-    longDescription: 'We develop and execute full-scale brand campaigns, from creative direction and campaign shoots to visual strategy, ensuring a cohesive and impactful message.'
+    longDescription: 'We develop and execute full-scale brand campaigns, from creative direction and campaign shoots to visual strategy, ensuring a cohesive and impactful message.',
+    subServices: ["Creative Direction", "Campaign Shoots", "Visual Strategy"],
   }
 ];
 

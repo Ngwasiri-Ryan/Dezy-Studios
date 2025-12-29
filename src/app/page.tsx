@@ -11,7 +11,7 @@ import {
   Maximize2, Sparkle, Cloud, Layers, Compass, Target as TargetIcon,
   Circle, Hexagon, Triangle, Diamond, Brain, Palette as PaletteIcon,
   Film as FilmIcon, Music, Zap as ZapIcon, Waves, Gauge, Cpu,
-  Command, Gem, Crown, TrendingUp as TrendingUpIcon, Wind, Printer, ShoppingBag
+  Command, Gem, Crown, TrendingUp as TrendingUpIcon, Wind, Printer, ShoppingBag, Wand2, Brush
 } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 
@@ -28,51 +28,55 @@ import Marquee from '@/components/ui/marquee';
 
 const homeServices = [
   {
-    icon: Camera,
-    title: 'Photography',
-    division: 'Dezy Studios',
-    description: 'Capturing timeless moments with professional precision and artistic vision.',
-    color: 'from-blue-500/20 to-purple-500/10',
-    gradient: 'linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%)',
-    features: ['Portrait & Commercial', 'Event Coverage', 'Product Photography']
-  },
-  {
+    id: "graphic-design",
     icon: Palette,
     title: 'Graphic Design',
     division: 'Dezy Arts',
     description: 'Creating stunning visuals for brand identities, marketing materials, and more.',
-    color: 'from-emerald-500/20 to-cyan-500/10',
-    gradient: 'linear-gradient(135deg, #10B981 0%, #06B6D4 100%)',
-    features: ['Logos & Branding', 'Flyers & Posters', 'Social Media']
+    features: ['Logos & Branding', 'Flyers & Posters', 'Social Media'],
   },
   {
-    icon: Video,
-    title: 'Videography',
-    division: 'Dezy Studios',
-    description: 'Professional video production for events, businesses, and creative projects.',
-    color: 'from-rose-500/20 to-pink-500/10',
-    gradient: 'linear-gradient(135deg, #F43F5E 0%, #EC4899 100%)',
-    features: ['Commercial Films', 'Event Coverage', 'Corporate Videos']
-  },
-  {
+    id: "screen-printing",
     icon: Printer,
     title: 'Screen Printing',
     division: 'Dezy Arts',
     description: 'High-quality custom apparel printing for any occasion.',
-    color: 'from-amber-500/20 to-orange-500/10',
-    gradient: 'linear-gradient(135deg, #F59E0B 0%, #F97316 100%)',
-    features: ['T-Shirts & Hoodies', 'Team Apparel', 'Event Merchandise']
+    features: ['T-Shirts & Hoodies', 'Team Apparel', 'Event Merchandise'],
   },
   {
-    icon: ShoppingBag,
-    title: 'Product Design',
+    id: 'resin-art',
+    icon: Wand2,
+    title: 'Resin Art',
     division: 'Dezy Arts',
     description: 'Unique and tangible creative products and accessories.',
-    color: 'from-violet-500/20 to-fuchsia-500/10',
-    gradient: 'linear-gradient(135deg, #8B5CF6 0%, #D946EF 100%)',
-    features: ['Custom Keychains', 'Resin Art', 'Personalized Gifts']
+    features: ['Decorative Pieces', 'Custom Artworks', 'Personalized Gifts'],
+  },
+  {
+    id: 'photography',
+    icon: Camera,
+    title: 'Photography',
+    division: 'Dezy Studios',
+    description: 'Capturing timeless moments with professional precision and artistic vision.',
+    features: ['Portrait & Commercial', 'Event Coverage', 'Product Photography']
+  },
+  {
+    id: 'videography-video-editing',
+    icon: Video,
+    title: 'Videography',
+    division: 'Dezy Studios',
+    description: 'Professional video production for events, businesses, and creative projects.',
+    features: ['Commercial Films', 'Event Coverage', 'Corporate Videos']
+  },
+  {
+    id: 'brand-campaign-production',
+    icon: Briefcase,
+    title: 'Brand Campaigns',
+    division: 'Dezy Studios',
+    description: 'Full-scale brand campaigns, from creative direction to final execution.',
+    features: ['Creative Direction', 'Campaign Shoots', 'Visual Strategy'],
   },
 ];
+
 
 const stats = [
   { label: 'Projects Completed', value: 450, icon: Target, suffix: '+', color: 'text-blue-500' },
@@ -91,7 +95,6 @@ export default function Home() {
   const ctaSectionRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState('arts');
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoveredService, setHoveredService] = useState<number | null>(null);
   const [isClient, setIsClient] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -175,18 +178,18 @@ export default function Home() {
         transition={{ duration: 1.5 }}
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         onMouseMove={(e) => {
+          if (!isClient || window.innerWidth < 768) return;
           const rect = e.currentTarget.getBoundingClientRect();
-          setMousePosition({
-            x: ((e.clientX - rect.left) / rect.width - 0.5) * 20,
-            y: ((e.clientY - rect.top) / rect.height - 0.5) * 20,
-          });
+          const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+          const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
+          setMousePosition({ x, y });
         }}
         style={{
           transformStyle: 'preserve-3d',
         }}
       >
         {/* Animated Background Layers */}
-        <div className="absolute inset-0" style={{ 
+        <motion.div className="absolute inset-0" style={{ 
           transform: `translate3d(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px, 0)`,
           transition: 'transform 0.1s ease-out'
         }}>
@@ -223,7 +226,7 @@ export default function Home() {
               }}
             />
           ))}
-        </div>
+        </motion.div>
 
         {/* Content with 3D effect */}
         <motion.div 
@@ -541,7 +544,7 @@ export default function Home() {
                       {/* Animated gradient background */}
                       <div 
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                        style={{ background: service.gradient }}
+                        style={{ background: service.division === 'Dezy Arts' ? 'linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%)' : 'linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)' }}
                       />
                       
                       {/* Floating particles on hover */}
@@ -617,17 +620,18 @@ export default function Home() {
 
                         {/* Interactive button */}
                         <Button
+                          asChild
                           variant="ghost"
                           className="w-full mt-auto py-4 md:py-6 text-white hover:text-white hover:bg-white/10 border border-white/20 hover:border-white/40 transition-all duration-300 group/btn"
                         >
-                          <Link href="/services" className="flex items-center justify-center gap-2 md:gap-3">
-                            <span>Explore Service</span>
-                            <motion.div
-                              animate={{ x: [0, 5, 0] }}
-                              transition={{ duration: 1.5, repeat: Infinity }}
-                            >
-                              <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                            </motion.div>
+                          <Link href={`/services/${service.id}`} className="flex items-center justify-center gap-2 md:gap-3">
+                              <span>Explore Service</span>
+                              <motion.div
+                                animate={{ x: [0, 5, 0] }}
+                                transition={{ duration: 1.5, repeat: Infinity }}
+                              >
+                                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                              </motion.div>
                           </Link>
                         </Button>
                       </div>

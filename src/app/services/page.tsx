@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/shared/page-header";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/lib/data";
-import { ArrowRight, Camera, Film, Monitor, Palette, ShoppingBag, Sparkles, CheckCircle, Zap, Target, Users, Wand2, Brush, Printer, Wrench } from "lucide-react";
+import { ArrowRight, Camera, Film, Monitor, Palette, ShoppingBag, Sparkles, CheckCircle, Zap, Target, Users, Wand2, Brush, Printer, Wrench, Lightbulb, Rocket, Shield } from "lucide-react";
+import { Palette as PaletteIcon } from 'lucide-react';
+
 
 const serviceIcons: { [key: string]: React.ElementType } = {
   "Photography": Camera,
@@ -149,24 +150,19 @@ export default function ServicesPage() {
                           {service.shortDescription}
                         </p>
 
-                        <div className="space-y-3 mb-6">
-                            <div className="flex items-start gap-3">
-                                <CheckCircle className="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                                <span className="text-sm text-white/70">Professional quality delivery</span>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <Zap className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                                <span className="text-sm text-white/70">Fast turnaround time</span>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <Target className="h-5 w-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                                <span className="text-sm text-white/70">Customized to your needs</span>
-                            </div>
+                        <div className="mt-auto">
+                            <Button
+                            asChild
+                            variant="ghost"
+                            className="w-full mt-auto py-4 text-white hover:text-white hover:bg-white/10 border border-white/20 hover:border-white/40 transition-all duration-300 group/btn"
+                            >
+                                <Link href={`/services/${service.id}`} className="flex items-center justify-center gap-2">
+                                    <span>Explore Service</span>
+                                    <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </Button>
                         </div>
 
-                        <div className="mt-auto pt-6 border-t border-white/10">
-                            <p className="text-sm text-white/60 line-clamp-3">{service.longDescription}</p>
-                        </div>
                       </div>
 
                       {/* Shine effect */}
@@ -196,13 +192,13 @@ export default function ServicesPage() {
           </div>
 
           <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="absolute top-10 left-0 w-full h-0.5 bg-border/20 hidden md:block" />
+             <div className="absolute top-10 left-0 w-full h-0.5 bg-border/20 hidden md:block" />
             {[
               {
                 step: "01",
                 title: "Discovery",
                 description: "We listen to understand your vision, goals, and requirements.",
-                icon: Users
+                icon: Lightbulb
               },
               {
                 step: "02",
@@ -214,25 +210,27 @@ export default function ServicesPage() {
                 step: "03",
                 title: "Execution",
                 description: "Bringing the plan to life with precision and creative excellence.",
-                icon: Sparkles
+                icon: Rocket
               },
               {
                 step: "04",
                 title: "Delivery",
                 description: "Presenting the final work and ensuring your complete satisfaction.",
-                icon: CheckCircle
+                icon: Shield
               }
-            ].map((step, index) => (
+            ].map((step, index) => {
+              const Icon = step.icon;
+              return (
               <motion.div key={index} variants={itemVariants} className="text-center relative">
                   <div className="relative z-10">
                     <div className="flex items-center justify-center h-20 w-20 rounded-full bg-background border-2 border-primary/20 mx-auto mb-6 group transition-all duration-300 hover:scale-105">
-                        <span className="text-3xl font-bold text-primary">{step.step}</span>
+                        <Icon className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                     <p className="text-muted-foreground">{step.description}</p>
                   </div>
               </motion.div>
-            ))}
+            )})}
           </div>
         </div>
       </motion.section>
