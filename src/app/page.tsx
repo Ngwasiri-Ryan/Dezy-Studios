@@ -18,7 +18,6 @@ import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'fra
 import { Button } from "@/components/ui/button";
 import { services, portfolio, testimonials } from "@/lib/data";
 import { getPlaceholderImage } from "@/lib/placeholder-images";
-import { Counter } from '@/components/shared/counter';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -375,55 +374,6 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* Animated Stats with Floating Effect */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto"
-          >
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={index}
-                  className="relative group"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="relative p-4 md:p-8 rounded-2xl md:rounded-3xl backdrop-blur-sm bg-white/5 border border-white/10 group-hover:border-white/30 transition-all duration-500 overflow-hidden">
-                    {/* Animated background gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {/* Floating icon */}
-                    <motion.div
-                      className={`relative z-10 flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl ${stat.color.replace('text', 'bg')}/20 mb-4 md:mb-6 mx-auto`}
-                      animate={{ y: [0, -5, 0] }}
-                      transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                    >
-                      <Icon className={`w-6 h-6 md:w-8 md:h-8 ${stat.color}`} />
-                    </motion.div>
-                    
-                    {/* Counter with animation */}
-                    <div className="relative z-10">
-                      <div className="text-3xl md:text-4xl font-bold mb-1 md:mb-2">
-                        <Counter 
-                          from={0} 
-                          to={stat.value} 
-                          duration={3} 
-                          className={stat.color}
-                        />
-                        <span className={stat.color}>{stat.suffix}</span>
-                      </div>
-                      <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
         </motion.div>
 
         {/* Scroll Indicator with Animation */}
@@ -818,7 +768,7 @@ export default function Home() {
                   className="group relative"
                   style={{ perspective: 1000 }}
                 >
-                  <Link href={`/portfolio`}>
+                  <Link href={`/portfolio/${project.id}/details`}>
                     <div className="relative aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden">
                       {/* Image with parallax effect */}
                       <motion.div

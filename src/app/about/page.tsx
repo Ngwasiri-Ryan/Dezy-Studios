@@ -26,6 +26,21 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Marquee } from '@/components/ui/marquee';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
+import type { Metadata } from 'next';
+
+// export const metadata: Metadata = {
+//   title: 'About Dezy Enterprise',
+//   description: 'Discover the story, vision, and creative universe of Dezy Enterprise, where visual artistry meets cinematic production in a harmonious ecosystem.',
+//   openGraph: {
+//     title: 'About Dezy Enterprise',
+//     description: 'A deep dive into the philosophy and journey of Dezy Enterprise.',
+//   },
+//   twitter: {
+//     title: 'About Dezy Enterprise',
+//     description: 'A deep dive into the philosophy and journey of Dezy Enterprise.',
+//   }
+// };
+
 
 const containerVariants = {
   hidden: { opacity: 0 },

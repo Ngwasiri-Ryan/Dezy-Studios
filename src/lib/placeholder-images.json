@@ -131,6 +131,18 @@
       "description": "A high-fashion photoshoot in progress.",
       "imageUrl": "https://images.unsplash.com/photo-1609503295213-91a5f5a43588?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmYXNoaW9uJTIwcGhvdG9zaG9vdHxlbnwwfHx8fDE3MTc1OTQzMTB8MA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "fashion photoshoot"
+    },
+    {
+      "id": "team-collaboration",
+      "description": "A diverse creative team collaborating in a modern office.",
+      "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "team meeting"
+    },
+    {
+      "id": "logo-placeholder",
+      "description": "A placeholder image for a logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1747862712508-e1290330085f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsb2dvJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY2OTgwMDk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo abstract"
     }
   ]
 }

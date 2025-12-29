@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { SITE_NAME } from '@/lib/constants';
+import { getPlaceholderImage } from '@/lib/placeholder-images';
 
 type LogoProps = {
   isFooter?: boolean;
@@ -9,6 +10,8 @@ type LogoProps = {
 };
 
 export function Logo({ isFooter = false, className }: LogoProps) {
+  const logoImage = getPlaceholderImage('logo-placeholder');
+
   return (
     <Link
       href="/"
@@ -18,14 +21,16 @@ export function Logo({ isFooter = false, className }: LogoProps) {
         className
       )}
     >
-      <Image 
-        src="https://picsum.photos/seed/logo/40/40" 
-        alt={`${SITE_NAME} logo`} 
-        width={40} 
-        height={40} 
-        className="rounded-full" 
-        data-ai-hint="logo placeholder"
-      />
+      {logoImage && (
+        <Image 
+          src={logoImage.imageUrl} 
+          alt={`${SITE_NAME} logo`} 
+          width={40} 
+          height={40} 
+          className="rounded-full" 
+          data-ai-hint={logoImage.imageHint}
+        />
+      )}
       <span className="hidden sm:inline-block">{SITE_NAME}</span>
     </Link>
   );
