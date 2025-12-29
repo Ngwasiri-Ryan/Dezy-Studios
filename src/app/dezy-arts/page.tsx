@@ -11,7 +11,8 @@ import { getPlaceholderImage } from "@/lib/placeholder-images";
 import { portfolio, testimonials } from "@/lib/data";
 import { 
   ArrowRight, Palette, Printer, Brush, Sparkles, Wand2, Eye, 
-  Layers, PenTool, Tv, ShoppingBag, CheckCircle, Heart, Star
+  Layers, PenTool, Tv, ShoppingBag, CheckCircle, Heart, Star,
+  Palette as PaletteIcon
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 

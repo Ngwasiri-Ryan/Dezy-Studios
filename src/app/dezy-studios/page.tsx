@@ -192,7 +192,7 @@ export default function DezyStudiosPage() {
                                           alt={step.title}
                                           fill
                                           className="object-cover"
-                                          data-ai-hint={step.imageHint}
+                                          data-ai-hint={image.imageHint}
                                       />
                                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                                             <MonitorPlay className="w-16 h-16 text-white" />
