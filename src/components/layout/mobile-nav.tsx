@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { 
   Menu, X, ChevronDown, ChevronRight, Home, Info, LayoutGrid, 
-  Sparkles, ShoppingBag, Phone, Users, Video, Palette, Wrench
+  Sparkles, Phone, Users, Video, Palette, Wrench, ShoppingBag
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -20,7 +20,6 @@ const iconMap: { [key: string]: React.ElementType } = {
     '/services': Wrench,
     '/portfolio': LayoutGrid,
     '/testimonials': Users,
-    '/shop': ShoppingBag,
     '/contact': Phone,
     '/dezy-arts': Palette,
     '/dezy-studios': Video,

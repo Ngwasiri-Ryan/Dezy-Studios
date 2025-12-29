@@ -5,7 +5,7 @@ import { NAV_LINKS, CONTACT_DETAILS } from "@/lib/constants";
 import { Separator } from "../ui/separator";
 
 export default function Footer() {
-  const dezyArtsLinks = NAV_LINKS.filter(link => ['/portfolio', '/shop'].includes(link.href));
+  const dezyArtsLinks = NAV_LINKS.filter(link => ['/portfolio', '/services'].includes(link.href));
   const dezyStudiosLinks = NAV_LINKS.filter(link => ['/portfolio', '/services'].includes(link.href));
 
 
@@ -26,9 +26,9 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4 font-headline text-primary">Dezy Arts</h3>
             <ul className="space-y-2">
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Photography</Link></li>
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Graphic Design</Link></li>
-                <li><Link href="/shop" className="text-sm text-muted-foreground hover:text-primary">Shop Products</Link></li>
+                <li><Link href="/services" className="text-sm text-muted-foreground hover:text-primary">Photography</Link></li>
+                <li><Link href="/services" className="text-sm text-muted-foreground hover:text-primary">Graphic Design</Link></li>
+                <li><Link href="/services" className="text-sm text-muted-foreground hover:text-primary">Custom Merchandise</Link></li>
             </ul>
           </div>
           
@@ -36,9 +36,9 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4 font-headline text-primary">Dezy Studios</h3>
              <ul className="space-y-2">
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Videography</Link></li>
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Video Editing</Link></li>
-                <li><Link href="#" className="text-sm text-muted-foreground hover:text-primary">Brand Campaigns</Link></li>
+                <li><Link href="/services" className="text-sm text-muted-foreground hover:text-primary">Videography</Link></li>
+                <li><Link href="/services" className="text-sm text-muted-foreground hover:text-primary">Video Editing</Link></li>
+                <li><Link href="/services" className="text-sm text-muted-foreground hover:text-primary">Brand Campaigns</Link></li>
             </ul>
           </div>
 
