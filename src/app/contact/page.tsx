@@ -54,7 +54,7 @@ export default function ContactPage() {
             {[...Array(5)].map((_, i) => (
             <motion.div
                 key={i}
-                className="absolute w-72 h-72 rounded-full bg-gradient-to-br from-primary/5 to-secondary/5 blur-3xl"
+                className="absolute w-48 h-48 md:w-72 md:h-72 rounded-full bg-gradient-to-br from-primary/5 to-secondary/5 blur-3xl"
                 animate={{
                 x: [0, 120 * Math.sin(i), 0],
                 y: [0, 60 * Math.cos(i), 0],
@@ -85,7 +85,7 @@ export default function ContactPage() {
           </motion.h1>
         }
         description={
-          <motion.p variants={itemVariants} className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <motion.p variants={itemVariants} className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             I'm excited to hear about your project. Let's create something amazing together.
           </motion.p>
         }
@@ -97,12 +97,12 @@ export default function ContactPage() {
             
             {/* Contact Form Section */}
             <motion.div variants={itemVariants} className="lg:col-span-3">
-              <Card className="p-6 sm:p-10 border-2 border-primary/10 bg-white/5 backdrop-blur-sm">
+              <Card className="p-4 sm:p-8 md:p-10 border-2 border-primary/10 bg-white/5 backdrop-blur-sm">
                 <CardHeader className="p-0 mb-8">
                   <Badge className="mb-4">
                     Send a Message
                   </Badge>
-                  <CardTitle className="text-3xl md:text-4xl font-bold">
+                  <CardTitle className="text-2xl md:text-4xl font-bold">
                     Project Inquiry Form
                   </CardTitle>
                 </CardHeader>
@@ -114,7 +114,7 @@ export default function ContactPage() {
 
             {/* Contact Details Section */}
             <motion.div variants={itemVariants} className="lg:col-span-2 flex flex-col gap-8">
-              <h2 className="text-3xl font-bold mb-0">
+              <h2 className="text-2xl md:text-3xl font-bold mb-0">
                 Other Ways to <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">Connect</span>
               </h2>
               
@@ -130,19 +130,19 @@ export default function ContactPage() {
                         variants={itemVariants}
                         className="relative group"
                     >
-                    <div className="relative p-6 rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 group-hover:border-primary/30 group-hover:bg-primary/5">
-                        <div className="flex items-center gap-5">
-                            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
-                                <item.icon className="w-6 h-6" />
+                    <div className="relative p-4 md:p-6 rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 group-hover:border-primary/30 group-hover:bg-primary/5">
+                        <div className="flex items-center gap-4 md:gap-5">
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                                <item.icon className="w-5 h-5 md:w-6 md:h-6" />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-lg">{item.title}</h4>
+                                <h4 className="font-semibold text-base md:text-lg">{item.title}</h4>
                                 {item.href ? (
-                                    <a href={item.href} className="text-muted-foreground group-hover:text-primary transition-colors">
+                                    <a href={item.href} className="text-sm md:text-base text-muted-foreground group-hover:text-primary transition-colors">
                                         {item.value}
                                     </a>
                                 ) : (
-                                    <p className="text-muted-foreground">{item.value}</p>
+                                    <p className="text-sm md:text-base text-muted-foreground">{item.value}</p>
                                 )}
                             </div>
                         </div>
@@ -153,10 +153,10 @@ export default function ContactPage() {
               </div>
 
                <div className="mt-4">
-                    <h4 className="font-semibold text-lg mb-4">Follow Me</h4>
+                    <h4 className="font-semibold text-base md:text-lg mb-4">Follow Me</h4>
                     <div className="flex gap-4">
                         {socialLinks.map(({icon: Icon, href}, index) => (
-                            <Button key={index} asChild variant="outline" size="icon" className="w-12 h-12 rounded-lg bg-white/5 hover:bg-white/10 border-white/10 hover:border-primary/30">
+                            <Button key={index} asChild variant="outline" size="icon" className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white/5 hover:bg-white/10 border-white/10 hover:border-primary/30">
                                 <Link href={href} target="_blank">
                                     <Icon className="w-5 h-5"/>
                                 </Link>
@@ -171,8 +171,8 @@ export default function ContactPage() {
       </motion.section>
       <motion.section variants={itemVariants} className="pb-16 md:pb-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Our Location</h2>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-4xl font-bold">Our Location</h2>
             <p className="text-muted-foreground mt-2">Find us in the heart of Derby, UK.</p>
           </div>
           <MapEmbed />

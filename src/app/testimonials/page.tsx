@@ -58,7 +58,7 @@ export default function TestimonialsPage() {
         description={
           <motion.p 
             variants={itemVariants} 
-            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
           >
             Real feedback from amazing people we've had the pleasure to work with.
           </motion.p>
@@ -73,7 +73,7 @@ export default function TestimonialsPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 -z-10" />
 
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => {
               const avatar = getPlaceholderImage(testimonial.avatarId);
               return (
@@ -87,17 +87,17 @@ export default function TestimonialsPage() {
                     <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                     
                     {/* Card */}
-                    <Card className="relative p-8 rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm border border-white/10 group-hover:border-white/30 transition-all duration-300 h-full flex flex-col">
+                    <Card className="relative p-6 md:p-8 rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm border border-white/10 group-hover:border-white/30 transition-all duration-300 h-full flex flex-col">
                       {/* Quote icon */}
-                      <div className="absolute top-6 right-6 text-white/10 group-hover:text-white/20 transition-colors duration-300">
-                        <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+                      <div className="absolute top-4 right-4 md:top-6 md:right-6 text-white/10 group-hover:text-white/20 transition-colors duration-300">
+                        <svg className="w-12 h-12 md:w-16 md:h-16" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                         </svg>
                       </div>
 
                       <div className="relative z-10 flex flex-col flex-grow">
                         {/* Stars */}
-                        <div className="flex items-center gap-1 mb-6">
+                        <div className="flex items-center gap-1 mb-4 md:mb-6">
                           {[...Array(5)].map((_, i) => (
                             <Star
                               key={i}
@@ -112,21 +112,21 @@ export default function TestimonialsPage() {
                         </div>
                         
                         {/* Testimonial text */}
-                        <p className="text-white/80 leading-relaxed mb-8 italic flex-grow text-lg">
+                        <p className="text-white/80 leading-relaxed mb-6 md:mb-8 italic flex-grow text-base md:text-lg">
                           "{testimonial.feedback}"
                         </p>
 
                         {/* Client info */}
-                        <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/10">
-                          <Avatar className="w-16 h-16 border-2 border-white/20">
+                        <div className="flex items-center gap-4 mt-auto pt-4 md:pt-6 border-t border-white/10">
+                          <Avatar className="w-12 h-12 md:w-16 md:h-16 border-2 border-white/20">
                             {avatar && <AvatarImage src={avatar.imageUrl} alt={testimonial.name} />}
                             <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-500 text-white">
                               {testimonial.name.charAt(0)}
                             </AvatarFallback>
                           </Avatar>
                           <div>
-                            <div className="font-bold text-white text-lg">{testimonial.name}</div>
-                            <div className="text-white/60">{testimonial.company}</div>
+                            <div className="font-bold text-white text-base md:text-lg">{testimonial.name}</div>
+                            <div className="text-white/60 text-sm">{testimonial.company}</div>
                           </div>
                         </div>
                       </div>

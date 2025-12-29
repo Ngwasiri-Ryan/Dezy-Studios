@@ -203,7 +203,7 @@ export default function AboutPage() {
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-primary/5 to-secondary/5 blur-3xl"
+            className="absolute w-32 h-32 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-primary/5 to-secondary/5 blur-3xl"
             animate={{
               x: [0, 100 * Math.sin(i), 0],
               y: [0, 50 * Math.cos(i), 0],
@@ -241,7 +241,7 @@ export default function AboutPage() {
           subtitle={
             <motion.h1 
               variants={fadeInUp}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
+              className="text-4xl md:text-7xl lg:text-8xl font-bold mb-6"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
                 DEZY ENTERPRISE
@@ -251,27 +251,27 @@ export default function AboutPage() {
           description={
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+              className="text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             >
               Where visual artistry meets cinematic production in a harmonious creative ecosystem
             </motion.p>
           }
-          className="relative z-10 bg-gradient-to-b from-secondary/20 via-background to-background min-h-[80vh] flex items-center"
+          className="relative z-10 bg-gradient-to-b from-secondary/20 via-background to-background min-h-[60vh] md:min-h-[80vh] flex items-center"
         >
           {/* Animated badges */}
           <motion.div
             variants={fadeInUp}
-            className="flex flex-wrap gap-4 justify-center mb-8"
+            className="flex flex-wrap gap-2 md:gap-4 justify-center mb-8"
           >
-            <Badge className="px-6 py-3 text-base backdrop-blur-sm bg-white/10 border-white/20">
+            <Badge className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base backdrop-blur-sm bg-white/10 border-white/20">
               <Crown className="w-4 h-4 mr-2" />
               Award-Winning
             </Badge>
-            <Badge className="px-6 py-3 text-base backdrop-blur-sm bg-white/10 border-white/20">
+            <Badge className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base backdrop-blur-sm bg-white/10 border-white/20">
               <Globe className="w-4 h-4 mr-2" />
               Global Reach
             </Badge>
-            <Badge className="px-6 py-3 text-base backdrop-blur-sm bg-white/10 border-white/20">
+            <Badge className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base backdrop-blur-sm bg-white/10 border-white/20">
               <TrendingUp className="w-4 h-4 mr-2" />
               Industry Leader
             </Badge>
@@ -281,23 +281,23 @@ export default function AboutPage() {
         {/* Ecosystem Section - Interactive 3D */}
         <motion.section 
           variants={itemVariants}
-          className="relative py-32 overflow-hidden"
+          className="relative py-16 md:py-32 overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
           
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div
               variants={staggerContainer}
-              className="grid lg:grid-cols-2 gap-16 items-center"
+              className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center"
             >
               <motion.div variants={fadeInUp}>
                 <motion.div
                   variants={fadeInUp}
-                  className="inline-flex items-center mb-8"
+                  className="inline-flex items-center mb-6 md:mb-8"
                 >
                   <Badge 
                     variant="secondary" 
-                    className="px-6 py-3 text-base font-semibold bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-blue-500/30"
+                    className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base font-semibold bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-blue-500/30"
                   >
                     <Sparkle className="w-5 h-5 mr-2" />
                     Our Philosophy
@@ -306,7 +306,7 @@ export default function AboutPage() {
                 
                 <motion.h2 
                   variants={fadeInUp}
-                  className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+                  className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight"
                 >
                   One Vision,{' '}
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
@@ -316,14 +316,14 @@ export default function AboutPage() {
 
                 <motion.div 
                   variants={fadeInUp}
-                  className="space-y-8 text-lg leading-relaxed"
+                  className="space-y-6 md:space-y-8 text-base md:text-lg leading-relaxed"
                 >
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
+                  <div className="flex items-start gap-4 p-4 md:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
                     <motion.div
                       animate={{ rotate: [0, 360] }}
                       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     >
-                      <Sparkles className="h-8 w-8 text-primary flex-shrink-0" />
+                      <Sparkles className="h-6 w-6 md:h-8 md:w-8 text-primary flex-shrink-0" />
                     </motion.div>
                     <p className="text-muted-foreground">
                       Dezy Enterprise is a creative ecosystem built on a single vision: to transform ideas into 
@@ -332,12 +332,12 @@ export default function AboutPage() {
                     </p>
                   </div>
                   
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
+                  <div className="flex items-start gap-4 p-4 md:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
                     <motion.div
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     >
-                      <Heart className="h-8 w-8 text-primary flex-shrink-0" />
+                      <Heart className="h-6 w-6 md:h-8 md:w-8 text-primary flex-shrink-0" />
                     </motion.div>
                     <p className="text-muted-foreground">
                       <span className="font-bold text-foreground">Dezy Arts</span> crafts visual poetry through 
@@ -351,7 +351,7 @@ export default function AboutPage() {
 
               <motion.div 
                 variants={fadeInUp}
-                className="relative"
+                className="relative mt-8 lg:mt-0"
               >
                 {missionImage && (
                   <div className="relative group perspective-1000">
@@ -359,7 +359,7 @@ export default function AboutPage() {
                     <motion.div
                       whileHover={{ rotateY: 10, rotateX: -5 }}
                       transition={{ type: "spring", stiffness: 100 }}
-                      className="relative w-full h-[600px] rounded-3xl overflow-hidden preserve-3d"
+                      className="relative w-full h-[400px] md:h-[600px] rounded-3xl overflow-hidden preserve-3d"
                     >
                       <Image
                         src={missionImage.imageUrl}
@@ -380,12 +380,12 @@ export default function AboutPage() {
                     <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
                     
                     {/* Corner badges */}
-                    <div className="absolute top-6 left-6">
+                    <div className="absolute top-4 left-4 md:top-6 md:left-6">
                       <Badge className="bg-black/50 backdrop-blur-sm border-white/20">
                         Visual Artistry
                       </Badge>
                     </div>
-                    <div className="absolute bottom-6 right-6">
+                    <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6">
                       <Badge className="bg-black/50 backdrop-blur-sm border-white/20">
                         Cinematic Excellence
                       </Badge>
@@ -400,26 +400,26 @@ export default function AboutPage() {
         {/* The Two Worlds Section - Interactive Cards */}
         <motion.section 
           variants={itemVariants}
-          className="py-32 relative overflow-hidden"
+          className="py-16 md:py-32 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5" />
           
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div
               variants={fadeInUp}
-              className="text-center mb-20"
+              className="text-center mb-12 md:mb-20"
             >
-              <Badge className="mb-6 px-6 py-3 text-base bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-blue-500/30">
+              <Badge className="mb-6 px-4 py-2 text-sm md:px-6 md:py-3 md:text-base bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-blue-500/30">
                 <Layers className="w-5 h-5 mr-2" />
                 THE TWO WORLDS
               </Badge>
-              <h2 className="text-5xl md:text-7xl font-bold mb-8">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8">
                 <span className="text-foreground">Creative</span>{' '}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
                   Ecosystem
                 </span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
                 Discover the harmonious interplay between our two creative divisions
               </p>
             </motion.div>
@@ -431,43 +431,44 @@ export default function AboutPage() {
                 className="relative group"
                 whileHover={{ y: -10 }}
               >
-                <div className="relative p-10 rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm transition-all duration-500 group-hover:border-blue-500/50 group-hover:shadow-2xl group-hover:shadow-blue-500/20">
+                <div className="relative p-6 md:p-10 rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm transition-all duration-500 group-hover:border-blue-500/50 group-hover:shadow-2xl group-hover:shadow-blue-500/20">
                   {/* Animated background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Card content */}
                   <div className="relative z-10">
-                    <div className="flex items-start justify-between mb-8">
-                      <div className="flex items-center gap-6">
+                    <div className="flex flex-col sm:flex-row items-start justify-between mb-6 md:mb-8">
+                      <div className="flex items-center gap-4 md:gap-6">
                         <motion.div
                           className="relative"
                           whileHover={{ rotate: 15 }}
                           transition={{ type: "spring", stiffness: 200 }}
                         >
-                          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-                            <PaletteIcon className="w-10 h-10 text-blue-500" />
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                            <PaletteIcon className="w-8 h-8 md:w-10 md:h-10 text-blue-500" />
                           </div>
                           <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/20 to-transparent rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                         
                         <div>
-                          <Badge className="mb-3 bg-blue-500/20 backdrop-blur-sm border-blue-500/30">
+                          <Badge className="mb-2 md:mb-3 bg-blue-500/20 backdrop-blur-sm border-blue-500/30">
                             Creative Expression
                           </Badge>
-                          <h3 className="text-4xl font-bold">Dezy Arts</h3>
+                          <h3 className="text-3xl md:text-4xl font-bold">Dezy Arts</h3>
                         </div>
                       </div>
                       
                       <motion.div
                         animate={{ rotate: 360 }}
                         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        className="hidden sm:block"
                       >
-                        <Diamond className="w-8 h-8 text-blue-500/50 group-hover:text-blue-500" />
+                        <Diamond className="w-6 h-6 md:w-8 md:h-8 text-blue-500/50 group-hover:text-blue-500" />
                       </motion.div>
                     </div>
 
                     {dezyArtsImage && (
-                      <div className="relative h-64 rounded-2xl overflow-hidden mb-8">
+                      <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden mb-6 md:mb-8">
                         <Image
                           src={dezyArtsImage.imageUrl}
                           alt="Dezy Arts"
@@ -479,27 +480,27 @@ export default function AboutPage() {
                       </div>
                     )}
 
-                    <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
+                    <p className="text-muted-foreground mb-6 md:mb-8 text-base md:text-lg leading-relaxed">
                       The heart of visual artistry. Dezy Arts crafts timeless moments through photography, 
                       creates stunning visual identities with graphic design, and produces unique lifestyle 
                       products that embody creative expression.
                     </p>
 
-                    <div className="flex flex-wrap gap-3 mb-8">
+                    <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
                       {['Photography', 'Graphic Design', 'Product Art', 'Visual Identity'].map((service, i) => (
                         <div
                           key={i}
-                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
+                          className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
                         >
                           <CheckCircle className="w-4 h-4 text-blue-500" />
-                          <span className="text-sm">{service}</span>
+                          <span className="text-xs md:text-sm">{service}</span>
                         </div>
                       ))}
                     </div>
 
                     <Button
                       asChild
-                      className="w-full py-6 text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 group/btn"
+                      className="w-full py-4 md:py-6 text-base md:text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 group/btn"
                     >
                       <Link href="/portfolio">
                         <span className="flex items-center justify-center gap-3">
@@ -524,43 +525,44 @@ export default function AboutPage() {
                 className="relative group"
                 whileHover={{ y: -10 }}
               >
-                <div className="relative p-10 rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm transition-all duration-500 group-hover:border-purple-500/50 group-hover:shadow-2xl group-hover:shadow-purple-500/20">
+                <div className="relative p-6 md:p-10 rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm transition-all duration-500 group-hover:border-purple-500/50 group-hover:shadow-2xl group-hover:shadow-purple-500/20">
                   {/* Animated background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Card content */}
                   <div className="relative z-10">
-                    <div className="flex items-start justify-between mb-8">
-                      <div className="flex items-center gap-6">
+                    <div className="flex flex-col sm:flex-row items-start justify-between mb-6 md:mb-8">
+                      <div className="flex items-center gap-4 md:gap-6">
                         <motion.div
                           className="relative"
                           whileHover={{ rotate: 15 }}
                           transition={{ type: "spring", stiffness: 200 }}
                         >
-                          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-                            <FilmIcon className="w-10 h-10 text-purple-500" />
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                            <FilmIcon className="w-8 h-8 md:w-10 md:h-10 text-purple-500" />
                           </div>
                           <div className="absolute -inset-4 bg-gradient-to-br from-purple-500/20 to-transparent rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                         
                         <div>
-                          <Badge className="mb-3 bg-purple-500/20 backdrop-blur-sm border-purple-500/30">
+                          <Badge className="mb-2 md:mb-3 bg-purple-500/20 backdrop-blur-sm border-purple-500/30">
                             Production House
                           </Badge>
-                          <h3 className="text-4xl font-bold">Dezy Studios</h3>
+                          <h3 className="text-3xl md:text-4xl font-bold">Dezy Studios</h3>
                         </div>
                       </div>
                       
                       <motion.div
                         animate={{ rotate: 360 }}
                         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        className="hidden sm:block"
                       >
-                        <Crown className="w-8 h-8 text-purple-500/50 group-hover:text-purple-500" />
+                        <Crown className="w-6 h-6 md:w-8 md:h-8 text-purple-500/50 group-hover:text-purple-500" />
                       </motion.div>
                     </div>
 
                     {dezyStudiosImage && (
-                      <div className="relative h-64 rounded-2xl overflow-hidden mb-8">
+                      <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden mb-6 md:mb-8">
                         <Image
                           src={dezyStudiosImage.imageUrl}
                           alt="Dezy Studios"
@@ -572,27 +574,27 @@ export default function AboutPage() {
                       </div>
                     )}
 
-                    <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
+                    <p className="text-muted-foreground mb-6 md:mb-8 text-base md:text-lg leading-relaxed">
                       The engine of cinematic storytelling. Dezy Studios produces captivating video content, 
                       from commercial campaigns and event coverage to compelling brand films that engage 
                       audiences and drive results.
                     </p>
 
-                    <div className="flex flex-wrap gap-3 mb-8">
+                    <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
                       {['Videography', 'Video Editing', 'Brand Campaigns', 'Motion Graphics'].map((service, i) => (
                         <div
                           key={i}
-                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
+                          className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
                         >
                           <CheckCircle className="w-4 h-4 text-purple-500" />
-                          <span className="text-sm">{service}</span>
+                          <span className="text-xs md:text-sm">{service}</span>
                         </div>
                       ))}
                     </div>
 
                     <Button
                       asChild
-                      className="w-full py-6 text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 group/btn"
+                      className="w-full py-4 md:py-6 text-base md:text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 group/btn"
                     >
                       <Link href="/portfolio">
                         <span className="flex items-center justify-center gap-3">
@@ -617,14 +619,14 @@ export default function AboutPage() {
         {/* Founder Spotlight - Interactive Profile */}
         <motion.section 
           variants={itemVariants}
-          className="py-32 relative overflow-hidden"
+          className="py-16 md:py-32 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/5 to-background" />
           
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div
               variants={staggerContainer}
-              className="grid lg:grid-cols-2 gap-16 items-center"
+              className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center"
             >
               <motion.div variants={fadeInUp} className="relative">
                 {founderImage && (
@@ -647,14 +649,14 @@ export default function AboutPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
                       
                       {/* Floating badges */}
-                      <div className="absolute top-6 left-6">
+                      <div className="absolute top-4 left-4 md:top-6 md:left-6">
                         <Badge className="bg-black/50 backdrop-blur-sm border-white/20">
                           <Crown className="w-3 h-3 mr-1" />
                           Founder & Visionary
                         </Badge>
                       </div>
                       
-                      <div className="absolute bottom-6 left-6">
+                      <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
                         <Badge className="bg-black/50 backdrop-blur-sm border-white/20">
                           <Award className="w-3 h-3 mr-1" />
                           Creative Director
@@ -666,7 +668,7 @@ export default function AboutPage() {
                     {[...Array(3)].map((_, i) => (
                       <motion.div
                         key={i}
-                        className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border border-white/10 flex items-center justify-center"
+                        className="absolute w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border border-white/10 flex items-center justify-center"
                         animate={{
                           y: [0, -20, 0],
                           rotate: [0, 360],
@@ -696,10 +698,10 @@ export default function AboutPage() {
               <motion.div variants={fadeInUp}>
                 <motion.div
                   variants={fadeInUp}
-                  className="inline-flex items-center mb-8"
+                  className="inline-flex items-center mb-6 md:mb-8"
                 >
                   <Badge 
-                    className="px-6 py-3 text-base bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-amber-500/30"
+                    className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base bg-gradient-to-r from-amber-500/20 to-orange-500/20 border-amber-500/30"
                   >
                     <User className="w-5 h-5 mr-2" />
                     Creative Visionary
@@ -708,7 +710,7 @@ export default function AboutPage() {
                 
                 <motion.h2 
                   variants={fadeInUp}
-                  className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+                  className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight"
                 >
                   Meet{' '}
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-orange-500 to-red-500">
@@ -718,18 +720,18 @@ export default function AboutPage() {
 
                 <motion.div 
                   variants={fadeInUp}
-                  className="space-y-8 mb-12"
+                  className="space-y-6 md:space-y-8 mb-8 md:mb-12"
                 >
-                  <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
+                  <div className="p-4 md:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
                     <div className="flex items-start gap-4">
                       <motion.div
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
                         className="flex-shrink-0"
                       >
-                        <Eye className="h-8 w-8 text-amber-500" />
+                        <Eye className="h-6 w-6 md:h-8 md:w-8 text-amber-500" />
                       </motion.div>
-                      <p className="text-muted-foreground text-lg leading-relaxed">
+                      <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                         My journey began with a camera in hand and an unwavering passion to capture the 
                         extraordinary in the ordinary. From those first frames emerged a vision that would 
                         evolve into Dezy Enterprise.
@@ -737,16 +739,16 @@ export default function AboutPage() {
                     </div>
                   </div>
                   
-                  <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
+                  <div className="p-4 md:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300">
                     <div className="flex items-start gap-4">
                       <motion.div
                         animate={{ rotate: [0, 360] }}
                         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                         className="flex-shrink-0"
                       >
-                        <Users className="h-8 w-8 text-amber-500" />
+                        <Users className="h-6 w-6 md:h-8 md:w-8 text-amber-500" />
                       </motion.div>
-                      <p className="text-muted-foreground text-lg leading-relaxed">
+                      <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                         Today, I lead a team of passionate creatives dedicated to pushing boundaries. 
                         We believe in creating work that doesn't just look beautiful, but tells stories 
                         that resonate and inspire action.
@@ -758,10 +760,10 @@ export default function AboutPage() {
                 {/* Social Links */}
                 <motion.div 
                   variants={fadeInUp}
-                  className="mb-12"
+                  className="mb-8 md:mb-12"
                 >
-                  <h4 className="text-lg font-semibold mb-4">Connect With Binda</h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <h4 className="text-base md:text-lg font-semibold mb-4">Connect With Binda</h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
                     {founderSocials.map((social, i) => {
                       const Icon = social.icon;
                       return (
@@ -788,11 +790,11 @@ export default function AboutPage() {
                   <Button 
                     asChild 
                     size="lg"
-                    className="group px-8 py-6 text-lg bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700"
+                    className="group px-6 py-5 text-base md:px-8 md:py-6 md:text-lg bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700"
                   >
                     <Link href="/contact">
                       <span className="flex items-center gap-3">
-                        <MessageCircle className="w-6 h-6" />
+                        <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />
                         Schedule a Call
                         <ChevronRight className="group-hover:translate-x-2 transition-transform" />
                       </span>
@@ -803,11 +805,11 @@ export default function AboutPage() {
                     asChild 
                     size="lg"
                     variant="outline"
-                    className="px-8 py-6 text-lg border-2 border-white/20 hover:border-white/40 hover:bg-white/5"
+                    className="px-6 py-5 text-base md:px-8 md:py-6 md:text-lg border-2 border-white/20 hover:border-white/40 hover:bg-white/5"
                   >
                     <Link href="/portfolio">
                       <span className="flex items-center gap-3">
-                        <Download className="w-6 h-6" />
+                        <Download className="w-5 h-5 md:w-6 md:h-6" />
                         Portfolio PDF
                       </span>
                     </Link>
@@ -821,34 +823,34 @@ export default function AboutPage() {
         {/* Core Values - Interactive Grid */}
         <motion.section 
           variants={itemVariants}
-          className="py-32 relative overflow-hidden"
+          className="py-16 md:py-32 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5" />
           
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div
               variants={fadeInUp}
-              className="text-center mb-20"
+              className="text-center mb-12 md:mb-20"
             >
-              <Badge className="mb-6 px-6 py-3 text-base bg-gradient-to-r from-emerald-500/20 to-green-500/20 border-emerald-500/30">
+              <Badge className="mb-6 px-4 py-2 text-sm md:px-6 md:py-3 md:text-base bg-gradient-to-r from-emerald-500/20 to-green-500/20 border-emerald-500/30">
                 <Gem className="w-5 h-5 mr-2" />
                 OUR CORE VALUES
               </Badge>
-              <h2 className="text-5xl md:text-7xl font-bold mb-8">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8">
                 The{' '}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500">
                   Principles
                 </span>{' '}
                 That Guide Us
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
                 Six fundamental beliefs that shape every project and partnership
               </p>
             </motion.div>
 
             <motion.div
               variants={staggerContainer}
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto"
             >
               {enhancedCoreValues.map((value, index) => {
                 const Icon = value.icon;
@@ -859,16 +861,16 @@ export default function AboutPage() {
                     className="relative group"
                     whileHover={{ y: -10 }}
                   >
-                    <div className="relative p-8 rounded-3xl bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 h-full">
+                    <div className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 h-full">
                       {/* Value icon with gradient */}
                       <div className="relative mb-6">
                         <div className={`absolute inset-0 bg-gradient-to-br ${value.color} rounded-2xl blur-xl opacity-20`} />
-                        <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center`}>
-                          <Icon className="w-8 h-8 text-white" />
+                        <div className={`relative w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center`}>
+                          <Icon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                         </div>
                       </div>
                       
-                      <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
+                      <h3 className="text-xl md:text-2xl font-bold mb-3">{value.title}</h3>
                       <p className="text-muted-foreground leading-relaxed">
                         {value.description}
                       </p>
@@ -891,26 +893,26 @@ export default function AboutPage() {
         {/* Timeline Section - Interactive Journey */}
         <motion.section 
           variants={itemVariants}
-          className="py-32 relative overflow-hidden"
+          className="py-16 md:py-32 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
           
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div
               variants={fadeInUp}
-              className="text-center mb-20"
+              className="text-center mb-12 md:mb-20"
             >
-              <Badge className="mb-6 px-6 py-3 text-base bg-gradient-to-r from-rose-500/20 to-pink-500/20 border-rose-500/30">
+              <Badge className="mb-6 px-4 py-2 text-sm md:px-6 md:py-3 md:text-base bg-gradient-to-r from-rose-500/20 to-pink-500/20 border-rose-500/30">
                 <Rocket className="w-5 h-5 mr-2" />
                 OUR JOURNEY
               </Badge>
-              <h2 className="text-5xl md:text-7xl font-bold mb-8">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8">
                 Milestones of{' '}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500">
                   Growth
                 </span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
                 The story of how a creative vision evolved into an enterprise
               </p>
             </motion.div>
@@ -925,29 +927,29 @@ export default function AboutPage() {
                   <motion.div
                     key={index}
                     variants={fadeInUp}
-                    className={`flex items-center mb-16 ${
+                    className={`flex items-center mb-8 md:mb-16 ${
                       index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
                     }`}
                   >
                     {/* Content */}
-                    <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12'}`}>
+                    <div className={`w-1/2 ${index % 2 === 0 ? 'pr-4 md:pr-12 text-right' : 'pl-4 md:pl-12'}`}>
                       <motion.div
                         whileHover={{ scale: 1.05 }}
-                        className={`p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 ${
+                        className={`p-4 md:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 ${
                           index % 2 === 0 ? 'ml-auto' : 'mr-auto'
                         } max-w-md`}
                       >
-                        <div className={`text-4xl font-bold mb-2 bg-gradient-to-br ${milestone.color} bg-clip-text text-transparent`}>
+                        <div className={`text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-br ${milestone.color} bg-clip-text text-transparent`}>
                           {milestone.year}
                         </div>
-                        <h3 className="text-xl font-bold mb-2">{milestone.title}</h3>
-                        <p className="text-muted-foreground">{milestone.description}</p>
+                        <h3 className="text-lg md:text-xl font-bold mb-2">{milestone.title}</h3>
+                        <p className="text-muted-foreground text-sm md:text-base">{milestone.description}</p>
                       </motion.div>
                     </div>
                     
                     {/* Center dot */}
                     <div className="relative z-10">
-                      <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${milestone.color}`} />
+                      <div className={`w-4 h-4 md:w-6 md:h-6 rounded-full bg-gradient-to-br ${milestone.color}`} />
                       <div className="absolute inset-0 bg-gradient-to-br from-white to-transparent rounded-full blur-sm" />
                     </div>
                     
@@ -963,62 +965,62 @@ export default function AboutPage() {
         {/* Team & Collaboration Section */}
         <motion.section 
           variants={itemVariants}
-          className="py-32 relative overflow-hidden"
+          className="py-16 md:py-32 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-blue-500/5 to-cyan-500/5" />
           
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div
               variants={staggerContainer}
-              className="grid lg:grid-cols-2 gap-16 items-center"
+              className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center"
             >
               <motion.div variants={fadeInUp}>
-                <Badge className="mb-6 px-6 py-3 text-base bg-gradient-to-r from-indigo-500/20 to-blue-500/20 border-indigo-500/30">
+                <Badge className="mb-6 px-4 py-2 text-sm md:px-6 md:py-3 md:text-base bg-gradient-to-r from-indigo-500/20 to-blue-500/20 border-indigo-500/30">
                   <UserCheck className="w-5 h-5 mr-2" />
                   OUR TEAM
                 </Badge>
                 
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+                <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8 leading-tight">
                   A Symphony of{' '}
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500">
                     Creative Minds
                   </span>
                 </h2>
 
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-12 leading-relaxed">
                   Behind every exceptional project is a team of passionate artists, designers, 
                   and producers working in perfect harmony. We believe collaboration is the key 
                   to innovation.
                 </p>
 
-                <div className="space-y-8">
-                  <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                <div className="space-y-6">
+                  <div className="p-4 md:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500/20 to-blue-500/20 flex items-center justify-center">
-                        <Brain className="w-6 h-6 text-indigo-500" />
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-indigo-500/20 to-blue-500/20 flex items-center justify-center">
+                        <Brain className="w-5 h-5 md:w-6 md:h-6 text-indigo-500" />
                       </div>
                       <div>
-                        <h4 className="text-lg font-bold">Strategic Thinkers</h4>
-                        <p className="text-muted-foreground">Visionaries who plan every detail</p>
+                        <h4 className="text-base md:text-lg font-bold">Strategic Thinkers</h4>
+                        <p className="text-muted-foreground text-sm md:text-base">Visionaries who plan every detail</p>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                  <div className="p-4 md:p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-                        <Command className="w-6 h-6 text-blue-500" />
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                        <Command className="w-5 h-5 md:w-6 md:h-6 text-blue-500" />
                       </div>
                       <div>
-                        <h4 className="text-lg font-bold">Technical Masters</h4>
-                        <p className="text-muted-foreground">Experts in cutting-edge technology</p>
+                        <h4 className="text-base md:text-lg font-bold">Technical Masters</h4>
+                        <p className="text-muted-foreground text-sm md:text-base">Experts in cutting-edge technology</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="relative">
+              <motion.div variants={fadeInUp} className="relative mt-8 lg:mt-0">
                 {teamImage && (
                   <div className="relative group">
                     <div className="relative rounded-3xl overflow-hidden">
@@ -1034,19 +1036,19 @@ export default function AboutPage() {
                     </div>
                     
                     {/* Floating team stats */}
-                    <div className="absolute bottom-8 left-8 right-8">
-                      <div className="grid grid-cols-3 gap-4">
-                        <div className="p-4 rounded-xl bg-black/50 backdrop-blur-sm border border-white/20 text-center">
-                          <div className="text-2xl font-bold text-white">12+</div>
-                          <div className="text-sm text-white/80">Creative Experts</div>
+                    <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8">
+                      <div className="grid grid-cols-3 gap-2 md:gap-4">
+                        <div className="p-3 md:p-4 rounded-xl bg-black/50 backdrop-blur-sm border border-white/20 text-center">
+                          <div className="text-xl md:text-2xl font-bold text-white">12+</div>
+                          <div className="text-xs md:text-sm text-white/80">Experts</div>
                         </div>
-                        <div className="p-4 rounded-xl bg-black/50 backdrop-blur-sm border border-white/20 text-center">
-                          <div className="text-2xl font-bold text-white">8</div>
-                          <div className="text-sm text-white/80">Years Experience</div>
+                        <div className="p-3 md:p-4 rounded-xl bg-black/50 backdrop-blur-sm border border-white/20 text-center">
+                          <div className="text-xl md:text-2xl font-bold text-white">8</div>
+                          <div className="text-xs md:text-sm text-white/80">Years Exp</div>
                         </div>
-                        <div className="p-4 rounded-xl bg-black/50 backdrop-blur-sm border border-white/20 text-center">
-                          <div className="text-2xl font-bold text-white">250+</div>
-                          <div className="text-sm text-white/80">Projects Delivered</div>
+                        <div className="p-3 md:p-4 rounded-xl bg-black/50 backdrop-blur-sm border border-white/20 text-center">
+                          <div className="text-xl md:text-2xl font-bold text-white">250+</div>
+                          <div className="text-xs md:text-sm text-white/80">Projects</div>
                         </div>
                       </div>
                     </div>
@@ -1063,7 +1065,7 @@ export default function AboutPage() {
         {/* Final CTA Section */}
         <motion.section 
           variants={itemVariants}
-          className="py-32 relative overflow-hidden"
+          className="py-16 md:py-32 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-gradient-flow" />
           <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
@@ -1073,31 +1075,31 @@ export default function AboutPage() {
               variants={fadeInUp}
               className="max-w-3xl mx-auto"
             >
-              <Badge className="mb-6 px-8 py-4 text-base bg-white/20 backdrop-blur-sm border-white/30">
-                <Sparkle className="w-6 h-6 mr-2" />
+              <Badge className="mb-6 px-6 py-3 text-sm md:px-8 md:py-4 md:text-base bg-white/20 backdrop-blur-sm border-white/30">
+                <Sparkle className="w-5 h-5 md:w-6 md:h-6 mr-2" />
                 READY TO COLLABORATE?
               </Badge>
               
-              <h2 className="text-5xl md:text-7xl font-bold text-white mb-8">
+              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 md:mb-8">
                 Let's Create{' '}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
                   Together
                 </span>
               </h2>
               
-              <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed">
+              <p className="text-lg md:text-2xl text-white/90 mb-8 md:mb-12 leading-relaxed">
                 Your vision deserves a creative partner who understands both artistry and execution. 
                 Let's discuss how we can bring your ideas to life.
               </p>
 
               <motion.div
                 variants={fadeInUp}
-                className="flex flex-col sm:flex-row items-center justify-center gap-6"
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6"
               >
                 <Button
                   asChild
                   size="lg"
-                  className="group px-12 py-8 text-xl bg-white text-blue-600 hover:bg-white/90 hover:scale-105 transition-all duration-300"
+                  className="group px-8 py-6 text-base md:px-12 md:py-8 md:text-xl bg-white text-blue-600 hover:bg-white/90 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
                 >
                   <Link href="/contact">
                     <span className="flex items-center gap-4">
@@ -1111,7 +1113,7 @@ export default function AboutPage() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="px-12 py-8 text-xl border-2 border-white text-white hover:bg-white/10 hover:scale-105 transition-all duration-300"
+                  className="px-8 py-6 text-base md:px-12 md:py-8 md:text-xl border-2 border-white text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
                 >
                   <Link href="/portfolio" className="flex items-center gap-4">
                     <Eye className="w-6 h-6" />
