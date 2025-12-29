@@ -217,7 +217,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "t2",
-    name: "John Smith",
+    name: "Binda Desmond",
     company: "Startup CEO",
     feedback: "The branding package Dezy Enterprise created for us was exceptional. It was modern, professional, and perfectly aligned with our vision. Highly recommended!",
     rating: 5,
