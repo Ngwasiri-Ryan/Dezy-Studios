@@ -112,60 +112,68 @@ export default function ServicesPage() {
             {services.map((service, index) => {
               const Icon = serviceIcons[service.title] || Sparkles;
               return (
-                <motion.div 
-                  key={service.id} 
-                  variants={itemVariants}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="h-full"
-                >
-                  <Card className="relative h-full flex flex-col border-2 border-transparent hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 group overflow-hidden bg-white/5 backdrop-blur-sm">
-                     <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 -z-10" />
+                <motion.div
+                    key={service.id}
+                    variants={itemVariants}
+                    className="relative group h-full"
+                  >
+                    {/* Card with holographic effect */}
+                    <div className="relative p-6 md:p-8 rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm transition-all duration-500 group-hover:border-white/30 group-hover:shadow-2xl group-hover:shadow-blue-500/20 h-full flex flex-col">
+                      {/* Animated gradient background */}
+                      <div 
+                        className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      />
 
-                    <CardHeader className="pb-6 relative">
-                      <div className="flex items-center justify-between">
-                         <div className="flex items-center gap-4">
-                            <div className="relative flex items-center justify-center h-14 w-14 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-all duration-300">
-                                {Icon && <Icon className="h-7 w-7" />}
+                      {/* Content */}
+                      <div className="relative z-10 flex flex-col flex-grow">
+                        <div className="flex items-start justify-between mb-6">
+                            <div className="flex items-center gap-4">
+                                <motion.div
+                                    className="relative"
+                                    whileHover={{ rotate: 15 }}
+                                    transition={{ type: "spring", stiffness: 200 }}
+                                >
+                                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center backdrop-blur-sm">
+                                        <Icon className="w-8 h-8 text-white" />
+                                    </div>
+                                </motion.div>
+                                <Badge className="bg-white/20 backdrop-blur-sm border-white/30 text-xs">
+                                    {service.division}
+                                </Badge>
                             </div>
-                            <Badge variant="secondary" className="text-xs font-semibold bg-primary/10 text-primary hover:bg-primary/20">
-                                {service.division}
-                            </Badge>
-                         </div>
-                         <ArrowRight className="h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                      </div>
-                    </CardHeader>
+                           <ArrowRight className="w-5 h-5 text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
+                        </div>
 
-                    <CardContent className="flex-grow pb-8">
-                       <CardTitle className="text-2xl mb-3 text-foreground group-hover:text-primary transition-colors">
-                        {service.title}
-                      </CardTitle>
-                      <CardDescription className="text-base text-muted-foreground mb-6">
-                        {service.shortDescription}
-                      </CardDescription>
-                      
-                      <div className="space-y-3">
-                        <div className="flex items-start gap-3">
-                          <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">Professional quality delivery</span>
+                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                        <p className="text-white/80 mb-6 text-base leading-relaxed flex-grow">
+                          {service.shortDescription}
+                        </p>
+
+                        <div className="space-y-3 mb-6">
+                            <div className="flex items-start gap-3">
+                                <CheckCircle className="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-white/70">Professional quality delivery</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <Zap className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-white/70">Fast turnaround time</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <Target className="h-5 w-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-white/70">Customized to your needs</span>
+                            </div>
                         </div>
-                        <div className="flex items-start gap-3">
-                          <Zap className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">Fast turnaround time</span>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <Target className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">Customized to your needs</span>
+
+                        <div className="mt-auto pt-6 border-t border-white/10">
+                            <p className="text-sm text-white/60 line-clamp-3">{service.longDescription}</p>
                         </div>
                       </div>
-                    </CardContent>
 
-                    <CardFooter className="pt-6 border-t border-border/10">
-                       <p className="text-sm text-muted-foreground line-clamp-3">{service.longDescription}</p>
-                    </CardFooter>
-                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                  </Card>
-                </motion.div>
+                      {/* Shine effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    </div>
+                     <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                  </motion.div>
               );
             })}
           </div>
@@ -188,7 +196,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border/20 hidden md:block" />
+            <div className="absolute top-10 left-0 w-full h-0.5 bg-border/20 hidden md:block" />
             {[
               {
                 step: "01",
