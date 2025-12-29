@@ -98,6 +98,7 @@ export default function Home() {
   const [hoveredService, setHoveredService] = useState<number | null>(null);
   const [isClient, setIsClient] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
