@@ -10,7 +10,6 @@ import "./globals.css";
 import { CustomCursor } from "@/components/shared/custom-cursor";
 import { AnimatePresence } from 'framer-motion';
 import { Preloader } from '@/components/shared/preloader';
-import { ThemeProvider } from '@/components/providers/theme-provider';
 
 // Metadata needs to be exported from a server component or at the page level.
 // We'll keep it here but acknowledge it won't work in a 'use client' file.
@@ -56,15 +55,9 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-background font-body antialiased",
+          "min-h-screen bg-background font-body antialiased dark",
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
           <CustomCursor />
           <AnimatePresence mode="wait">
             {isLoading ? (
@@ -78,7 +71,6 @@ export default function RootLayout({
             )}
           </AnimatePresence>
           <Toaster />
-        </ThemeProvider>
       </body>
     </html>
   );
