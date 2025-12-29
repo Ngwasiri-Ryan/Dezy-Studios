@@ -7,6 +7,7 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "#", label: "Divisions" }, // Placeholder, handled by dropdown
+  { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/shop", label: "Shop" },

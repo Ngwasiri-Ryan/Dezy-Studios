@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { 
   Menu, X, ChevronDown, ChevronRight, Home, Info, LayoutGrid, 
-  Sparkles, ShoppingBag, Phone, Users, Video, Palette
+  Sparkles, ShoppingBag, Phone, Users, Video, Palette, Wrench
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -17,6 +17,7 @@ import { Separator } from "../ui/separator";
 const iconMap: { [key: string]: React.ElementType } = {
     '/': Home,
     '/about': Info,
+    '/services': Wrench,
     '/portfolio': LayoutGrid,
     '/testimonials': Users,
     '/shop': ShoppingBag,
