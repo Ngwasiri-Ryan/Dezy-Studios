@@ -14,7 +14,16 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: ["Photography", "Graphic Design", "Video Editing", "Videography", "Product Design", "Binda Desmond", "Dezy Enterprise"],
+  keywords: [
+    "creative portfolio Derby", "Binda Desmond", "Dezy Enterprise", "professional photography UK", 
+    "videography services", "graphic design Derby", "brand identity design", "cinematic video editing",
+    "corporate video production", "event photography UK", "portrait photographer Derby", 
+    "lifestyle photography", "product photography services", "UK content creator", "visual storytelling",
+    "creative agency UK", "Dezy Arts", "Dezy Studios", "screen printing Derby", "custom merchandise UK",
+    "resin art for sale", "stone engraving services", "brand campaign production", "social media visuals",
+    "promotional videos UK", "Derby creative services", "freelance photographer UK", 
+    "freelance videographer", "logo design Derby", "artistic portfolio"
+  ],
   openGraph: {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,

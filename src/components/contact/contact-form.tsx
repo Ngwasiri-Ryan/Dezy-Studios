@@ -1,10 +1,10 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useEffect } from "react";
+import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,11 +17,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { submitContactForm } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
-
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -35,19 +32,9 @@ const formSchema = z.object({
   }),
 });
 
-function SubmitButton() {
-    const { pending } = useFormStatus();
-    return (
-        <Button type="submit" disabled={pending} className="w-full">
-            {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-            Send Message
-        </Button>
-    )
-}
-
 export function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, { success: false, message: ""});
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,31 +43,57 @@ export function ContactForm() {
       email: "",
       message: "",
     },
-    // Set initial state from server action response
-    errors: state?.errors ? state.errors : undefined,
   });
 
-  useEffect(() => {
-    if (state.message) {
-      if (state.success) {
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    setIsLoading(true);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
         toast({
-          title: "Success!",
-          description: state.message
+            title: "Configuration Error",
+            description: "EmailJS is not configured. Please contact the site administrator.",
+            variant: "destructive"
+        });
+        setIsLoading(false);
+        return;
+    }
+
+    const templateParams = {
+      from_name: values.name,
+      from_email: values.email,
+      to_name: 'Binda Desmond',
+      message: values.message,
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. We will get back to you soon.",
         });
         form.reset();
-      } else {
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
         toast({
           title: "Error",
-          description: state.message,
+          description: "Something went wrong. Please try again later.",
           variant: "destructive",
         });
-      }
-    }
-  }, [state, toast, form]);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   return (
     <Form {...form}>
-      <form action={formAction} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <FormField
           control={form.control}
           name="name"
@@ -124,7 +137,10 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <SubmitButton />
+        <Button type="submit" disabled={isLoading} className="w-full">
+            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Send Message
+        </Button>
       </form>
     </Form>
   );
