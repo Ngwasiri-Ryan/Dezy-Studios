@@ -3,145 +3,145 @@
     {
       "id": "hero-1",
       "description": "Abstract and elegant visual representing creativity",
-      "imageUrl": "https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFydHxlbnwwfHx8fDE3NjYzODMwNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-studios/photography/creative/hero-1.jpg",
       "imageHint": "abstract art"
     },
     {
       "id": "project-photo-1",
       "description": "A stunning portrait photograph",
-      "imageUrl": "https://images.unsplash.com/photo-1629747490241-624f07d70e1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMHBob3RvfGVufDB8fHx8MTc2NjQxODA4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-studios/photography/portraits/portrait-1.jpg",
       "imageHint": "portrait photo"
     },
     {
       "id": "project-photo-2",
       "description": "A beautiful landscape photograph",
-      "imageUrl": "https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsYW5kc2NhcGUlMjBuYXR1cmV8ZW58MHx8fHwxNzY2MzgzMjY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-studios/photography/creative/landscape-1.jpg",
       "imageHint": "landscape nature"
     },
     {
       "id": "project-photo-3",
       "description": "An event photography shot",
-      "imageUrl": "https://images.unsplash.com/photo-1730900101451-8b878b909f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxldmVudCUyMGNvbmNlcnR8ZW58MHx8fHwxNzY2MzcwMjA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-studios/photography/events/event-1.jpg",
       "imageHint": "event concert"
     },
     {
       "id": "project-video-1",
       "description": "A still from a wedding video",
-      "imageUrl": "https://images.unsplash.com/photo-1606490194859-07c18c9f0968?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d2VkZGluZyUyMGNvdXBsZXxlbnwwfHx8fDE3NjYzNzIxMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-studios/videography/weddings/wedding-1.jpg",
       "imageHint": "wedding couple"
     },
     {
       "id": "project-video-2",
       "description": "A still from a corporate video",
-      "imageUrl": "https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20%281%20of%201%29-5.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb3Jwb3JhdGUlMjBtZWV0aW5nfGVufDB8fHx8MTc2NjI5OTQ1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-studios/videography/commercials/corporate-1.jpg",
       "imageHint": "corporate meeting"
     },
     {
       "id": "project-design-1",
       "description": "A logo design for a brand",
-      "imageUrl": "https://images.unsplash.com/photo-1498075702571-ecb018f3752d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsb2dvJTIwZGVzaWdufGVufDB8fHx8MTc2NjM5NjA1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-arts/graphic-design/logo-1.jpg",
       "imageHint": "logo design"
     },
     {
       "id": "project-design-2",
       "description": "A branding package presentation",
-      "imageUrl": "https://images.unsplash.com/photo-1636247497842-81ee9c80f9df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxicmFuZGluZyUyMG1vY2t1cHxlbnwwfHx8fDE3NjY0MTgwODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-arts/graphic-design/branding-1.jpg",
       "imageHint": "branding mockup"
     },
     {
       "id": "product-tshirt",
       "description": "A custom designed t-shirt",
-      "imageUrl": "https://images.unsplash.com/photo-1700177421807-98c9c2d7bdf4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0c2hpcnQlMjBmYXNoaW9ufGVufDB8fHx8MTc2NjM4Njc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-arts/products/tshirt-1.jpg",
       "imageHint": "tshirt fashion"
     },
     {
       "id": "product-sweater",
       "description": "A custom designed sweater",
-      "imageUrl": "https://images.unsplash.com/photo-1740442535162-fc915d5403f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzd2VhdGVyJTIwYXBwYXJlbHxlbnwwfHx8fDE3NjY0MTgwODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-arts/products/sweater-1.jpg",
       "imageHint": "sweater apparel"
     },
     {
       "id": "product-mug",
       "description": "A custom designed mug",
-      "imageUrl": "https://images.unsplash.com/photo-1605714196241-00bf7a8fe7bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2ZmZWUlMjBtdWd8ZW58MHx8fHwxNzY2MzQxOTEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/dezy-arts/products/mug-1.jpg",
       "imageHint": "coffee mug"
     },
     {
       "id": "avatar-1",
       "description": "Avatar for Jane Doe",
-      "imageUrl": "https://images.unsplash.com/photo-1546961329-78bef0414d7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2NjQxMzczMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/avatars/avatar-1.jpg",
       "imageHint": "woman portrait"
     },
     {
       "id": "avatar-2",
-      "description": "Avatar for John Smith",
-      "imageUrl": "https://images.unsplash.com/photo-1624395213043-fa2e123b2656?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjYzODI4MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Avatar for Binda Desmond",
+      "imageUrl": "/images/avatars/avatar-2.jpg",
       "imageHint": "man portrait"
     },
     {
       "id": "avatar-3",
       "description": "Avatar for Emily White",
-      "imageUrl": "https://images.unsplash.com/photo-1710974481447-fb001ad9ad5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc2NjQwNDMzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/avatars/avatar-3.jpg",
       "imageHint": "person face"
     },
     {
       "id": "avatar-4",
       "description": "Avatar for Michael Brown",
-      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMnx8bWFuJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY2MzgyODI0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/avatars/avatar-4.jpg",
       "imageHint": "man portrait"
     },
     {
       "id": "avatar-5",
       "description": "Avatar for Sarah Johnson",
-      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2NjQxMzczMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/avatars/avatar-5.jpg",
       "imageHint": "woman portrait"
     },
     {
       "id": "avatar-6",
       "description": "Avatar for David Lee",
-      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYW4lMjBwb3J0cmFpdCUyMHN1aXR8ZW58MHx8fHwxNzY5MDQzODQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/avatars/avatar-6.jpg",
       "imageHint": "man suit"
     },
     {
       "id": "about-me",
       "description": "A professional portrait of Binda Desmond",
-      "imageUrl": "https://images.unsplash.com/photo-1613666587344-f3c08aac2594?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjcmVhdGl2ZSUyMGFydGlzdHxlbnwwfHx8fDE3NjY0MTgwODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/about/binda-desmond.jpg",
       "imageHint": "creative artist"
     },
     {
       "id": "mission-vision",
       "description": "Abstract image representing a clear vision or mission",
-      "imageUrl": "https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2070&auto=format&fit=crop",
+      "imageUrl": "/images/about/mission.jpg",
       "imageHint": "abstract colors"
     },
     {
       "id": "founder-spotlight",
       "description": "A professional portrait of a male founder in a creative setting.",
-      "imageUrl": "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=2070&auto=format&fit=crop",
+      "imageUrl": "/images/about/founder.jpg",
       "imageHint": "professional man"
     },
     {
       "id": "case-study-1",
       "description": "A cozy, well-lit coffee shop interior.",
-      "imageUrl": "https://images.unsplash.com/photo-1511920183232-331c1b0a6889?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2ZmZWUlMjBzaG9wJTIwaW50ZXJpb3J8ZW58MHx8fHwxNzE3NTk0MjQxfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "/images/dezy-arts/case-studies/cafe-rebrand.jpg",
       "imageHint": "coffee shop"
     },
     {
       "id": "creative-direction-1",
       "description": "A high-fashion photoshoot in progress.",
-      "imageUrl": "https://images.unsplash.com/photo-1609503295213-91a5f5a43588?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmYXNoaW9uJTIwcGhvdG9zaG9vdHxlbnwwfHx8fDE3MTc1OTQzMTB8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "/images/dezy-studios/creative-direction/fashion-shoot.jpg",
       "imageHint": "fashion photoshoot"
     },
     {
       "id": "team-collaboration",
       "description": "A diverse creative team collaborating in a modern office.",
-      "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+      "imageUrl": "/images/about/team.jpg",
       "imageHint": "team meeting"
     },
     {
       "id": "logo-placeholder",
       "description": "A placeholder image for a logo.",
-      "imageUrl": "https://images.unsplash.com/photo-1747862712508-e1290330085f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsb2dvJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY2OTgwMDk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/logo.png",
       "imageHint": "logo abstract"
     }
   ]
