@@ -53,7 +53,7 @@ export const services: Service[] = [
     tagline: "Capturing the moments that matter, with artistry and precision.",
     shortDescription: "High-quality visual storytelling.",
     longDescription: "We offer professional photography services including portraits, events, lifestyle, and product photography, capturing moments with artistry and precision.",
-    subServices: ["Portraits", "Events", "Lifestyle", "Product Photography"],
+    subServices: ["Portraits", "Events", "Lifestyle", "Product Photography", "Children Shots", "Graduation Shots"],
   },
   {
     id: "videography-video-editing",

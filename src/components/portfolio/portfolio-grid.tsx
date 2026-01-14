@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Filter, X, Play, Eye, Grid, List, Calendar, Users, Film, Image as ImageIcon, ExternalLink, ShoppingBag, Sparkles, Zap, Target, Award, Video, Edit3, Palette, Layers, Briefcase, Heart, Camera, Lock, Star, Menu, BookOpen, Brush, Wand2, Monitor, Clapperboard, Music, Printer, Shirt, Thermometer, Coffee, Box, RefreshCw } from 'lucide-react';
+import { Filter, X, Play, Eye, Grid, List, Calendar, Users, Film, Image as ImageIcon, ExternalLink, ShoppingBag, Sparkles, Zap, Target, Award, Video, Edit3, Palette, Layers, Briefcase, Heart, Camera, Lock, Star, Menu, BookOpen, Brush, Wand2, Monitor, Clapperboard, Music, Printer, Shirt, Thermometer, Coffee, Box, RefreshCw, Baby, GraduationCap } from 'lucide-react';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { PortfolioItem, PortfolioCategory } from '@/lib/types';
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,6 +32,8 @@ const portfolioCategories = [
       { id: "product", label: "Product Photography", icon: ShoppingBag },
       { id: "commercial", label: "Commercial Photography", icon: Briefcase },
       { id: "creative", label: "Creative / Conceptual", icon: Heart },
+      { id: "children", label: "Children Shots", icon: Baby },
+      { id: "graduation", label: "Graduation Shots", icon: GraduationCap },
     ]
   },
   {
