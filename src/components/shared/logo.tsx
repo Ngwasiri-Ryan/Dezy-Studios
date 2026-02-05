@@ -25,9 +25,8 @@ export function Logo({ isFooter = false, className }: LogoProps) {
         <Image 
           src={logoImage.imageUrl} 
           alt={`${SITE_NAME} logo`} 
-          width={40} 
-          height={40} 
-          className="rounded-full" 
+          width={100} 
+          height={100} 
           data-ai-hint={logoImage.imageHint}
         />
       )}

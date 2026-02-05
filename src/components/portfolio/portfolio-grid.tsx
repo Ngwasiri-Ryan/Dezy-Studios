@@ -2,12 +2,12 @@
 
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Filter, X, Play, Eye, Grid, List, Calendar, Users, Film, Image as ImageIcon, ExternalLink, ShoppingBag, Sparkles, Zap, Target, Award, Video, Edit3, Palette, Layers, Briefcase, Heart, Camera, Lock, Star, Menu, BookOpen, Brush, Wand2, Monitor, Clapperboard, Music, Printer, Shirt, Thermometer, Coffee, Box, RefreshCw, Baby, GraduationCap } from 'lucide-react';
+import { Filter, X, Play, Eye, Grid, List, Calendar, Users, Film, Image as ImageIcon, ExternalLink, ShoppingBag, Sparkles, Zap, Target, Award, Video, Edit3, Palette, Layers, Briefcase, Heart, Camera, Lock, Star, Menu, BookOpen, Brush, Wand2, Monitor, Clapperboard, Music, Printer, Shirt, Thermometer, Coffee, Box, RefreshCw, Baby, GraduationCap, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { getPlaceholderImage } from '@/lib/placeholder-images';
 import { PortfolioItem, PortfolioCategory } from '@/lib/types';
 import { motion, AnimatePresence } from "framer-motion";
@@ -120,7 +120,7 @@ const portfolioCategories = [
         { id: "campaign", label: "Campaign Direction", icon: Clapperboard },
         { id: "art-direction", label: "Art Direction", icon: Monitor },
       ],
-  }
+    }
 ];
 
 type PortfolioGridProps = {
@@ -368,20 +368,20 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
                     <PortfolioCard 
                       key={`${item.id}-${index}`} 
                       item={item} 
+                      index={index}
                       viewMode="masonry"
-                      onSelect={setSelectedProject}
                     />
                   ))}
                 </div>
               ) : (
                 // Regular Grid
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredProjects.map((item, index) => (
                     <PortfolioCard 
                       key={`${item.id}-${index}`} 
-                      item={item} 
+                      item={item}
+                      index={index}
                       viewMode="grid"
-                      onSelect={setSelectedProject}
                     />
                   ))}
                 </div>
@@ -406,197 +406,135 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
           </motion.div>
         </AnimatePresence>
       </div>
-
-      {/* Video Preview Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <VideoPreviewModal
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-          />
-        )}
-      </AnimatePresence>
     </div>
   );
 }
 
-// Enhanced Portfolio Card Component
+// Portfolio Card Component - Styled exactly like Homepage "Visual Masterpieces"
 function PortfolioCard({ 
   item, 
+  index,
   viewMode,
-  onSelect 
 }: { 
   item: PortfolioItem; 
+  index: number;
   viewMode: "masonry" | "grid";
-  onSelect: (item: PortfolioItem) => void;
 }) {
   const projectImage = getPlaceholderImage(item.imageId);
   const isVideo = item.mediaType === "video";
-  const isCaseStudy = item.category === "Case Studies";
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3 }}
-      layout
-      className={`group relative ${viewMode === "masonry" ? "break-inside-avoid" : ""}`}
+      initial={{ opacity: 0, y: 50, rotateY: 20 }}
+      whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      whileHover={{ 
+        y: -10,
+        scale: 1.03,
+        transition: { type: "spring", stiffness: 300 }
+      }}
+      className="group relative"
+      style={{ perspective: 1000 }}
     >
-      <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-glow hover:-translate-y-1 border-primary/10 hover:border-primary/30">
-        {/* Media Container */}
-        <div className={`relative overflow-hidden ${viewMode === "grid" ? 'aspect-square' : ''}`}>
-          {projectImage && (
-            <Image
-              src={projectImage.imageUrl}
-              alt={item.title}
-              width={600}
-              height={viewMode === "masonry" ? 800 : 600}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              data-ai-hint={projectImage.imageHint}
-              loading="lazy"
-            />
-          )}
+      <Link href={`/portfolio/${item.id}/details`}>
+        <div className="relative aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden">
+          {/* Image with parallax effect */}
+          <motion.div
+            className="relative h-full"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.6 }}
+          >
+            {projectImage && (
+              <Image
+                src={projectImage.imageUrl}
+                alt={item.title}
+                fill
+                className="object-cover"
+                data-ai-hint={projectImage.imageHint}
+              />
+            )}
+          </motion.div>
+
+          {/* Gradient overlay with animation */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
           
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-          
-          <div className="absolute bottom-0 left-0 right-0 p-4">
+          {/* Animated border */}
+          <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/50 rounded-2xl md:rounded-3xl transition-all duration-500" />
+
+          {/* Content with slide-up animation */}
+          <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2, once: true }}
+              className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500"
+            >
+              {/* Category Badge */}
+              <Badge className="mb-2 md:mb-3 bg-white/20 backdrop-blur-sm border-white/30">
+                {item.category}
+              </Badge>
+              
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{item.title}</h3>
+              
+              {/* Description */}
+              <p className="text-white/80 mb-3 md:mb-4 text-sm md:text-base line-clamp-2">{item.description}</p>
+              
+              {/* Footer with Explore and Rating */}
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                 
+                <div className="flex items-center gap-2 text-white text-sm">
+                  <span>Explore Project</span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.div>
                 </div>
-                {item.year && <Badge variant="outline" className="bg-black/20 border-white/20 text-white backdrop-blur-sm text-xs">
-                  {item.year}
-                </Badge>}
+                
+                {/* Star Rating */}
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 fill-current"
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.div>
+          </div>
 
-          {/* Media Type Indicator */}
-          {isVideo && (
-            <div className="absolute top-4 left-4">
-              <Badge variant="secondary" className="bg-primary/20 text-primary">
-                <Video className="h-3 w-3 mr-1" />
-                Video
-              </Badge>
+          {/* Floating tags - Video indicator */}
+          <div className="absolute top-4 left-4">
+            <div className="flex flex-wrap gap-2">
+              {isVideo && (
+                <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium text-white/90 border border-white/20">
+                  Video
+                </span>
+              )}
+              {item.division && (
+                <span className="px-3 py-1 bg-primary/80 backdrop-blur-sm rounded-full text-xs font-medium text-white border border-primary/50">
+                  {item.division}
+                </span>
+              )}
             </div>
-          )}
+          </div>
 
-          {/* Client Type Badge */}
-          {item.clientType && (
+          {/* Year badge */}
+          {item.year && (
             <div className="absolute top-4 right-4">
-              <Badge variant="outline" className="bg-black/20 border-white/20 text-white backdrop-blur-sm text-xs">
-                {item.clientType}
-              </Badge>
+              <span className="px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full text-xs font-medium text-white/90 border border-white/20">
+                {item.year}
+              </span>
             </div>
           )}
         </div>
+      </Link>
 
-        {/* Content */}
-        <CardHeader className="pb-4">
-          <div className="flex items-start justify-between gap-2">
-            <div>
-              <CardTitle className="font-headline text-xl line-clamp-1">{item.title}</CardTitle>
-              <CardDescription className="mt-1 text-xs">
-                {item.subCategory || item.category}
-              </CardDescription>
-            </div>
-          </div>
-        </CardHeader>
-
-        <CardContent className="pb-6 flex-grow">
-          <p className="text-sm text-muted-foreground line-clamp-2">{item.description}</p>
-        </CardContent>
-
-        <CardFooter className="pt-4 border-t">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full group/button"
-            onClick={() => onSelect(item)}
-          >
-            {isVideo ? "Watch Video" : isCaseStudy ? "Read Case Study" : "View Details"}
-            <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/button:translate-x-1" />
-          </Button>
-        </CardFooter>
-      </Card>
+      {/* Glow effect */}
+      <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
     </motion.div>
   );
 }
-
-// Video Preview Modal Component
-function VideoPreviewModal({ project, onClose }: { project: PortfolioItem; onClose: () => void }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        className="relative max-w-4xl w-full bg-card rounded-xl overflow-hidden shadow-2xl border"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="absolute top-4 right-4 z-10">
-          <Button
-            variant="secondary"
-            size="icon"
-            onClick={onClose}
-            className="rounded-full bg-black/50 text-white hover:bg-black/70 backdrop-blur-sm"
-          >
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
-        
-        {/* Media Player Placeholder */}
-        <div className="aspect-video bg-secondary flex items-center justify-center">
-            {project.mediaType === 'video' ? 
-              (
-                project.videoUrl ? 
-                <iframe src={project.videoUrl} width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
-                :
-                <div className="text-center text-muted-foreground">
-                    <Play className="h-16 w-16 text-primary mx-auto mb-4" />
-                    <p className="text-lg font-semibold">{project.title}</p>
-                    <p>Video Preview Unavailable</p>
-                </div>
-              )
-            : 
-              (
-                getPlaceholderImage(project.imageId) ?
-                <Image 
-                    src={getPlaceholderImage(project.imageId)!.imageUrl} 
-                    alt={project.title}
-                    width={1280}
-                    height={720}
-                    className="w-full h-full object-contain"
-                />
-                :
-                <div className="text-center text-muted-foreground">
-                    <Eye className="h-16 w-16 text-primary mx-auto mb-4" />
-                    <p className="text-lg font-semibold">{project.title}</p>
-                    <p>Project Preview</p>
-                </div>
-              )
-            }
-          </div>
-        
-        <div className="p-6">
-          <h3 className="text-2xl font-headline font-bold mb-2">{project.title}</h3>
-          <div className="flex flex-wrap gap-2 mb-4">
-            <Badge>{project.category}</Badge>
-            <Badge variant="outline">{project.subCategory}</Badge>
-            {project.year && <Badge variant="secondary">{project.year}</Badge>}
-          </div>
-          <p className="text-muted-foreground">{project.description}</p>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
-    

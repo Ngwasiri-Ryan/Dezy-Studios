@@ -3,146 +3,788 @@
     {
       "id": "hero-1",
       "description": "Abstract and elegant visual representing creativity",
-      "imageUrl": "/images/dezy-studios/photography/creative/hero-1.jpg",
-      "imageHint": "abstract art"
+      "imageUrl": "/studio/Dezy.jpg",
+      "imageHint": "studio portrait"
     },
     {
       "id": "project-photo-1",
       "description": "A stunning portrait photograph",
-      "imageUrl": "/images/dezy-studios/photography/portraits/portrait-1.jpg",
+      "imageUrl": "/about-image/art-pic.jpg",
       "imageHint": "portrait photo"
     },
     {
       "id": "project-photo-2",
-      "description": "A beautiful landscape photograph",
-      "imageUrl": "/images/dezy-studios/photography/creative/landscape-1.jpg",
-      "imageHint": "landscape nature"
+      "description": "A beautiful portrait photograph",
+      "imageUrl": "/studio/1.jpg",
+      "imageHint": "portrait studio"
     },
     {
       "id": "project-photo-3",
       "description": "An event photography shot",
-      "imageUrl": "/images/dezy-studios/photography/events/event-1.jpg",
-      "imageHint": "event concert"
+      "imageUrl": "/Children shots/DSC_00122.jpg",
+      "imageHint": "children event"
     },
     {
       "id": "project-video-1",
-      "description": "A still from a wedding video",
-      "imageUrl": "/images/dezy-studios/videography/weddings/wedding-1.jpg",
-      "imageHint": "wedding couple"
+      "description": "A still from a portrait session",
+      "imageUrl": "/studio/Dezy 2.jpg",
+      "imageHint": "studio portrait"
     },
     {
       "id": "project-video-2",
-      "description": "A still from a corporate video",
-      "imageUrl": "/images/dezy-studios/videography/commercials/corporate-1.jpg",
-      "imageHint": "corporate meeting"
+      "description": "A professional portrait",
+      "imageUrl": "/studio/2.jpg",
+      "imageHint": "portrait"
     },
     {
       "id": "project-design-1",
       "description": "A logo design for a brand",
-      "imageUrl": "/images/dezy-arts/graphic-design/logo-1.jpg",
-      "imageHint": "logo design"
+      "imageUrl": "/Graphics/2029.jpg",
+      "imageHint": "graphic design"
     },
     {
       "id": "project-design-2",
       "description": "A branding package presentation",
-      "imageUrl": "/images/dezy-arts/graphic-design/branding-1.jpg",
-      "imageHint": "branding mockup"
+      "imageUrl": "/Graphics/APRIL Camder.jpg",
+      "imageHint": "branding flyer"
     },
     {
-      "id": "product-tshirt",
-      "description": "A custom designed t-shirt",
-      "imageUrl": "/images/dezy-arts/products/tshirt-1.jpg",
-      "imageHint": "tshirt fashion"
+      "id": "project-design-3",
+      "description": "Event flyer design",
+      "imageUrl": "/Graphics/End of month Thanksgiving, marriage and Child Dedication FEB.png",
+      "imageHint": "event flyer"
     },
     {
-      "id": "product-sweater",
-      "description": "A custom designed sweater",
-      "imageUrl": "/images/dezy-arts/products/sweater-1.jpg",
-      "imageHint": "sweater apparel"
+      "id": "project-design-4",
+      "description": "Graduation flyer design",
+      "imageUrl": "/Graphics/Graduation flyer.jpg",
+      "imageHint": "graduation flyer"
     },
     {
-      "id": "product-mug",
-      "description": "A custom designed mug",
-      "imageUrl": "/images/dezy-arts/products/mug-1.jpg",
-      "imageHint": "coffee mug"
+      "id": "project-design-5",
+      "description": "Beauty salon branding",
+      "imageUrl": "/Graphics/Lumis Glam Done.jpg",
+      "imageHint": "beauty branding"
+    },
+    {
+      "id": "project-design-6",
+      "description": "Modern logo design",
+      "imageUrl": "/Graphics/NEW.jpg",
+      "imageHint": "logo design"
+    },
+    {
+      "id": "project-design-7",
+      "description": "Business branding",
+      "imageUrl": "/Graphics/Priscom.jpg",
+      "imageHint": "business card"
+    },
+    {
+      "id": "project-design-8",
+      "description": "Hair salon branding",
+      "imageUrl": "/Graphics/Tresses by Trudy.jpg",
+      "imageHint": "salon branding"
+    },
+    {
+      "id": "product-tshirt-1",
+      "description": "Custom apparel design",
+      "imageUrl": "/studio/DSC_00131.jpg",
+      "imageHint": "apparel"
+    },
+    {
+      "id": "product-tshirt-2",
+      "description": "Custom printed t-shirt",
+      "imageUrl": "/studio/DSC_0133.JPG",
+      "imageHint": "t-shirt print"
+    },
+    {
+      "id": "product-mug-1",
+      "description": "Custom merchandise",
+      "imageUrl": "/studio/DSC_01752.jpg",
+      "imageHint": "merchandise"
     },
     {
       "id": "avatar-1",
       "description": "Avatar for Jane Doe",
-      "imageUrl": "/images/avatars/avatar-1.jpg",
+      "imageUrl": "/about-image/art-pic.jpg",
       "imageHint": "woman portrait"
     },
     {
       "id": "avatar-2",
       "description": "Avatar for Binda Desmond",
-      "imageUrl": "/images/avatars/avatar-2.jpg",
+      "imageUrl": "/about-image/CEO.jpeg",
       "imageHint": "man portrait"
     },
     {
       "id": "avatar-3",
       "description": "Avatar for Emily White",
-      "imageUrl": "/images/avatars/avatar-3.jpg",
+      "imageUrl": "/about-image/art-pic.jpg",
       "imageHint": "person face"
     },
     {
       "id": "avatar-4",
       "description": "Avatar for Michael Brown",
-      "imageUrl": "/images/avatars/avatar-4.jpg",
+      "imageUrl": "/about-image/CEO.jpeg",
       "imageHint": "man portrait"
     },
     {
       "id": "avatar-5",
       "description": "Avatar for Sarah Johnson",
-      "imageUrl": "/images/avatars/avatar-5.jpg",
+      "imageUrl": "/about-image/art-pic.jpg",
       "imageHint": "woman portrait"
     },
     {
       "id": "avatar-6",
       "description": "Avatar for David Lee",
-      "imageUrl": "/images/avatars/avatar-6.jpg",
+      "imageUrl": "/about-image/CEO.jpeg",
       "imageHint": "man suit"
     },
     {
       "id": "about-me",
       "description": "A professional portrait of Binda Desmond",
-      "imageUrl": "/images/about/binda-desmond.jpg",
+      "imageUrl": "/about-image/CEO.jpeg",
       "imageHint": "creative artist"
     },
     {
       "id": "mission-vision",
       "description": "Abstract image representing a clear vision or mission",
-      "imageUrl": "/images/about/mission.jpg",
+      "imageUrl": "/about-image/artistry.png",
       "imageHint": "abstract colors"
     },
     {
       "id": "founder-spotlight",
       "description": "A professional portrait of a male founder in a creative setting.",
-      "imageUrl": "/images/about/founder.jpg",
+      "imageUrl": "/about-image/CEO.jpeg",
       "imageHint": "professional man"
     },
     {
       "id": "case-study-1",
-      "description": "A cozy, well-lit coffee shop interior.",
-      "imageUrl": "/images/dezy-arts/case-studies/cafe-rebrand.jpg",
-      "imageHint": "coffee shop"
+      "description": "A professional portrait session",
+      "imageUrl": "/studio/4.jpg",
+      "imageHint": "studio portrait"
     },
     {
       "id": "creative-direction-1",
-      "description": "A high-fashion photoshoot in progress.",
-      "imageUrl": "/images/dezy-studios/creative-direction/fashion-shoot.jpg",
-      "imageHint": "fashion photoshoot"
+      "description": "A creative studio session",
+      "imageUrl": "/studio/9.jpg",
+      "imageHint": "creative session"
     },
     {
       "id": "team-collaboration",
-      "description": "A diverse creative team collaborating in a modern office.",
-      "imageUrl": "/images/about/team.jpg",
-      "imageHint": "team meeting"
+      "description": "Professional studio photography",
+      "imageUrl": "/studio/Abou (1).jpg",
+      "imageHint": "portrait"
     },
     {
       "id": "logo-placeholder",
-      "description": "A placeholder image for a logo.",
-      "imageUrl": "/images/logo.png",
-      "imageHint": "logo abstract"
+      "description": "Dezy Enterprise Logo",
+      "imageUrl": "/logo.png",
+      "imageHint": "logo"
+    },
+    {
+      "id": "home-aesthetic",
+      "description": "An aesthetic and artistic composition",
+      "imageUrl": "/home-image/aesthetic.jpg",
+      "imageHint": "aesthetic art"
+    },
+    {
+      "id": "home-girl-shot",
+      "description": "A striking portrait of a girl",
+      "imageUrl": "/home-image/girl-shot.jpg",
+      "imageHint": "girl portrait"
+    },
+    {
+      "id": "home-graduation",
+      "description": "A memorable graduation moment",
+      "imageUrl": "/home-image/graduation.jpg",
+      "imageHint": "graduation ceremony"
+    },
+    {
+      "id": "home-photoshoot",
+      "description": "A professional photoshoot session",
+      "imageUrl": "/home-image/photoshoot.jpg",
+      "imageHint": "photoshoot studio"
+    },
+    {
+      "id": "home-realistic",
+      "description": "A realistic and detailed shot",
+      "imageUrl": "/home-image/realistic shot.jpg",
+      "imageHint": "realistic detail"
+    },
+    {
+      "id": "home-tradition",
+      "description": "A representation of tradition and culture",
+      "imageUrl": "/home-image/tradition.jpg",
+      "imageHint": "traditional culture"
+    },
+    {
+      "id": "studio-1",
+      "description": "Professional studio portrait",
+      "imageUrl": "/studio/1.jpg",
+      "imageHint": "studio portrait"
+    },
+    {
+      "id": "studio-2",
+      "description": "Studio portrait photography",
+      "imageUrl": "/studio/2.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-3",
+      "description": "Studio group shot",
+      "imageUrl": "/studio/2 in1 (2).jpg",
+      "imageHint": "group photo"
+    },
+    {
+      "id": "studio-4",
+      "description": "Studio portrait session",
+      "imageUrl": "/studio/4.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-creative",
+      "description": "Creative studio photography",
+      "imageUrl": "/studio/9.jpg",
+      "imageHint": "creative"
+    },
+    {
+      "id": "studio-abou-1",
+      "description": "Portrait of Abou",
+      "imageUrl": "/studio/Abou (1).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-abou-2",
+      "description": "Portrait of Abou",
+      "imageUrl": "/studio/Abou (2).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-angwa-1",
+      "description": "Portrait of Angwa",
+      "imageUrl": "/studio/Angwa (2).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-angwa-2",
+      "description": "Portrait of Angwa",
+      "imageUrl": "/studio/Angwa (3).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dezy-1",
+      "description": "Dezy Studios branding shot",
+      "imageUrl": "/studio/Dezy.jpg",
+      "imageHint": "branding"
+    },
+    {
+      "id": "studio-dezy-2",
+      "description": "Dezy Studios branding shot",
+      "imageUrl": "/studio/Dezy 2.jpg",
+      "imageHint": "branding"
+    },
+    {
+      "id": "children-boy-1",
+      "description": "Portrait of a boy",
+      "imageUrl": "/Children shots/Boy (1).jpg",
+      "imageHint": "boy portrait"
+    },
+    {
+      "id": "children-boy-2",
+      "description": "Portrait of a boy",
+      "imageUrl": "/Children shots/Boy (2).jpg",
+      "imageHint": "boy portrait"
+    },
+    {
+      "id": "children-boy-3",
+      "description": "Portrait of a boy",
+      "imageUrl": "/Children shots/Boy (3).jpg",
+      "imageHint": "boy portrait"
+    },
+    {
+      "id": "children-boy-4",
+      "description": "Portrait of a boy",
+      "imageUrl": "/Children shots/Boy (4).jpg",
+      "imageHint": "boy portrait"
+    },
+    {
+      "id": "children-boy-5",
+      "description": "Portrait of a boy",
+      "imageUrl": "/Children shots/Boy (5).jpg",
+      "imageHint": "boy portrait"
+    },
+    {
+      "id": "children-boy-6",
+      "description": "Portrait of a boy",
+      "imageUrl": "/Children shots/Boy (6).jpg",
+      "imageHint": "boy portrait"
+    },
+    {
+      "id": "children-1",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (1).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-2",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (2).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-3",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (3).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-4",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (4).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-5",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (5).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-6",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (6).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-7",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (7).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-8",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (8).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-9",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (9).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-10",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (10).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-11",
+      "description": "Children portrait",
+      "imageUrl": "/Children shots/Children (11).jpg",
+      "imageHint": "children portrait"
+    },
+    {
+      "id": "children-daisy-1",
+      "description": "Portrait of Daisy",
+      "imageUrl": "/Children shots/Daisy (1).jpg",
+      "imageHint": "girl portrait"
+    },
+    {
+      "id": "children-daisy-2",
+      "description": "Portrait of Daisy",
+      "imageUrl": "/Children shots/Daisy (2).jpg",
+      "imageHint": "girl portrait"
+    },
+    {
+      "id": "graduation-douglas",
+      "description": "Graduation portrait of Douglas",
+      "imageUrl": "/graduation/Douglas.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-eli",
+      "description": "Graduation portrait of Eli",
+      "imageUrl": "/graduation/Eli 2.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-noella",
+      "description": "Graduation portrait of Noella",
+      "imageUrl": "/graduation/Noella.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-shaveline-1",
+      "description": "Graduation portrait of Shaveline",
+      "imageUrl": "/graduation/Shaveline (1).jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-shaveline-2",
+      "description": "Graduation portrait of Shaveline",
+      "imageUrl": "/graduation/Shaveline (4).jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-t-vanessa",
+      "description": "Graduation portrait of T Vanessa",
+      "imageUrl": "/graduation/T Vanessa (1).jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-marylin-1",
+      "description": "Graduation portrait of Marylin",
+      "imageUrl": "/graduation/Marylin (2)2.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-marylin-2",
+      "description": "Graduation portrait of Marylin",
+      "imageUrl": "/graduation/Marylin (4)..jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-izzy",
+      "description": "Graduation portrait of Izzy",
+      "imageUrl": "/graduation/Izzy (1).jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-jerome-1",
+      "description": "Graduation portrait of Jerome",
+      "imageUrl": "/graduation/Jerome (3)_kk,.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-jerome-2",
+      "description": "Graduation portrait of Jerome",
+      "imageUrl": "/graduation/Jerome (4)...-Recovered..jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-kellian",
+      "description": "Graduation portrait of Kellian",
+      "imageUrl": "/graduation/Kellian (1)4.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-mr-pascal",
+      "description": "Graduation portrait of Mr Pascal",
+      "imageUrl": "/graduation/Mr Pascal (2).jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-brenda",
+      "description": "Graduation portrait of Brenda",
+      "imageUrl": "/graduation/Brenda change background..jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-dashy",
+      "description": "Graduation portrait",
+      "imageUrl": "/graduation/Dashy Brins (2)5 - Copy.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-dsc0014",
+      "description": "Graduation photo",
+      "imageUrl": "/graduation/DSC_0014._.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-dsc00282",
+      "description": "Graduation photo",
+      "imageUrl": "/graduation/DSC_00282.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-emmanuella",
+      "description": "Graduation portrait of Emmanuella",
+      "imageUrl": "/graduation/Emmanuella (2)..jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "graduation-img-20220519",
+      "description": "Graduation photo",
+      "imageUrl": "/graduation/IMG-20220519-WA0011.jpg",
+      "imageHint": "graduation"
+    },
+    {
+      "id": "studio-dr-1",
+      "description": "Portrait of Dr",
+      "imageUrl": "/studio/Dr (1)_.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dr-2",
+      "description": "Portrait of Dr",
+      "imageUrl": "/studio/Dr (2..jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dr-3",
+      "description": "Portrait of Dr",
+      "imageUrl": "/studio/Dr (4)-1.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dr-4",
+      "description": "Portrait of Dr",
+      "imageUrl": "/studio/Dr (5)1i.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dr-5",
+      "description": "Portrait of Dr",
+      "imageUrl": "/studio/Dr (6)_k.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dr-6",
+      "description": "Portrait of Dr",
+      "imageUrl": "/studio/Dr (7)j.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-gael-1",
+      "description": "Portrait of Gael",
+      "imageUrl": "/studio/Gael (2).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-gael-2",
+      "description": "Portrait of Gael",
+      "imageUrl": "/studio/Gael (3).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-gael-3",
+      "description": "Portrait of Gael",
+      "imageUrl": "/studio/Gael (6).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-lois-1",
+      "description": "Portrait of Lois",
+      "imageUrl": "/studio/Lois 2.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-lois-2",
+      "description": "Portrait of Lois",
+      "imageUrl": "/studio/Lois 3.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-lois-3",
+      "description": "Portrait of Lois",
+      "imageUrl": "/studio/Lois 4.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-mado",
+      "description": "Portrait of Mado",
+      "imageUrl": "/studio/Mado (3).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-magdalene-1",
+      "description": "Portrait of Magdalene",
+      "imageUrl": "/studio/Magdalene (1)1.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-magdalene-2",
+      "description": "Portrait of Magdalene",
+      "imageUrl": "/studio/Magdalene (7)7 (1).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-magdalene-3",
+      "description": "Portrait of Magdalene",
+      "imageUrl": "/studio/Magdalene (8)8.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-mme-esther-1",
+      "description": "Portrait of Mme Esther",
+      "imageUrl": "/studio/Mme Esther (1)2.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-mme-esther-2",
+      "description": "Portrait of Mme Esther",
+      "imageUrl": "/studio/Mme Esther (9)11.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-mme-esther-3",
+      "description": "Portrait of Mme Esther",
+      "imageUrl": "/studio/Mme Esther (11)9.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-nforsh-1",
+      "description": "Portrait of Nforsh",
+      "imageUrl": "/studio/Nforsh (1).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-nforsh-2",
+      "description": "Portrait of Nforsh",
+      "imageUrl": "/studio/Nforsh (2).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-nforsh-3",
+      "description": "Portrait of Nforsh",
+      "imageUrl": "/studio/Nforsh (4).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-nga-dem-1",
+      "description": "Portrait session",
+      "imageUrl": "/studio/Nga dem (2).JPG",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-nga-dem-2",
+      "description": "Portrait session",
+      "imageUrl": "/studio/Nga dem (3)2.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-nga-dem-3",
+      "description": "Portrait session",
+      "imageUrl": "/studio/Nga dem (4)1.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-princess-1",
+      "description": "Portrait of Princess",
+      "imageUrl": "/studio/Princess (2).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-princess-2",
+      "description": "Portrait of Princess",
+      "imageUrl": "/studio/Princess (4).jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc00131",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_00131.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc005087",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_005087.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc007721",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_007721.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc04092",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_04092.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc04163",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_04163.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc04244",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_04244.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc46411",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_46411.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc46523",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_46523.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc46626",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_46626.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc46777",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_46777.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc47134",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_47134.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc47252",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_47252.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc47573",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_47573.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-dsc4752",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/DSC_4752.png",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-img43263",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/IMG_43263.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-img20220707",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/IMG_20220707_071812_645.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-img20230210-1",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/IMG-20230210-WA0017.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-img20230210-2",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/IMG-20230210-WA0079.jpg",
+      "imageHint": "portrait"
+    },
+    {
+      "id": "studio-img20230210-3",
+      "description": "Studio portrait",
+      "imageUrl": "/studio/IMG-20230210-WA0084.jpg",
+      "imageHint": "portrait"
     }
   ]
 }

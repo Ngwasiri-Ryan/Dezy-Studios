@@ -15,7 +15,21 @@ export type Service = {
   subServices?: string[];
 };
 
-export type PortfolioCategory = "Photography" | "Videography" | "Video Editing" | "Graphic Design" | "Product Design" | "Creative Direction" | "Case Studies" | "Experimental";
+export type PortfolioCategory = 
+  | "Photography" 
+  | "Videography" 
+  | "Video Editing" 
+  | "Graphic Design" 
+  | "Product Design" 
+  | "Creative Direction" 
+  | "Case Studies" 
+  | "Experimental"
+  | "Screen Printing"
+  | "Resin Art"
+  | "Stone Engraving"
+  | "Custom Merchandise"
+  | "Videography & Video Editing"
+  | "Brand Campaign Production"
 
 export type PortfolioItem = {
   id: string;
